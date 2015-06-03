@@ -1,0 +1,23 @@
+<h1>Listing users_hobbies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users_hobbies.each do |users_hobby| %>
+      <tr>
+        <td><%= link_to 'Show', users_hobby %></td>
+        <td><%= link_to 'Edit', edit_users_hobby_path(users_hobby) %></td>
+        <td><%= link_to 'Destroy', users_hobby, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Users hobby', new_users_hobby_path %>

@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  resources :users_locations
+
+  resources :users_events
+
+  resources :users_hobbies
+
+  resources :locations
+
+  resources :events_hobbies
+
+  resources :hobbies
+
+  resources :events
+
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
