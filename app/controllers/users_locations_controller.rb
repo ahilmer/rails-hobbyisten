@@ -1,5 +1,5 @@
 class UsersLocationsController < ApplicationController
-  before_action :set_users_location, only: [:show, :edit, :update, :destroy]
+  before_action :set_users_location, :authenticate_user, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
 

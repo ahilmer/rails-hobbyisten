@@ -1,5 +1,5 @@
 class UsersEventsController < ApplicationController
-  before_action :set_users_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_users_event, :authenticate_user, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
 
