@@ -17,3 +17,27 @@ body {
   font-family: 'Roboto', sans-serif;
 
 }
+
+* {
+  box-sizing: border-box;
+}
+
+
+.input-container, .input-text {
+  min-height: 34px;
+  padding: 7px, 8px;
+  font-size: 13px;
+  color: #333;
+  vertical-align: middle;
+  background-color: #FFF;
+  border: 1px solid #CCC;
+  outline: medium, none;
+  border-radius: 3px;
+}
+
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  width: 980px;
+}

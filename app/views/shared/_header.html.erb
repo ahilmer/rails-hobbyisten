@@ -1,0 +1,61 @@
+<!--
+Partial für Headerrow.
+Headerausbau:
+Hobbyistenlogo -> Link zu Hauptseite
+Searchbar -> Gem finden. Momentan mit Platzhalter für Input und Output
+Vorschlagslink -> Umleiten auf Vorschlagsseite (Noch für eingeloggten nutzer anpassen?)
+Veranstaltungslink -> Link zu Nutzerveranstaltungen (Muss Login mitgegeben werden?)
+Profillinke -> Angepasst auf eingeloggten Benutzer
+Logoutbutton
+
+Headerrow muss noch so erweitert werden, sodass sie auch für nicht eingeloggte entsprechend gebaut wird.
+-->
+
+
+<div id="header" class="header header-logged-in">
+  <div id="header-container">
+    <a class="header-logo-container" href=""><!--link zur Hauptseite-->
+      <%= image_tag("header/hobbyisten_logo.JPG", size: "40") %><!--Hobbyistenlago-->
+    </a>
+    <div class="divider-vertical"></div>
+    <div class="topsearch-container">
+      <form id="top_search_form" accept-charset="UTF-8" action="/search">
+        <label class="input-container searchbar">
+          <input class="search-input input-text" type="text" value="" autocorrect="off" autocomplete="off" data-hotkey="/" placeholder="Search..." name="q"></input>
+          <div class="search-resultcontainer">
+          </div>
+        </label>
+      </form>
+    </div>
+    <div class="divider-vertical"></div>
+    <ul id="header-user-links">
+      <li class="header-nav-item">
+        <a id="header-suggestion-link" aria-label="Suggestions" href=""><!--link zum suggestionsscreen Anpassen für eingeloggten Nutzer-->
+          <!--<span class="header-suggestion-logo"></span>-->
+          <%= image_tag("header/suggestion.JPG", size: "30") %><!--Suggestionlogo-->
+        </a>
+      </li>
+      <li class="header-nav-item">
+        <a id="header-events-link" aria-label="My Events" href=""><!--link zum eventscreen Anpassen für eingeloggten Nutzer-->
+          <!--<span class="header-event-logo"></span>-->
+          <%= image_tag("header/myevents.JPG", size: "30") %><!--Eventlogo-->
+        </a>
+      </li>
+      <li class="header-nav-item">
+        <a class="header-profil-link" href=""><!--link zum Nutzerporfil-->
+          <%= image_tag("header/default_profil.JPG", size: "30") %><!--miniatur de Profilbilds-->
+          <!--Nutzername-->
+        </a>
+      </li>
+      <li class="header-nav-item">
+        <form method="post" action="logout">
+          <input type="hidden" value="" name=""></input><!--Auslog-Aktion: Sessioninformationen übergeben um diese zu beenden. Gemeinstellungen überprüfen-->
+          <button id="header-logout" type="submit" aria-label="Logout">
+            <span class="header-logout-logo"></span>
+            <%= image_tag("header/logout.JPG", size: "30") %>
+          </button>
+        </form>
+      </li>
+    </ul>
+  </div>
+</div>
