@@ -3,4 +3,16 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+ has_many :users_hobbies
+ has_many :hobbies, :through => :users_hobbies
+
+ has_many :users_locations
+ has_many :locations, :through => :users_locations
+
+
+ has_many :users_events
+ has_many :events, :through => :users_events
+
+
 end
