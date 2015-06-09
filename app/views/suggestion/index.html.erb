@@ -1,7 +1,13 @@
 <h1>Vorschläge</h1>
 <% @suggestions.each do |suggestion| %>
-    <div>
+    <div id="<%= suggestion.id %>" class="suggestion">
       <p><%= suggestion.title %>
       <p><%= suggestion.description %>
+      <br/>
+      <form action="/users_events" method="POST">
+        <button id="join" type="button" onclick="joinEvent(<%= suggestion.id %>)">Teilnehmen</button>
+        <button id="ignore" type="button" onclick="ignoreEvent(<%= suggestion.id %>)">Ignorieren</button>
+      </form>
+
     </div>
 <% end %>
