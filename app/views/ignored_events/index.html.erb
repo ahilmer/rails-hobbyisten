@@ -1,0 +1,23 @@
+<h1>Listing ignored_events</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ignored_events.each do |ignored_event| %>
+      <tr>
+        <td><%= link_to 'Show', ignored_event %></td>
+        <td><%= link_to 'Edit', edit_ignored_event_path(ignored_event) %></td>
+        <td><%= link_to 'Destroy', ignored_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ignored event', new_ignored_event_path %>

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :ignored_events
+
   resources :users_locations
 
   resources :users_events

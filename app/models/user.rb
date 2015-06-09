@@ -14,5 +14,9 @@ class User < ActiveRecord::Base
  has_many :users_events
  has_many :events, :through => :users_events
 
+ has_many :ignored_events
+ has_many :rejected_events, :through => :ignored_events, :source => :event
+ has_many :events, :through => :users_events
+
 
 end
