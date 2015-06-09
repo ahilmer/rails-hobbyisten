@@ -1,0 +1,17 @@
+<%= form_for(@ignored_event) do |f| %>
+  <% if @ignored_event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ignored_event.errors.count, "error") %> prohibited this ignored_event from being saved:</h2>
+
+      <ul>
+      <% @ignored_event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

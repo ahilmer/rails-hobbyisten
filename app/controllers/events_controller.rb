@@ -4,8 +4,8 @@ class EventsController < ApplicationController
   respond_to :html
 
   def index
-    @events = Event.all
-    respond_with(@events)
+      @events = Event.all
+      respond_with(@events)
   end
 
   def show
