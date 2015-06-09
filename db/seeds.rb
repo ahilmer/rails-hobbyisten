@@ -17,5 +17,12 @@ users_hobbies = UsersHobby.create([user_id: users[0].id, hobby_id: hobbies[0].id
 locations = Location.create([{name: 'München'},{name: 'Berlin'}, {name: 'Hamburg'}]);
 users_locations = UsersLocation.create([user_id: users[0].id, location_id: locations[0].id])
 
-events = Event.create([{ title: 'Bolzen', description: 'Hobby Kick', explicit_location: 'Maximilianstraße 1', max_participants: -1, location_id: locations[0].id, creator_id: users[0].id}]);
+events = Event.create([ { title: 'Bolzen1', description: 'Hobby Kick', explicit_location: 'Maximilianstraße 1', max_participants: -1, location_id: locations[0].id, creator_id: users[0].id},
+                        { title: 'Bolzen2', description: 'Hobby Kick', explicit_location: 'Maximilianstraße 1', max_participants: -1, location_id: locations[0].id, creator_id: users[0].id},
+                        { title: 'Bolzen3', description: 'Hobby Kick', explicit_location: 'Maximilianstraße 1', max_participants: -1, location_id: locations[0].id, creator_id: users[0].id},
+                        { title: 'Handball', description: 'Handball Freizeit Treff', explicit_location: 'Maximilianstraße 1', max_participants: -1, location_id: locations[1].id, creator_id: users[0].id}]);
+
 events_hobbies = EventsHobby.create([event_id: events[0].id, hobby_id: hobbies[0].id ])
+events_hobbies = EventsHobby.create([event_id: events[1].id, hobby_id: hobbies[0].id ])
+events_hobbies = EventsHobby.create([event_id: events[2].id, hobby_id: hobbies[0].id ])
+events_hobbies = EventsHobby.create([event_id: events[3].id, hobby_id: hobbies[1].id ])
