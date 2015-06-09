@@ -18,3 +18,4 @@ locations = Location.create([{name: 'München'},{name: 'Berlin'}, {name: 'Hambur
 users_locations = UsersLocation.create([user_id: users[0].id, location_id: locations[0].id])
 
 events = Event.create([{ title: 'Bolzen', description: 'Hobby Kick', explicit_location: 'Maximilianstraße 1', max_participants: -1, location_id: locations[0].id, creator_id: users[0].id}]);
+events_hobbies = EventsHobby.create([event_id: events[0].id, hobby_id: hobbies[0].id ])

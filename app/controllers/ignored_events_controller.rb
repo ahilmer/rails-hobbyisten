@@ -1,7 +1,7 @@
 class IgnoredEventsController < ApplicationController
   before_action :set_ignored_event, only: [:show, :edit, :update, :destroy]
 
-  respond_to :html
+  respond_to :json
 
   def index
     @ignored_events = IgnoredEvent.all
@@ -22,6 +22,8 @@ class IgnoredEventsController < ApplicationController
 
   def create
     @ignored_event = IgnoredEvent.new(ignored_event_params)
+    @ignored_event.user_id = current_user.id
+
     @ignored_event.save
     respond_with(@ignored_event)
   end
@@ -42,6 +44,7 @@ class IgnoredEventsController < ApplicationController
     end
 
     def ignored_event_params
-      params[:ignored_event]
+      params.require(:ignored_event).permit(:event_id)
+
     end
 end

@@ -10,7 +10,7 @@
     $("#" + eventId).remove()
 
 @ignoreEvent = (eventId) ->
-  data =  { users_event: { event_id: eventId } }
+  data =  { ignored_event: { event_id: eventId } }
   console.log data
   $.ajax({ method: "POST", url: "ignored_events", data: data } ).done (html) ->
     console.log html
