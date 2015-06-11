@@ -1,7 +1,4 @@
 <h1>Vorschläge</h1>
 <% @suggestions.each do |suggestion| %>
-    <div>
-      <p><%= suggestion.title %>
-      <p><%= suggestion.description %>
-    </div>
+  <%= render "events/eventEntry", event: suggestion, css_class: 'suggestion', view_type: 'suggestion'  %>
 <% end %>

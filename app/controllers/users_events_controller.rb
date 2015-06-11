@@ -1,7 +1,6 @@
 class UsersEventsController < ApplicationController
-  before_action :set_users_event, :authenticate_user, only: [:show, :edit, :update, :destroy]
-
-  respond_to :html
+  before_action :set_users_event, :authenticate_user!, only: [:show, :edit, :update, :destroy]
+  respond_to :json
 
   def index
     @users_events = UsersEvent.all
@@ -22,6 +21,7 @@ class UsersEventsController < ApplicationController
 
   def create
     @users_event = UsersEvent.new(users_event_params)
+    @users_event.user_id = current_user.id
     @users_event.save
     respond_with(@users_event)
   end
@@ -42,6 +42,7 @@ class UsersEventsController < ApplicationController
     end
 
     def users_event_params
-      params[:users_event]
+      puts params
+      params.require(:users_event).permit(:event_id)
     end
 end

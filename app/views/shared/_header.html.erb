@@ -14,7 +14,7 @@ Headerrow muss noch so erweitert werden, sodass sie auch für nicht eingeloggte 
 
 <div id="header" class="header header-logged-in">
   <div id="header-container">
-    <a class="header-logo-container" href=""><!--link zur Hauptseite-->
+    <a class="header-logo-container" href="/"><!--link zur Hauptseite-->
       <%= image_tag("header/hobbyisten_logo.JPG", size: "40") %><!--Hobbyistenlago-->
     </a>
     <div class="divider-vertical"></div>
@@ -30,31 +30,28 @@ Headerrow muss noch so erweitert werden, sodass sie auch für nicht eingeloggte 
     <div class="divider-vertical"></div>
     <ul id="header-user-links">
       <li class="header-nav-item">
-        <a id="header-suggestion-link" aria-label="Suggestions" href=""><!--link zum suggestionsscreen Anpassen für eingeloggten Nutzer-->
+        <a id="header-suggestion-link" aria-label="Suggestions" href="/"><!--link zum suggestionsscreen Anpassen für eingeloggten Nutzer-->
           <!--<span class="header-suggestion-logo"></span>-->
           <%= image_tag("header/suggestion.JPG", size: "30") %><!--Suggestionlogo-->
         </a>
       </li>
       <li class="header-nav-item">
-        <a id="header-events-link" aria-label="My Events" href=""><!--link zum eventscreen Anpassen für eingeloggten Nutzer-->
+        <a id="header-events-link" aria-label="My Events" href="/events"><!--link zum eventscreen Anpassen für eingeloggten Nutzer-->
           <!--<span class="header-event-logo"></span>-->
           <%= image_tag("header/myevents.JPG", size: "30") %><!--Eventlogo-->
         </a>
       </li>
       <li class="header-nav-item">
-        <a class="header-profil-link" href=""><!--link zum Nutzerporfil-->
+        <a class="header-profil-link" href="/users"><!--link zum Nutzerporfil-->
           <%= image_tag("header/default_profil.JPG", size: "30") %><!--miniatur de Profilbilds-->
           <!--Nutzername-->
         </a>
       </li>
       <li class="header-nav-item">
-        <form method="post" action="logout">
-          <input type="hidden" value="" name=""></input><!--Auslog-Aktion: Sessioninformationen übergeben um diese zu beenden. Gemeinstellungen überprüfen-->
-          <button id="header-logout" type="submit" aria-label="Logout">
-            <span class="header-logout-logo"></span>
-            <%= image_tag("header/logout.JPG", size: "30") %>
-          </button>
-        </form>
+        <%= form_for :user, :method => 'delete', url: '/users/sign_out' do |f| %>
+        <%= image_submit_tag("header/logout.JPG", size: "30") %>
+        <% end %>
+          <!--  <%= image_tag("header/logout.JPG", size: "30") %> !-->
       </li>
     </ul>
   </div>
