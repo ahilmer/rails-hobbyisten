@@ -1,4 +1,7 @@
 <h1>Vorschläge</h1>
+
+<div id="flash" style="height: 25px;"></div>
+
 <% @suggestions.each do |suggestion| %>
   <%= render "events/eventEntry", event: suggestion, css_class: 'suggestion', view_type: 'suggestion'  %>
 <% end %>

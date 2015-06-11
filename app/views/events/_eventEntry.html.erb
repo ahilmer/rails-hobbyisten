@@ -4,8 +4,8 @@
   <br/>
   <% if view_type == 'suggestion' %>
     <form action="/users_events" method="POST">
-      <button id="join" type="button" onclick="joinEvent(<%= event.id %>)">Teilnehmen</button>
-      <button id="ignore" type="button" onclick="ignoreEvent(<%= event.id %>)">Ignorieren</button>
+      <button id="join" type="button" onclick="joinEvent(<%= event.to_json %>)">Teilnehmen</button>
+      <button id="ignore" type="button" onclick="ignoreEvent(<%= event.to_json %>)">Ignorieren</button>
     </form>
   <% end %>
 </div>
