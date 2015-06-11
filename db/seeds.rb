@@ -6,9 +6,16 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+User.delete_all
+Hobby.delete_all
+UsersHobby.delete_all
+Location.delete_all
+UsersLocation.delete_all
+EventsHobby.delete_all
+
 users = User.create!([
-{firstname: 'Testing', lastname:'Tester', :email => "test@test.de", :password => "test1234", :password_confirmation => "test1234" }, {firstname: 'Andi', lastname:'Maier', :email => "Andreas.Maier@hobbyisten.de", :password => "test1234", :password_confirmation => "test1234" }, {firstname: 'Markus', lastname:'Schöllner', :email => "Markus.Schoellner@hobbyisten.de", :password => "test1234", :password_confirmation => "test1234" }, 
-{firstname: 'Andreas', lastname:'Hilmer', :email => "Andreas.Hilmer@hobbyisten.de", :password => "test1234", :password_confirmation => "test1234" }, 
+{firstname: 'Testing', lastname:'Tester', :email => "test@test.de", :password => "test1234", :password_confirmation => "test1234" }, {firstname: 'Andi', lastname:'Maier', :email => "Andreas.Maier@hobbyisten.de", :password => "test1234", :password_confirmation => "test1234" }, {firstname: 'Markus', lastname:'Schöllner', :email => "Markus.Schoellner@hobbyisten.de", :password => "test1234", :password_confirmation => "test1234" },
+{firstname: 'Andreas', lastname:'Hilmer', :email => "Andreas.Hilmer@hobbyisten.de", :password => "test1234", :password_confirmation => "test1234" },
 {firstname: 'Thomas', lastname:'Hantschel', :email => "Thomas.Hantschel@hobbyisten.de", :password => "test1234", :password_confirmation => "test1234" }
 ])
 
