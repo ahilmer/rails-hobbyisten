@@ -1,11 +1,14 @@
-<div id="<%= event.id %>" class="<%= css_class %>">
-  <p><%= event.title %>
-  <p><%= event.description %>
-  <br/>
+<div style="clear:left; height: 10%" id="<%= event.id %>" class="<%= css_class %>">
+
   <% if view_type == 'suggestion' %>
-    <form action="/users_events" method="POST">
-      <button id="join" type="button" onclick="joinEvent(<%= event.to_json %>)">Teilnehmen</button>
-      <button id="ignore" type="button" onclick="ignoreEvent(<%= event.to_json %>)">Ignorieren</button>
-    </form>
+        <img style="float: left;" height="50%" src="https://i.ytimg.com/vi_webp/guqf4EZkwHQ/mqdefault.webp"/>
+
+        <div style="float: left; margin-left: 10px;">
+          <%= link_to event.title, event %> <br/>
+          <%= event.description %> <br/>
+
+          <button id="join" type="button" onclick="joinEvent(<%= event.to_json %>)">Teilnehmen</button>
+          <div><button id="ignore" type="button" onclick="ignoreEvent(<%= event.to_json %>)">Ignorieren</button></div>
+        </div>
   <% end %>
 </div>

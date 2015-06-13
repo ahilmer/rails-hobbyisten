@@ -8,4 +8,27 @@ class Event < ActiveRecord::Base
   has_many :users_events
   has_many :users, :through => :users_events
 
+  def self.findSuggestions(user)
+    suggestions = []
+
+     user.hobbies.each { |hobby|
+             suggestions.push(*hobby.events)
+     }
+     user.locations.each { |location|
+             suggestions.push(*location.events)
+     }
+
+     user.rejected_events.each { |event|
+             suggestions.delete(event)
+     }
+
+     user.events.each { |event|
+             suggestions.delete(event)
+     }
+
+     suggestions = suggestions.uniq
+     return suggestions
+
+  end
+
 end
