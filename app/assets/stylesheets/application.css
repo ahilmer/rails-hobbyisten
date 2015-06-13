@@ -15,10 +15,6 @@
  */
 body {
   font-family: 'Roboto', sans-serif;
-  padding: 0px;
-  margin: 0px;
-  //background: url('/assets/background.jpg');
-  //background-size:100% auto;
 }
 
 * {
@@ -38,9 +34,8 @@ body {
   border-radius: 3px;
 }
 
-
 .container {
   margin-right: auto;
   margin-left: auto;
-  width: 980px;
+  width: 80%;
 }
