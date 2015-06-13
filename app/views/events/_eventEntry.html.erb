@@ -4,9 +4,11 @@
         <%= image_tag(event.image_url, style: 'float: left;', height: '100%') if event.image? %>
         <div style="float: left; margin-left: 10px;">
           <strong><%= link_to event.title, event %></strong> <br/>
-          von <%= link_to event.creator.firstname, event.creator %>, Teilnehmer: <%= event.users.size %>, Treffpunkt: <%= event.explicit_location %> <br/>
+          von <%= link_to event.creator.firstname, event.creator %>, Teilnehmer: <%= event.users.size %>, Treffpunkt: <%= event.explicit_location %>
+          <br/>
+          <br/>
           <%= event.description %> <br/>
-
+          <br/>
           <button id="join" type="button" onclick="joinEvent(<%= event.to_json %>)">Teilnehmen</button>
           <div><button id="ignore" type="button" onclick="ignoreEvent(<%= event.to_json %>)">Ignorieren</button></div>
         </div>
