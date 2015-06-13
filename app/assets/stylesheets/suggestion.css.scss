@@ -21,4 +21,11 @@
 
 a {
   color: rgb(22, 122,199);
+  text-decoration: none;
+
+}
+a:hover {
+  text-decoration: underline;
+  color: rgb(22, 122,199);
+  background-color: transparent;
 }
