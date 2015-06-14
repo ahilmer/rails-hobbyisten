@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'event/show'
+
   resources :ignored_events
 
   resources :users_locations
@@ -15,6 +17,9 @@ Rails.application.routes.draw do
   resources :hobbies
 
   resources :events
+  
+  resources :event
+  get '/event/:id', to: 'event#show'
 
   devise_for :users
 
