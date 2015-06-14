@@ -1,0 +1,53 @@
+<div class="container">
+	<div class="main-content-box">
+		<h1><%= @event.title %></h1>
+		<table class="table">
+			<tr>
+				<td class="col-sm-1"> <%= image_tag("default/defaultevent.png", :size => "150x150", :alt => "Event Pic", :id => "eventpicture", class: "img-responsive") %> </td>
+				<td><pre> <%= @event.description %> </pre></td>
+			</tr>
+		</table>
+
+		<table class="table">
+			<thead>
+				<th>Veranstaltungsinformationen</th>
+			</thead>
+			<tr>
+				<td class="col-sm-1"> Veranstalter </td>
+				<td> Veranstaltungszeitraum </td>
+				<td> Veranstaltungsort </td>
+				<td> Hobby </td>
+			</tr>
+			<tr>
+				<td class="col-sm-1"> <%= image_tag("default/defaultprofile.png", :size => "85x85", :alt => "Profile Pic", :id => "profilepicture", :class => "item_images") %>
+				<br />
+				<%= @event.creator%> </td>
+				<td> <%= @event.take_place_timestamp %>
+				<br />
+				Hier sollte der Zeitraum stehen </td>
+				<td> <%= @event.explicit_location %> </br> <%= @event.location %> </td>
+				<td> Hobby </td>
+			</tr>
+		</table>
+
+		<table class="table">
+			<tr>
+				<td >
+					<form>
+						<div class="form-group">
+							<textarea type="text" class="form-control" id="messageboard_message" placeholder="Nachricht" rows="3"></textarea>
+							<button type="submit" class="btn btn-default">Senden</button>
+							<br />
+							<br />
+							<pre class="text-left">
+								MESSAGES
+							</pre>
+						</div>
+					</form>
+				</td>
+				<td> Teilnehmer</td>
+			</tr>
+		</table>
+
+	</div>
+</div>

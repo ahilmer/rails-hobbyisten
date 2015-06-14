@@ -14,9 +14,11 @@ UsersLocation.delete_all
 EventsHobby.delete_all
 
 users = User.create!([
-{firstname: 'Testing', lastname:'Tester', :email => "test@test.de", :password => "test1234", :password_confirmation => "test1234" }, {firstname: 'Andi', lastname:'Maier', :email => "Andreas.Maier@hobbyisten.de", :password => "test1234", :password_confirmation => "test1234" }, {firstname: 'Markus', lastname:'Schöllner', :email => "Markus.Schoellner@hobbyisten.de", :password => "test1234", :password_confirmation => "test1234" },
+{firstname: 'Testing', lastname:'Tester', :email => "test@test.de", :password => "test1234", :password_confirmation => "test1234" }, 
+{firstname: 'Andi', lastname:'Maier', :email => "Andreas.Maier@hobbyisten.de", :password => "testtest", :password_confirmation => "testtest" }, 
+{firstname: 'Markus', lastname:'Schöllner', :email => "Markus.Schoellner@hobbyisten.de", :password => "test1234", :password_confirmation => "test1234" },
 {firstname: 'Andreas', lastname:'Hilmer', :email => "Andreas.Hilmer@hobbyisten.de", :password => "test1234", :password_confirmation => "test1234" },
-{firstname: 'Thomas', lastname:'Hantschel', :email => "Thomas.Hantschel@hobbyisten.de", :password => "test1234", :password_confirmation => "test1234" }
+{firstname: 'Thomas', lastname:'Hantschel', :email => "Thomas.Hantschel@hobbyisten.de", :password => "test1234", :password_confirmation => "test1234" },
 ])
 
 
@@ -28,7 +30,7 @@ hobbies = Hobby.create([ {name: 'Fußball', description: 'ein Ballspiel für zwe
                          {name: 'Reiten', description: 'Mit einem Pferd durch die Gegend galoppieren'},
                          {name: 'Skifahren', description: 'Auf zwei Brettern an den Füßen einen schneebedeckten Berg abfahren'},
                          {name: 'Angeln', description: 'Mit einer Angel Fische an Flüßen und Seen fangen'},
-                         {name: 'Segeln', description: 'Mit einem Seggelboot über einen See fahren'},
+                         {name: 'Segeln', description: 'Mit einem Segelboot über einen See fahren'},
                          {name: 'Jagen', description: 'Mit einer Waffe Tiere im Wald jagen'},
                          {name: 'Surfen', description: 'Mit einem Surfbrett über die Wellen reiten'},
                          {name: 'Snowboarden', description: 'Auf einem Brett an den Füßen einen schneebedeckten Berg abfahren'},             				 {name: 'Modelleisenbahn', description: 'Modelleisenbahnen aufbauen und Tips und Tricks austauschen'}])
