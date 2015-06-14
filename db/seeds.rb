@@ -12,6 +12,7 @@ UsersHobby.delete_all
 Location.delete_all
 UsersLocation.delete_all
 EventsHobby.delete_all
+Comment.delete_all
 
 users = User.create!([
 {firstname: 'Testing', lastname:'Tester', :email => "test@test.de", :password => "test1234", :password_confirmation => "test1234" }, 
@@ -80,3 +81,6 @@ events_hobbies = EventsHobby.create([event_id: events[0].id, hobby_id: hobbies[0
 events_hobbies = EventsHobby.create([event_id: events[1].id, hobby_id: hobbies[0].id ])
 events_hobbies = EventsHobby.create([event_id: events[2].id, hobby_id: hobbies[0].id ])
 events_hobbies = EventsHobby.create([event_id: events[3].id, hobby_id: hobbies[1].id ])
+
+comments = Comment.create([commenter: 'Andi Maier', message: 'WULULULULU', event_id: 1])
+comments = Comment.create([commenter: 'Andi Maier', message: 'TRALALALALALA', event_id: 1])

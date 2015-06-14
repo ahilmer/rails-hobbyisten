@@ -4,7 +4,7 @@
 		<table class="table">
 			<tr>
 				<td class="col-sm-1"> <%= image_tag("default/defaultevent.png", :size => "150x150", :alt => "Event Pic", :id => "eventpicture", class: "img-responsive") %> </td>
-				<td><pre> <%= @event.description %> </pre></td>
+				<td>				<pre> <%= @event.description %> </pre></td>
 			</tr>
 		</table>
 
@@ -33,18 +33,25 @@
 		<table class="table">
 			<tr>
 				<td >
-					<form>
-						<div class="form-group">
-							<textarea type="text" class="form-control" id="messageboard_message" placeholder="Nachricht" rows="3"></textarea>
-							<button type="submit" class="btn btn-default">Senden</button>
-							<br />
-							<br />
-							<pre class="text-left">
-								MESSAGES
-							</pre>
-						</div>
-					</form>
-				</td>
+				<form>
+					<div class="form-group">
+						<textarea type="text" class="form-control" id="messageboard_message" placeholder="Nachricht" rows="3"></textarea>
+						<button type="submit" class="btn btn-default">
+							Senden
+						</button>
+						<br />
+						<br />
+						<pre class="text-left">
+							<% @comments.each do |comment| %>
+								<blockquote>
+									<p><%= comment.message %></p>
+									<footer> <%= comment.commenter %> </footer>
+								</blockquote>
+								 </br>
+							<% end %>
+						</pre>
+					</div>
+				</form></td>
 				<td> Teilnehmer</td>
 			</tr>
 		</table>
