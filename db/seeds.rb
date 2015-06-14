@@ -64,7 +64,6 @@ users_locations = UsersLocation.create([user_id: users[4].id, location_id: locat
 
 users_hobbies = UsersHobby.create([user_id: users[0].id, hobby_id: hobbies[0].id])
 
-locations = Location.create([{name: 'München'},{name: 'Berlin'}, {name: 'Hamburg'}]);
 users_locations = UsersLocation.create([user_id: users[0].id, location_id: locations[0].id])
 
 file = File.open('public/mqdefault.webp')
