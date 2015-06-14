@@ -32,3 +32,34 @@ a:hover {
   color: rgb(22, 122,199);
   background-color: transparent;
 }
+
+.suggestion_picturecontainer {
+  height: 100%;
+  position: relative;
+  float: left;
+  margin: 5px;
+}
+
+
+.suggestion_entrycontainer {
+  clear: both;
+  background-color: rgb(244,244,244);;
+  height: 190px;
+  margin-bottom: 10px;
+}
+
+.suggestion_picture {
+  float: left;
+  max-height: 180px;
+}
+
+.suggestion_eventinfocontainer {
+  border-radius: 2px;
+  font-size: 9px;
+  color: rgb(182,194,222);
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  letter-spacing: 0px;
+  background-color: black;
+}

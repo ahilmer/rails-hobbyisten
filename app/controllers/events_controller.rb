@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   respond_to :html
 
   def index
-      @events = Event.all
+      @events = Event.findMyEvents(current_user)
       respond_with(@events)
   end
 

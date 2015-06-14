@@ -33,4 +33,14 @@ class Event < ActiveRecord::Base
 
   end
 
+  def self.findMyEvents(user)
+    events = []
+
+    user.events.each { |event|
+      events.push(event)
+    }
+
+    return events
+  end
+
 end
