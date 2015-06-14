@@ -40,4 +40,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
 gem 'carrierwave'
 
+gem 'geocoder'
+
 gem 'devise'
