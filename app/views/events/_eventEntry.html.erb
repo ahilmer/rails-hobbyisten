@@ -1,8 +1,12 @@
-<div style="clear:left;" id="<%= event.id %>" class="<%= css_class %>">
+<div style="clear: both; background-color: rgb(244,244,244);; height: 190px; margin-bottom: 10px;" id="<%= event.id %>">
 
   <% if view_type == 'suggestion' %>
-        <%= image_tag(event.image_url, style: 'float: left;', height: '100%') if event.image? %>
-        <div style="float: left; margin-left: 10px;">
+
+        <div style="height: 100%; position: relative; float: left; margin: 5px;">
+          <%= image_tag(event.image_url, style: 'float: left;max-height: 180px;') if event.image? %>
+          <p style="border-radius: 2px;font-size: 9px; color: rgb(182,194,222); position: absolute; right: 5px; bottom: 5px; letter-spacing: 0px; background-color: black; ">am: <%= event.take_place_timestamp.strftime('%d.%m.%Y')  %> <br/> um <%= event.take_place_timestamp.strftime('%H:%M Uhr')  %> </p>
+        </div>
+        <div style="height: 100%; position: relative; float: left; margin-left: 30px; margin-top: 10px;">
           <strong><%= link_to event.title, event %></strong> <br/>
           von <%= link_to event.creator.firstname, event.creator %>, Teilnehmer: <%= event.users.size %>, Treffpunkt: <%= event.explicit_location %>
           <br/>
