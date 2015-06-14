@@ -36,4 +36,15 @@ class Event < ActiveRecord::Base
 
   end
 
+  def self.findSuggestions2(user)
+    suggestions = []
+
+     user.locations.each { |location|
+             suggestions.push(*Event.near(location,20))
+     }
+     suggestions = suggestions.uniq
+     return suggestions
+
+  end
+
 end

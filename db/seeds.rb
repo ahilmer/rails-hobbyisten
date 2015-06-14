@@ -56,7 +56,6 @@ users_locations = UsersLocation.create([user_id: users[1].id, location_id: locat
 users_locations = UsersLocation.create([user_id: users[2].id, location_id: locations[0].id])
 users_locations = UsersLocation.create([user_id: users[3].id, location_id: locations[0].id])
 users_locations = UsersLocation.create([user_id: users[4].id, location_id: locations[0].id])
-users_locations = UsersLocation.create([user_id: users[0].id, location_id: locations[1].id])
 users_locations = UsersLocation.create([user_id: users[1].id, location_id: locations[3].id])
 users_locations = UsersLocation.create([user_id: users[2].id, location_id: locations[6].id])
 users_locations = UsersLocation.create([user_id: users[3].id, location_id: locations[7].id])
@@ -71,7 +70,8 @@ file = File.open('public/mqdefault.webp')
 events = Event.create([ { take_place_timestamp: DateTime.new(2001,2,3,4,5,6,'+7') , image: file, title: 'Bolzen1', description: 'Hobby Kick', explicit_location: 'München, Maximilianstraße 1', max_participants: -1, location_id: locations[0].id, creator_id: users[0].id},
                         { take_place_timestamp: DateTime.new(2002,2,3,4,5,6,'+7'), image: file, title: 'Bolzen2', description: 'Hobby Kick', explicit_location: 'München, Maximilianstraße 1', max_participants: -1, location_id: locations[0].id, creator_id: users[0].id},
                         { take_place_timestamp: DateTime.new(2003,2,3,4,5,6,'+7'), image: file, title: 'Bolzen3', description: 'Hobby Kick', explicit_location: 'München, Maximilianstraße 1', max_participants: -1, location_id: locations[0].id, creator_id: users[0].id},
-                        { take_place_timestamp: DateTime.new(2004,2,3,4,5,6,'+7'),image: file, title: 'Handball', description: 'Handball Freizeit Treff', explicit_location: 'München, Maximilianstraße 1', max_participants: -1, location_id: locations[1].id, creator_id: users[0].id}]);
+                        { take_place_timestamp: DateTime.new(2004,2,3,4,5,6,'+7'),image: file, title: 'Handball', description: 'Handball Freizeit Treff', explicit_location: 'München, Maximilianstraße 1', max_participants: -1, location_id: locations[1].id, creator_id: users[0].id},
+                        { take_place_timestamp: DateTime.new(2004,2,3,4,5,6,'+7'),image: file, title: 'Handball', description: 'Handball Freizeit Treff', explicit_location: 'Berlin, Am Bergpfuhl 1', max_participants: -1, location_id: locations[12].id, creator_id: users[0].id}]);
 
 events_hobbies = EventsHobby.create([event_id: events[0].id, hobby_id: hobbies[0].id ])
 events_hobbies = EventsHobby.create([event_id: events[1].id, hobby_id: hobbies[0].id ])
