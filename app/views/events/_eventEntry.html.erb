@@ -1,4 +1,4 @@
-<div style="clear: both; background-color: rgb(244,244,244);; height: 190px; margin-bottom: 10px;" id="<%= event.id %>">
+<div class = "<%= css_class %>" id="<%= event.id %>">
 
   <% if view_type == 'suggestion' %>
 
@@ -13,8 +13,8 @@
           <br/>
           <%= event.description %> <br/>
           <br/>
-          <button id="join" type="button" onclick="joinEvent(<%= event.to_json %>)">Teilnehmen</button>
-          <div><button id="ignore" type="button" onclick="ignoreEvent(<%= event.to_json %>)">Ignorieren</button></div>
+          <button class="join" type="button" onclick="joinEvent(<%= event.to_json %>)">Teilnehmen</button>
+          <div><button class="ignore" type="button" onclick="ignoreEvent(<%= event.to_json %>)">Ignorieren</button></div>
         </div>
   <% end %>
 </div>

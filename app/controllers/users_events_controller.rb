@@ -42,7 +42,6 @@ class UsersEventsController < ApplicationController
     end
 
     def users_event_params
-      puts params
       params.require(:users_event).permit(:event_id)
     end
 end
