@@ -17,6 +17,7 @@
 
 .eventcheckbox {
   float: left;
+  margin: 10px;
 }
 
 .sortoption-container {
@@ -25,6 +26,7 @@
 
 .addevent_button {
   float: right;
+  padding: 10px;
 }
 
 .eventslist {
@@ -68,6 +70,7 @@
   float: left;
   padding: 10px;
   position: relative;
+  width: available;
 }
 
 
@@ -104,4 +107,11 @@
 
 .myevents_resigncontainer {
   float: right;
+  overflow: hidden;
+}
+
+#resign{
+  background: url(default/remove.JPG) no-repeat 50px 50px;
+  display: block;
+  cursor: pointer;
 }

@@ -15,7 +15,3 @@
   data =  { ignored_event: { event_id: event.id } }
   $.ajax({ method: "POST", url: "ignored_events", data: data } ).done (html) ->
     $("#" + event.id).fadeOut( 400 );
-
-
-# Methode um die Teilnahme an einer Veranstaltung zurückzunehmen
-@resignEvent = (event) ->

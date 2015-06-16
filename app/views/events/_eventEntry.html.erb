@@ -51,7 +51,8 @@
 
     </div>
     <div class="<%= css_class + '_resigncontainer' %>">
-      <%= link_to image_tag("default/remove.JPG", size: "50"), :title=>'resign', :class=>'action', :onclick=>"resignEvent(<%= event.to_json =>)"%>
+      <button id="resign" type="button" onclick="resignEvent(<%= event.to_json %>)">
+      </button>
     </div>
   <% end %>
 
