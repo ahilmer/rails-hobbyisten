@@ -42,6 +42,11 @@ class Event < ActiveRecord::Base
      user.locations.each { |location|
              suggestions.push(*Event.near(location,20))
      }
+
+     user.events.each { |event|
+       suggestions.delete(event)     
+     }
+
      suggestions = suggestions.uniq
      return suggestions
 
