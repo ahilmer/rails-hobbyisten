@@ -16,8 +16,11 @@
             <br/>
             <%= suggestion.description %> <br/>
             <br/>
-            <button class="join" type="button" onclick="joinsuggestion(<%= suggestion.to_json %>)">Teilnehmen</button>
-            <div><button class="ignore" type="button" onclick="ignoresuggestion(<%= suggestion.to_json %>)">Ignorieren</button></div>
+            <div style="cursor: pointer; display: inline-block;">
+              <span onclick="joinsuggestion(<%= suggestion.to_json %>)"><i class="fa fa-check fa-2x"></i>&nbsp;Teilnehmen</span>
+              <br/>
+              <span onclick="ignoresuggestion(<%= suggestion.to_json %>)"><i class="fa fa-trash fa-2x"></i>&nbsp;&nbsp;Teilnehmen</span>
+          </div>
           </div>
   </div>
 
