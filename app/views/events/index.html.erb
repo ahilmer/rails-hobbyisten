@@ -2,29 +2,24 @@
 <div class="eventscontrol">
   <div class="eventscontrol-container">
     <div class="eventcheckbox">
-      <%= check_box_tag(:myevents_check, 'myevents_flag', true) %>
+      <%= check_box_tag(:myevents_check, 'myevents_flag', true, {:onchange => logger.debug("Change Eigene Events")}) %>
       <%= label_tag(:myevents_check, "Eigene Veranstaltungen") %>
+    <br/>
       <%= check_box_tag(:otherevents_check, 'otherevents_flag', true) %>
-      <%= label_tag(:otherevents_check, "Fremede Veranstaltungen") %>
+      <%= label_tag(:otherevents_check, "Fremde Veranstaltungen") %>
     </div>
     <div class="sortoption-container">
       Hier werden die Sortieroptionen eingefügt
     </div>
-    <%= link_to image_tag("default/add.JPG", size: "50"), new_event_path, :class => 'default-button' %>
+    <%= link_to image_tag("default/add.JPG", size: "50"), new_event_path, :class => 'addevent_button default-button' %>
   </div>
 </div>
-<div class="eventlist-container">
-  <% @events.each do |event| %>
-    <div class="event-container">
-
-      <span class="event-picture"></span>
-      <div class="eventcontent-container">
-        <div class="eventtitle"></div>
-        <div class="eventinfo"></div>
-        <div class="eventdescription"></div>
-      </div>
-    </div>
-  <% end %>
+<div class="eventslist">
+  <div class="eventlist-container">
+    <% @events.each do |event| %>
+      <%= render "eventEntry", event: event, css_class: 'myevents', view_type: 'myevents'  %>
+    <% end %>
+  </div>
 </div>
 
 <!--

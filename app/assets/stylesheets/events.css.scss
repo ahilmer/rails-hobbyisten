@@ -2,10 +2,116 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.eventscontrol {
+
+}
+
 
 .eventscontrol-container {
   margin-left: auto;
   margin-right: auto;
   width: 700px;
   padding-top: 15px;
+  overflow: hidden;
+}
+
+.eventcheckbox {
+  float: left;
+  margin: 10px;
+}
+
+.sortoption-container {
+  float: left;
+}
+
+.addevent_button {
+  float: right;
+  padding: 10px;
+}
+
+.eventslist {
+
+}
+
+
+
+.eventlist-container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 700px;
+  padding-top: 15px;
+}
+
+.myevents_entrycontainer {
+  border: 1px solid #E5E5E5;
+  background-color: #F5F5F5;
+  margin: 5px;
+  overflow: hidden;
+}
+
+
+.myevents_picturecontainer {
+  margin: 10px;
+  float: left;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  border: 1px solid #E5E5E5;
+  background-color: #F5F5F5;
+}
+
+
+.myevents_picture {
+
+}
+
+
+.myevents_infocontainer {
+  float: left;
+  padding: 10px;
+  position: relative;
+  width: available;
+}
+
+
+.myevents_titlecontainer {
+  font-size: 175%;
+}
+
+
+.myevents_descriptioncontainer {
+  padding-top: 10px;
+  width: 100%;
+  height: auto;
+}
+
+.myevents_metacontainer {
+  padding-top: 10px;
+  font-size: 75%;
+  overflow: hidden;
+}
+
+.myevents_creatorcontainer {
+}
+
+.myevents_participantscontainer {
+}
+
+.myevents_locationcontainer {
+  float: left;
+}
+
+.myevents_timecontainer {
+  float: right;
+}
+
+.myevents_resigncontainer {
+  float: right;
+  overflow: hidden;
+}
+
+#resign{
+  background: url(default/remove.JPG) no-repeat 50px 50px;
+  display: block;
+  cursor: pointer;
 }

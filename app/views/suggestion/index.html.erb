@@ -3,5 +3,22 @@
 <div id="flash" style="height: 25px;"></div>
 
 <% @suggestions.each do |suggestion| %>
-  <%= render "events/eventEntry", event: suggestion, css_class: 'suggestion', view_type: 'suggestion'  %>
+  <div class = "suggestion" id="<%= suggestion.id %>">
+
+          <div style="height: 100%; position: relative; float: left; margin: 5px;">
+            <%= image_tag(suggestion.image_url, style: 'float: left;max-height: 180px;') if suggestion.image? %>
+            <p style="border-radius: 2px;font-size: 9px; color: rgb(182,194,222); position: absolute; right: 5px; bottom: 5px; letter-spacing: 0px; background-color: black; ">am: <%= suggestion.take_place_timestamp.strftime('%d.%m.%Y')  %> <br/> um <%= suggestion.take_place_timestamp.strftime('%H:%M Uhr')  %> </p>
+          </div>
+          <div style="height: 100%; position: relative; float: left; margin-left: 30px; margin-top: 10px;">
+            <strong><%= link_to suggestion.title, suggestion %></strong> <br/>
+            von <%= link_to suggestion.creator.firstname, suggestion.creator %>, Teilnehmer: <%= suggestion.users.size %>, Treffpunkt: <%= suggestion.explicit_location %>
+            <br/>
+            <br/>
+            <%= suggestion.description %> <br/>
+            <br/>
+            <button class="join" type="button" onclick="joinsuggestion(<%= suggestion.to_json %>)">Teilnehmen</button>
+            <div><button class="ignore" type="button" onclick="ignoresuggestion(<%= suggestion.to_json %>)">Ignorieren</button></div>
+          </div>
+  </div>
+
 <% end %>

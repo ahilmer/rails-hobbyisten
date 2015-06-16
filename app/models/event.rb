@@ -36,7 +36,7 @@ class Event < ActiveRecord::Base
 
   end
 
-  def self.findSuggestions2(user)
+ def self.findSuggestions2(user)
     suggestions = []
 
      user.locations.each { |location|
@@ -45,6 +45,16 @@ class Event < ActiveRecord::Base
      suggestions = suggestions.uniq
      return suggestions
 
+  end
+
+  def self.findMyEvents(user)
+    events = []
+
+    user.events.each { |event|
+      events.push(event)
+    }
+
+    return events
   end
 
 end
