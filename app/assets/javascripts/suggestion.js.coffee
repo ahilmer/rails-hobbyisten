@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 # Methode um an einer Veranstaltung teilzunehmen
-@joinEvent = (event) ->
+@joinsuggestion = (event) ->
   data =  { users_event: { event_id: event.id } }
   $.ajax({ method: "POST", url: "users_events", data: data } ).done (html) ->
     $("#" + event.id).fadeOut( 400 );
@@ -11,7 +11,7 @@
 
 
 # Methode um eine Versantaltung zu ignorieren, sodass sie niocht mehr bei den Vorschlägen auftaucht
-@ignoreEvent = (event) ->
+@ignoresuggestion = (event) ->
   data =  { ignored_event: { event_id: event.id } }
   $.ajax({ method: "POST", url: "ignored_events", data: data } ).done (html) ->
     $("#" + event.id).fadeOut( 400 );
