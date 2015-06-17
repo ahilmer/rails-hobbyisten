@@ -1,6 +1,66 @@
-<h1>Editing event</h1>
+<%= form_for @event do |f| %>
+				
+<div class="container">
+	<div class="main-content-box">
+		<div class="eventheader">
+			<div class="eventtitle">
+				<h1><%= f.text_field :title, :value => @event.title %></h1>
+			</div>
+		</div>
 
-<%= render 'form' %>
+		<div>
+			<table class="table">
+				<tr>
+					<td class="col-sm-1"> <%= image_tag(@event.image_url, :size => "200x200", :alt => "Event Pic", :id => "eventpicture", class: "img-responsive") %> </td>
+					<td>					<pre> <%= f.text_area :description, :class => "form-control", :value => @event.description %> </pre></td>
+				</tr>
+			</table>
+		</div>
 
-<%= link_to 'Show', @event %> |
-<%= link_to 'Back', events_path %>
+		<table class="table">
+			<thead>
+				<th>Veranstaltungsinformationen</th>
+			</thead>
+			<tr>
+				<td> Veranstalter </td>
+				<td> Veranstaltungszeitraum </td>
+				<td> Veranstaltungsort </td>
+				<td> Hobby </td>
+			</tr>
+			<tr>
+				<td>
+				<div class="creator_image">
+					<a href="/users/<%= (@event.creator).id%>"> <%= image_tag((@event.creator).image_url, :size => "85x85", :alt => "Profile Pic", :id => "profilepicture", :class => "item_images") %> </a>
+				</div>
+				<div class="creator_name">
+					<a href="/users/<%= (@event.creator).id%>"> <%= (@event.creator).firstname %>
+					<br />
+					<%= (@event.creator).lastname %>
+				</td>
+				</a>
+	</div>
+	<td> <%= f.text_field :take_place_timestamp , :value => @event.take_place_timestamp %></td>
+	<td> <%= f.text_field :explicit_location , :value => @event.explicit_location %> </br> <%= (@event.location).name %> </td>
+	<td> <% @events_hobbies.each do |hobby| %>
+	<%= @hobbies.find(hobby.hobby_id).name %> </br>
+	<% end %> </td>
+	</tr>
+	</table>
+
+	<div class="participants">
+		<b>Teilnehmer <%= @users_events.size %> von
+		<%= f.text_field :max_participants , :value => @event.max_participants %>
+		<br />
+		<% @users_events.each do |user| %>
+		<a href="/users/<%= user.user_id%>"><%= image_tag((@users.find(user.user_id)).image_url, :size => "60x60", :alt => "Profile Pic", :id => "profilepicture", :class => "item_images") %>
+		<%= @users.find(user.user_id).firstname %> </a>
+		<%= image_tag('ignore.png', :size => "30x30", :alt => "Kick Picture", :id => "kickpicture") %>
+		<br />
+		<% end %>
+	</div>
+</div>
+</div>
+<div class="savebutton">
+<%= f.submit "Senden", :class => "btn btn-primary" %>
+</div>
+<% end %>
