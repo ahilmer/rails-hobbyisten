@@ -19,11 +19,11 @@ default = File.open('app/assets/images/profiles/defaultprofile.png')
 andi = File.open('app/assets/images/profiles/1.jpg')
 
 users = User.create!([
-{firstname: 'Testing', lastname:'Tester', image: 'app/assets/images/profiles/defaultprofile.png', :email => "test@test.de", :password => "test1234", :password_confirmation => "test1234" }, 
-{firstname: 'Andi', lastname:'Maier',image: 'app/assets/images/profiles/1.jpg', :email => "Andreas.Maier@hobbyisten.de", :password => "testtest", :password_confirmation => "testtest" },
-{firstname: 'Markus', lastname:'Schöllner',image: 'app/assets/images/profiles/defaultprofile.png', :email => "Markus.Schoellner@hobbyisten.de", :password => "test1234", :password_confirmation => "test1234" },
-{firstname: 'Andreas', lastname:'Hilmer',image: 'app/assets/images/profiles/defaultprofile.png', :email => "Andreas.Hilmer@hobbyisten.de", :password => "test1234", :password_confirmation => "test1234" },
-{firstname: 'Thomas', lastname:'Hantschel',image: 'app/assets/images/profiles/defaultprofile.png', :email => "Thomas.Hantschel@hobbyisten.de", :password => "test1234", :password_confirmation => "test1234" }
+{firstname: 'Testing', lastname:'Tester', image: 'profiles/defaultprofile.png', :email => "test@test.de", :password => "test1234", :password_confirmation => "test1234" }, 
+{firstname: 'Andi', lastname:'Maier',image: 'profiles/1.jpg', :email => "Andreas.Maier@hobbyisten.de", :password => "testtest", :password_confirmation => "testtest" },
+{firstname: 'Markus', lastname:'Schöllner',image: 'profiles/defaultprofile.png', :email => "Markus.Schoellner@hobbyisten.de", :password => "test1234", :password_confirmation => "test1234" },
+{firstname: 'Andreas', lastname:'Hilmer',image: 'profiles/defaultprofile.png', :email => "Andreas.Hilmer@hobbyisten.de", :password => "test1234", :password_confirmation => "test1234" },
+{firstname: 'Thomas', lastname:'Hantschel',image: 'profiles/defaultprofile.png', :email => "Thomas.Hantschel@hobbyisten.de", :password => "test1234", :password_confirmation => "test1234" }
 ])
 
 
@@ -80,7 +80,7 @@ tanzen = File.open('app/assets/images/events/tanzen.gif')
 reiten = File.open('app/assets/images/events/reiten.png')
 skifahren = File.open('app/assets/images/events/skifahren.jpg')
 
-events = Event.create([ { take_place_timestamp: DateTime.new(2001,2,3,4,5,6,'+7'), image: fussball2, title: 'Bolzen im eGarten', description: 'Hobby Kick', explicit_location: 'München, Maximilianstraße 1', max_participants: -1, location_id: locations[0].id, creator_id: users[0].id},
+events = Event.create([ { take_place_timestamp: DateTime.new(2001,2,3,4,5,6,'+7'), image: fussball2, title: 'Bolzen im eGarten', description: 'Hobby Kick', explicit_location: 'München, Maximilianstraße 1', max_participants: -1, location_id: locations[0].id, creator_id: users[1].id},
                         { take_place_timestamp: DateTime.new(2002,2,3,4,5,6,'+7'), image: fussball2, title: 'Bolzen2', description: 'Hobby Kick', explicit_location: 'München, Maximilianstraße 1', max_participants: -1, location_id: locations[0].id, creator_id: users[0].id},
                         { take_place_timestamp: DateTime.new(2003,2,3,4,5,6,'+7'), image: fussball2, title: 'Bolzen3', description: 'Hobby Kick', explicit_location: 'München, Maximilianstraße 1', max_participants: -1, location_id: locations[0].id, creator_id: users[0].id},
                         { take_place_timestamp: DateTime.new(2004,2,3,4,5,6,'+7'), image: handball, title: 'Handball', description: 'Handball Freizeit Treff', explicit_location: 'München, Maximilianstraße 1', max_participants: -1, location_id: locations[1].id, creator_id: users[0].id},

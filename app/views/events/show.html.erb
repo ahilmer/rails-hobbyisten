@@ -21,7 +21,8 @@
 				<td> Hobby </td>
 			</tr>
 			<tr>
-				<td> <%= image_tag("profile/defaultprofile.png", :size => "85x85", :alt => "Profile Pic", :id => "profilepicture", :class => "item_images") %>
+				<td> 
+				<%= image_tag((@event.creator).image, :size => "85x85", :alt => "Profile Pic", :id => "profilepicture", :class => "item_images") %>
 				<br />
 				<%= (@event.creator).firstname %>
 				<br />
