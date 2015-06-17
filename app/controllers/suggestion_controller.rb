@@ -4,7 +4,7 @@ class SuggestionController < ApplicationController
 				if user_signed_in?
 					@suggestions = Event.findSuggestions2(current_user)
 				else
-					@suggestions = Event.all
+						@suggestions = Event.top5
 				end
 
 	end

@@ -13,27 +13,10 @@ class Event < ActiveRecord::Base
   has_many :users_events
   has_many :users, :through => :users_events
 
-  def self.findSuggestions(user)
-    suggestions = []
 
-     user.hobbies.each { |hobby|
-             suggestions.push(*hobby.events)
-     }
-     user.locations.each { |location|
-             suggestions.push(*location.events)
-     }
-
-     user.rejected_events.each { |event|
-             suggestions.delete(event)
-     }
-
-     user.events.each { |event|
-             suggestions.delete(event)
-     }
-
-     suggestions = suggestions.uniq
-     return suggestions
-
+  def self.top5
+    topEvents = UsersEvent.group(:event_id).order('count_all DESC').count.keys
+    Event.find(topEvents)
   end
 
  def self.findSuggestions2(user)
@@ -44,7 +27,7 @@ class Event < ActiveRecord::Base
      }
 
      user.events.each { |event|
-       suggestions.delete(event)     
+       suggestions.delete(event)
      }
 
      suggestions = suggestions.uniq
