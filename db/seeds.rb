@@ -76,8 +76,8 @@ fussball1 = File.open('public/mqdefault.webp')
 fussball2 = File.open('app/assets/images/events/fussball.jpg')
 handball = File.open('app/assets/images/events/handball.jpg')
 joggen = File.open('app/assets/images/events/joggen.jpg')
-tanzen = File.open('app/assets/images/events/tanzen.gif')
-reiten = File.open('app/assets/images/events/reiten.png')
+tanzen = File.open('app/assets/images/events/tanzen2.jpg')
+reiten = File.open('app/assets/images/events/reiten2.jpg')
 skifahren = File.open('app/assets/images/events/skifahren.jpg')
 
 events = Event.create([ { take_place_timestamp: DateTime.new(2001,2,3,4,5,6,'+7'), image: fussball2, title: 'Bolzen im eGarten', description: 'Hobby Kick', explicit_location: 'München, Maximilianstraße 1', max_participants: -1, location_id: locations[0].id, creator_id: users[1].id},
