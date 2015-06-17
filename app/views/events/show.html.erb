@@ -22,7 +22,7 @@
 			</tr>
 			<tr>
 				<td> 
-				<%= image_tag((@event.creator).image, :size => "85x85", :alt => "Profile Pic", :id => "profilepicture", :class => "item_images") %>
+				<%= image_tag((@event.creator).image_url, :size => "85x85", :alt => "Profile Pic", :id => "profilepicture", :class => "item_images") %>
 				<br />
 				<%= (@event.creator).firstname %>
 				<br />

@@ -19,11 +19,11 @@ default = File.open('app/assets/images/profiles/defaultprofile.png')
 andi = File.open('app/assets/images/profiles/1.jpg')
 
 users = User.create!([
-{firstname: 'Testing', lastname:'Tester', image: 'profiles/defaultprofile.png', :email => "test@test.de", :password => "test1234", :password_confirmation => "test1234" }, 
-{firstname: 'Andi', lastname:'Maier',image: 'profiles/1.jpg', :email => "Andreas.Maier@hobbyisten.de", :password => "testtest", :password_confirmation => "testtest" },
-{firstname: 'Markus', lastname:'Schöllner',image: 'profiles/defaultprofile.png', :email => "Markus.Schoellner@hobbyisten.de", :password => "test1234", :password_confirmation => "test1234" },
-{firstname: 'Andreas', lastname:'Hilmer',image: 'profiles/defaultprofile.png', :email => "Andreas.Hilmer@hobbyisten.de", :password => "test1234", :password_confirmation => "test1234" },
-{firstname: 'Thomas', lastname:'Hantschel',image: 'profiles/defaultprofile.png', :email => "Thomas.Hantschel@hobbyisten.de", :password => "test1234", :password_confirmation => "test1234" }
+{firstname: 'Testing', lastname:'Tester', image: default, :email => "test@test.de", :password => "test1234", :password_confirmation => "test1234" }, 
+{firstname: 'Andi', lastname:'Maier',image: andi, :email => "Andreas.Maier@hobbyisten.de", :password => "testtest", :password_confirmation => "testtest" },
+{firstname: 'Markus', lastname:'Schöllner',image: default, :email => "Markus.Schoellner@hobbyisten.de", :password => "test1234", :password_confirmation => "test1234" },
+{firstname: 'Andreas', lastname:'Hilmer',image: default, :email => "Andreas.Hilmer@hobbyisten.de", :password => "test1234", :password_confirmation => "test1234" },
+{firstname: 'Thomas', lastname:'Hantschel',image: default, :email => "Thomas.Hantschel@hobbyisten.de", :password => "test1234", :password_confirmation => "test1234" }
 ])
 
 
