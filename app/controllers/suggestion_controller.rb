@@ -1,8 +1,12 @@
 class SuggestionController < ApplicationController
-	before_action :authenticate_user!
 
 	def index
-				@suggestions = Event.findSuggestions2(current_user)
+				if user_signed_in?
+					@suggestions = Event.findSuggestions2(current_user)
+				else
+					@suggestions = Event.all
+				end
+
 	end
 
 end
