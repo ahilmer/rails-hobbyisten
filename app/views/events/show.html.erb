@@ -4,7 +4,7 @@
 		<table class="table">
 			<tr>
 				<td class="col-sm-1"> 
-					<%= image_tag("default/defaultevent.png", :size => "150x150", :alt => "Event Pic", :id => "eventpicture", class: "img-responsive") %> 
+					<%= image_tag(@event.image_url, :size => "150x150", :alt => "Event Pic", :id => "eventpicture", class: "img-responsive") %>
 				</td>
 				<td>				<pre> <%= @event.description %> </pre></td>
 			</tr>

@@ -80,7 +80,7 @@ tanzen = File.open('app/assets/images/events/tanzen.gif')
 reiten = File.open('app/assets/images/events/reiten.png')
 skifahren = File.open('app/assets/images/events/skifahren.jpg')
 
-events = Event.create([ { take_place_timestamp: DateTime.new(2001,2,3,4,5,6,'+7'), image: fussball1, title: 'Bolzen im eGarten', description: 'Hobby Kick', explicit_location: 'München, Maximilianstraße 1', max_participants: -1, location_id: locations[0].id, creator_id: users[0].id},
+events = Event.create([ { take_place_timestamp: DateTime.new(2001,2,3,4,5,6,'+7'), image: fussball2, title: 'Bolzen im eGarten', description: 'Hobby Kick', explicit_location: 'München, Maximilianstraße 1', max_participants: -1, location_id: locations[0].id, creator_id: users[0].id},
                         { take_place_timestamp: DateTime.new(2002,2,3,4,5,6,'+7'), image: fussball2, title: 'Bolzen2', description: 'Hobby Kick', explicit_location: 'München, Maximilianstraße 1', max_participants: -1, location_id: locations[0].id, creator_id: users[0].id},
                         { take_place_timestamp: DateTime.new(2003,2,3,4,5,6,'+7'), image: fussball2, title: 'Bolzen3', description: 'Hobby Kick', explicit_location: 'München, Maximilianstraße 1', max_participants: -1, location_id: locations[0].id, creator_id: users[0].id},
                         { take_place_timestamp: DateTime.new(2004,2,3,4,5,6,'+7'), image: handball, title: 'Handball', description: 'Handball Freizeit Treff', explicit_location: 'München, Maximilianstraße 1', max_participants: -1, location_id: locations[1].id, creator_id: users[0].id},
