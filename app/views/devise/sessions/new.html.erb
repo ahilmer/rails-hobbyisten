@@ -3,17 +3,25 @@
 
   <h2>Anmeldung</h2>
 
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field">
-      <%= f.email_field :email, autofocus: true, placeholder: 'Email-Adresse' %>
+  <div style="margin-top: 40px;">
+    <div style="margin-bottom: 40px; min-height: 2em; color: #FF4136">
+      <p><% flash.each do |key, value| %>
+        <span class="flash <%= key %>"><%= value %></span>
+      <% end %>
+      </p>
     </div>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field">
+        <%= f.email_field :email, autofocus: true, placeholder: 'Email-Adresse' %>
+      </div>
 
-    <div class="field">
-      <%= f.password_field :password, autocomplete: "off", placeholder: 'Passwort' %>
-    </div>
+      <div class="field">
+        <%= f.password_field :password, autocomplete: "off", placeholder: 'Passwort' %>
+      </div>
 
-    <div class="actions field">
-      <%= f.submit "Anmelden", :id => 'submit' %>
-    </div>
-  <% end %>
+      <div class="actions field">
+        <%= f.submit "Anmelden", :id => 'submit' %>
+      </div>
+    <% end %>
+  </div>
 </div>
