@@ -12,6 +12,8 @@ UsersHobby.delete_all
 Location.delete_all
 UsersLocation.delete_all
 EventsHobby.delete_all
+UsersEvent.delete_all
+Comment.delete_all
 
 users = User.create!([
 {firstname: 'Testing', lastname:'Tester', :email => "test@test.de", :password => "test1234", :password_confirmation => "test1234" }, {firstname: 'Andi', lastname:'Maier', :email => "Andreas.Maier@hobbyisten.de", :password => "test1234", :password_confirmation => "test1234" }, {firstname: 'Markus', lastname:'Schöllner', :email => "Markus.Schoellner@hobbyisten.de", :password => "test1234", :password_confirmation => "test1234" },
@@ -77,3 +79,12 @@ events_hobbies = EventsHobby.create([event_id: events[0].id, hobby_id: hobbies[0
 events_hobbies = EventsHobby.create([event_id: events[1].id, hobby_id: hobbies[0].id ])
 events_hobbies = EventsHobby.create([event_id: events[2].id, hobby_id: hobbies[0].id ])
 events_hobbies = EventsHobby.create([event_id: events[3].id, hobby_id: hobbies[1].id ])
+
+users_events = UsersEvent.create([user_id: users[0].id, event_id: events[0].id, date_of_entry: '2015-06-14 12:22:00'])
+users_events = UsersEvent.create([user_id: users[1].id, event_id: events[0].id, date_of_entry: '2015-06-14 12:22:00'])
+users_events = UsersEvent.create([user_id: users[2].id, event_id: events[0].id, date_of_entry: '2015-06-14 12:22:00'])
+users_events = UsersEvent.create([user_id: users[0].id, event_id: events[1].id, date_of_entry: '2015-06-14 12:22:00'])
+users_events = UsersEvent.create([user_id: users[3].id, event_id: events[1].id, date_of_entry: '2015-06-14 12:22:00'])
+
+comments = Comment.create([user_id: users[1].id, message: 'WULULULULU', event_id: 1])
+comments = Comment.create([user_id: users[1].id, message: 'TRALALALALALA', event_id: 1])

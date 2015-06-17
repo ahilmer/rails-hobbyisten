@@ -15,4 +15,7 @@
 /log/*.log
 /tmp
 
+# Eclipse project file
+.project
+
 /public/uploads
