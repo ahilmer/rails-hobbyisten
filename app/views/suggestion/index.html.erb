@@ -1,4 +1,9 @@
-<h1>Vorschläge</h1>
+<% if user_signed_in? %>
+  <h1>Deine persönlichen Vorschläge</h1>
+<% else %>
+  <h1>Interessante Events</h1>
+<% end %>
+
 
 <div id="flash" style="height: 25px;"></div>
 
