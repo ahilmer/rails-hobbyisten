@@ -16,14 +16,14 @@ UsersEvent.delete_all
 Comment.delete_all
 
 default = File.open('app/assets/images/profiles/defaultprofile.png')
-andi = File.open('app/assets/images/profiles/1.png')
+andi = File.open('app/assets/images/profiles/1.jpg')
 
 users = User.create!([
-{firstname: 'Testing', lastname:'Tester', image: default, :email => "test@test.de", :password => "test1234", :password_confirmation => "test1234" }, 
-{firstname: 'Andi', lastname:'Maier',image: andi, :email => "Andreas.Maier@hobbyisten.de", :password => "testtest", :password_confirmation => "test1234" },
-{firstname: 'Markus', lastname:'Schöllner',image: default, :email => "Markus.Schoellner@hobbyisten.de", :password => "test1234", :password_confirmation => "test1234" },
-{firstname: 'Andreas', lastname:'Hilmer',image: default, :email => "Andreas.Hilmer@hobbyisten.de", :password => "test1234", :password_confirmation => "test1234" },
-{firstname: 'Thomas', lastname:'Hantschel',image: default, :email => "Thomas.Hantschel@hobbyisten.de", :password => "test1234", :password_confirmation => "test1234" }
+{firstname: 'Testing', lastname:'Tester', image: 'app/assets/images/profiles/defaultprofile.png', :email => "test@test.de", :password => "test1234", :password_confirmation => "test1234" }, 
+{firstname: 'Andi', lastname:'Maier',image: 'app/assets/images/profiles/1.jpg', :email => "Andreas.Maier@hobbyisten.de", :password => "testtest", :password_confirmation => "testtest" },
+{firstname: 'Markus', lastname:'Schöllner',image: 'app/assets/images/profiles/defaultprofile.png', :email => "Markus.Schoellner@hobbyisten.de", :password => "test1234", :password_confirmation => "test1234" },
+{firstname: 'Andreas', lastname:'Hilmer',image: 'app/assets/images/profiles/defaultprofile.png', :email => "Andreas.Hilmer@hobbyisten.de", :password => "test1234", :password_confirmation => "test1234" },
+{firstname: 'Thomas', lastname:'Hantschel',image: 'app/assets/images/profiles/defaultprofile.png', :email => "Thomas.Hantschel@hobbyisten.de", :password => "test1234", :password_confirmation => "test1234" }
 ])
 
 
@@ -72,24 +72,23 @@ users_hobbies = UsersHobby.create([user_id: users[0].id, hobby_id: hobbies[0].id
 
 users_locations = UsersLocation.create([user_id: users[0].id, location_id: locations[0].id])
 
-fussball1 = File.open('app/assets/images/events/mqdefault.webp')
+fussball1 = File.open('public/mqdefault.webp')
 fussball2 = File.open('app/assets/images/events/fussball.jpg')
 handball = File.open('app/assets/images/events/handball.jpg')
 joggen = File.open('app/assets/images/events/joggen.jpg')
-tanzen = File.open('app/assets/images/events/tanzen.jpg')
+tanzen = File.open('app/assets/images/events/tanzen.gif')
 reiten = File.open('app/assets/images/events/reiten.png')
 skifahren = File.open('app/assets/images/events/skifahren.jpg')
 
-
-events = Event.create([ { take_place_timestamp: DateTime.new(2001,2,3,4,5,6,'+7') , image: fussball1, title: 'Bolzen im eGarten', description: 'Hobby Kick', explicit_location: 'München, Maximilianstraße 1', max_participants: -1, location_id: locations[0].id, creator_id: users[0].id},
+events = Event.create([ { take_place_timestamp: DateTime.new(2001,2,3,4,5,6,'+7'), image: fussball1, title: 'Bolzen im eGarten', description: 'Hobby Kick', explicit_location: 'München, Maximilianstraße 1', max_participants: -1, location_id: locations[0].id, creator_id: users[0].id},
                         { take_place_timestamp: DateTime.new(2002,2,3,4,5,6,'+7'), image: fussball2, title: 'Bolzen2', description: 'Hobby Kick', explicit_location: 'München, Maximilianstraße 1', max_participants: -1, location_id: locations[0].id, creator_id: users[0].id},
                         { take_place_timestamp: DateTime.new(2003,2,3,4,5,6,'+7'), image: fussball2, title: 'Bolzen3', description: 'Hobby Kick', explicit_location: 'München, Maximilianstraße 1', max_participants: -1, location_id: locations[0].id, creator_id: users[0].id},
-                        { take_place_timestamp: DateTime.new(2004,2,3,4,5,6,'+7'),image: handball, title: 'Handball', description: 'Handball Freizeit Treff', explicit_location: 'München, Maximilianstraße 1', max_participants: -1, location_id: locations[1].id, creator_id: users[0].id},
-                        { take_place_timestamp: DateTime.new(2004,2,3,4,5,6,'+7'),image: handball, title: 'Handball', description: 'Handball Freizeit Treff', explicit_location: 'Berlin, Am Bergpfuhl 1', max_participants: -1, location_id: locations[12].id, creator_id: users[0].id}
-						{ take_place_timestamp: DateTime.new(2005,2,3,4,5,6,'+7') , image: joggen, title: 'Joggen im Perlacher Forst', description: 'Wir gehen Samstag im Perlacher Forst joggen. Ca. 15km', explicit_location: 'Perlacher Forst an der großen Eiche', max_participants: -1, location_id: locations[1].id, creator_id: users[0].id},
-                        { take_place_timestamp: DateTime.new(2006,2,3,4,5,6,'+7') , image: tanzen, title: 'Tanzen', description: 'Lustiger Tanzball', explicit_location: 'Lothstraße 60', max_participants: 10, location_id: locations[0].id, creator_id: users[0].id},
-                        { take_place_timestamp: DateTime.new(2007,2,3,4,5,6,'+7') , image: reiten, title: 'Reiten', description: 'Reiten um die Wette!', explicit_location: 'Trabrennbahn Riem', max_participants: 8, location_id: locations[0].id, creator_id: users[4].id},
-                        { take_place_timestamp: DateTime.new(2008,2,3,4,5,6,'+7') , image: skifahren, title: 'Weihnachtsskifahren', description: 'Wir treffen uns am 24.12 an der Talstation im Nebelhorn. Um An- und Ab-reise muss sich jeder selbst kuemmern', explicit_location: 'Hochstraße 77', max_participants: -1, location_id: locations[0].id, creator_id: users[0].id}
+                        { take_place_timestamp: DateTime.new(2004,2,3,4,5,6,'+7'), image: handball, title: 'Handball', description: 'Handball Freizeit Treff', explicit_location: 'München, Maximilianstraße 1', max_participants: -1, location_id: locations[1].id, creator_id: users[0].id},
+                        { take_place_timestamp: DateTime.new(2004,2,3,4,5,6,'+7'), image: handball, title: 'Handball', description: 'Handball Freizeit Treff', explicit_location: 'Berlin, Am Bergpfuhl 1', max_participants: -1, location_id: locations[12].id, creator_id: users[0].id},
+						            { take_place_timestamp: DateTime.new(2005,2,3,4,5,6,'+7'), image: joggen, title: 'Joggen im Perlacher Forst', description: 'Wir gehen Samstag im Perlacher Forst joggen. Ca. 15km', explicit_location: 'Perlacher Forst an der grossen Eiche', max_participants: -1, location_id: locations[1].id, creator_id: users[0].id},
+                        { take_place_timestamp: DateTime.new(2006,2,3,4,5,6,'+7'), image: tanzen, title: 'Tanzen', description: 'Lustiger Tanzball', explicit_location: 'Lothstraße 60', max_participants: 10, location_id: locations[0].id, creator_id: users[0].id},
+                        { take_place_timestamp: DateTime.new(2007,2,3,4,5,6,'+7'), image: reiten, title: 'Reiten', description: 'Reiten um die Wette!', explicit_location: 'Trabrennbahn Riem', max_participants: 8, location_id: locations[0].id, creator_id: users[4].id},
+                        { take_place_timestamp: DateTime.new(2008,2,3,4,5,6,'+7'), image: skifahren, title: 'Weihnachtsskifahren', description: 'Wir treffen uns am 24.12 an der Talstation im Nebelhorn. Um An- und Ab-reise muss sich jeder selbst kuemmern', explicit_location: 'Hochstraße 77', max_participants: -1, location_id: locations[0].id, creator_id: users[0].id}
 ]);
 
 events_hobbies = EventsHobby.create([event_id: events[0].id, hobby_id: hobbies[0].id ])
