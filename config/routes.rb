@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   resources :hobbies
 
   resources :events
+  
+  resources :comments, :only => []
+  post 'comments', to: 'events#create'
 
   devise_for :users
 

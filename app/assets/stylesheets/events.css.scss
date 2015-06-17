@@ -115,3 +115,17 @@
   display: block;
   cursor: pointer;
 }
+
+.messages {
+  float: left;
+  width: 75%;
+  margin-right: 5px;
+}
+
+.participants {
+  float: left;
+}
+
+.temp {
+  clear: both;
+}

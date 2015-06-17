@@ -5,26 +5,34 @@ class EventsController < ApplicationController
   respond_to :html
 
   def index
-      @events = Event.findMyEvents(current_user)
+      @events = Event.all
       respond_with(@events)
   end
 
   def show
-    respond_with(@event)
+    @event = Event.find(params[:id])
+    @comments = Comment.where(:event_id => params[:id])
+    @new_comment = Comment.new
+    @hobbies = Hobby.all
+    @events_hobbies = EventsHobby.where(:event_id => params[:id])
+    @users_events = UsersEvent.where(:event_id => params[:id])
+    @users= User.all
   end
 
   def new
-    @event = Event.new
-    respond_with(@event)
+    @new_comment = Comment.new
   end
-
   def edit
   end
 
   def create
-    @event = Event.new(event_params)
-    @event.save
-    respond_with(@event)
+    @new_comment = Comment.new
+    @new_comment = Comment.new(comment_params)
+    if @new_comment.save
+      redirect_to event_path(params[:comment][:event_id])
+    else
+      render 'new'
+    end
   end
 
   def update
@@ -35,6 +43,10 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
     respond_with(@event)
+  end
+  
+  def comment_params
+    params.require(:comment).permit(:user_id, :event_id, :message)
   end
 
   private
