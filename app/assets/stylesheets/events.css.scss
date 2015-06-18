@@ -126,6 +126,29 @@
   float: left;
 }
 
-.temp {
+.creator_image {
+  float: left;
+  margin-right: 5px;
+}
+
+.creator_name {
+  float: left;
+}
+
+.eventheader {
   clear: both;
+}
+
+.eventtitle {
+  float: left;
+}
+
+.editbutton {
+  float: right;
+}
+
+.savebutton {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  float: right;
 }

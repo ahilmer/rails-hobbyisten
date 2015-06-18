@@ -1,14 +1,28 @@
 <div class="container">
 	<div class="main-content-box">
-		<h1><%= @event.title %></h1>
-		<table class="table">
-			<tr>
-				<td class="col-sm-1"> 
-					<%= image_tag(@event.image_url, :size => "150x150", :alt => "Event Pic", :id => "eventpicture", class: "img-responsive") %>
-				</td>
-				<td>				<pre> <%= @event.description %> </pre></td>
-			</tr>
-		</table>
+		<div class="eventheader">
+			<div class="eventtitle">
+				<h1><%= @event.title %></h1>
+			</div>
+			<div class="editbutton">
+				<h1>
+					<% if current_user.id == @event.creator_id %>
+					  <%= link_to "Bearbeiten", edit_event_path(@event), class: "btn" %>
+					<% else %>
+					<% end %>
+					
+				</h1>
+			</div>
+		</div>
+
+		<div>
+			<table class="table">
+				<tr>
+					<td class="col-sm-1"> <%= image_tag(@event.image_url, :size => "200x200", :alt => "Event Pic", :id => "eventpicture", class: "img-responsive") %> </td>
+					<td>					<pre> <%= @event.description %> </pre></td>
+				</tr>
+			</table>
+		</div>
 
 		<table class="table">
 			<thead>
@@ -21,63 +35,58 @@
 				<td> Hobby </td>
 			</tr>
 			<tr>
-				<td> 
-				<%= image_tag((@event.creator).image_url, :size => "85x85", :alt => "Profile Pic", :id => "profilepicture", :class => "item_images") %>
-				<br />
-				<%= (@event.creator).firstname %>
-				<br />
-				<%= (@event.creator).lastname %> </td>
-				<td> <%= @event.take_place_timestamp %> </td>
-				<td> <%= @event.explicit_location %> </br> <%= (@event.location).name %> </td>
-				<td> <% @events_hobbies.each do |hobby| %>
-				<%= @hobbies.find(hobby.hobby_id).name %> </br>
-				<% end %> </td>
-			</tr>
-		</table>
-
-		<div class="messages">
-			<form>
-				<div class="form-group">
-					<textarea type="text" class="form-control" id="messageboard_message" placeholder="Nachricht" rows="3"></textarea>
-					<button type="submit" class="btn btn-default">
-						Senden
-					</button>
-					<br />
-					<br />
-					<div class = "comments">
-						<% @comments.each do |comment| %>
-						<div text-align=left>
-							<b><%= @users.find(comment.user_id).firstname %> </b> (<%= comment.created_at %>) <b>:</b>  <br />
-								-><%= comment.message %>
-								</div>
-						<% end %> 
-					</div>
+				<td>
+				<div class="creator_image">
+					<a href="/users/<%= (@event.creator).id%>"> <%= image_tag((@event.creator).image_url, :size => "85x85", :alt => "Profile Pic", :id => "profilepicture", :class => "item_images") %> </a>
 				</div>
-			</form>
-		</div>
-		<div class="participants">
-			<b>Teilnehmer <%= @users_events.size %> von
-			<% if @event.max_participants < 0 %>
-			unbegrenzt
-			<% else %>
-			<%= @event.max_participants %></b>
+				<div class="creator_name">
+					<a href="/users/<%= (@event.creator).id%>"> <%= (@event.creator).firstname %>
+					<br />
+					<%= (@event.creator).lastname %>
+				</td>
+				</a>
+	</div>
+	<td> <%= @event.take_place_timestamp %> </td>
+	<td> <%= @event.explicit_location %> </br> <%= (@event.location).name %> </td>
+	<td> <% @events_hobbies.each do |hobby| %>
+	<%= @hobbies.find(hobby.hobby_id).name %> </br>
+	<% end %> </td>
+	</tr>
+	</table>
+
+	<div class="messages">
+		<div class="form-group">
+			<%= form_for @new_comment do |f| %>
+			<%= f.hidden_field :user_id, :value => current_user.id %>
+			<%= f.text_area :message, :class => "form-control" %>
+			<%= f.hidden_field :event_id , :value => params[:id] %>
+			<%= f.submit "Senden", :class => "btn btn-default" %>
 			<% end %>
 			<br />
-			<% @users_events.each do |user| %>
-			<%= image_tag((@users.find(user.user_id)).image_url, :size => "85x85", :alt => "Profile Pic", :id => "profilepicture", :class => "item_images") %>
-			<%= @users.find(user.user_id).firstname %> </br>
-			<% end %>
+			<br />
+			<div class = "comments">
+				<% @comments.reverse_each do |comment| %>
+				<div text-align=left>
+					<a href="/users/<%= comment.user_id%>"> <b><%= image_tag(@users.find(comment.user_id).image_url, :size => "30x30", :alt => "Profile Pic", :id => "profilepicture", :class => "item_images") %><%= @users.find(comment.user_id).firstname %> </b> (<%= comment.created_at %>) <b>:</b> </a>
+					<br />
+					-><%= comment.message %>
+				</div>
+				<% end %>
+			</div>
 		</div>
-
-
-<div class="temp">
-	<%= form_for @new_comment do |f| %>
-		<%= f.text_field :user_id, :value => @event.creator.id %>
-		<%= f.text_area :message %>
-		<%= f.text_field :event_id , :value => params[:id] %>
-		<%= f.submit "Senden" %>
-		<% end %>
-</div>
-		
 	</div>
+	<div class="participants">
+		<b>Teilnehmer <%= @users_events.size %> von
+		<% if @event.max_participants < 0 %>
+		unbegrenzt
+		<% else %>
+		<%= @event.max_participants %></b>
+		<% end %>
+		<br />
+		<% @users_events.each do |user| %>
+		<a href="/users/<%= user.user_id%>"><%= image_tag((@users.find(user.user_id)).image_url, :size => "60x60", :alt => "Profile Pic", :id => "profilepicture", :class => "item_images") %>
+		<%= @users.find(user.user_id).firstname %> </a></br>
+		<% end %>
+	</div>
+</div>
 </div>
