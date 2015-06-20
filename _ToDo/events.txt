@@ -8,6 +8,7 @@
 
 - Event new
 	- Neu erstelltes event hat kein Bild
+	- beim neu anlegen creator gleich als teilnehmer hinzufügen
 	
 - Event show
 	- An event teilnehmen
