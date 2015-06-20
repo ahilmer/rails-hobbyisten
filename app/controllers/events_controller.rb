@@ -53,8 +53,8 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    @event.destroy
-    respond_with(@event)
+    @event.delete
+    redirect_to events_path
   end
 
   def event_params
