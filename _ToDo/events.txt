@@ -12,4 +12,3 @@
 - Event show
 	- An event teilnehmen
 	- aus event austreten
-	- Kommentare schreiben nur wenn man dem event beigetreten ist
