@@ -1,43 +1,46 @@
 
 <div class="eventscontrol">
   <div class="eventscontrol-container">
-    <div class="eventcheckbox">
-      <%= check_box_tag(:myevents_check, 'myevents_flag', true, {:onchange => logger.debug("Change Eigene Events")}) %>
-      <%= label_tag(:myevents_check, "Eigene Veranstaltungen") %>
-    <br/>
-      <%= check_box_tag(:otherevents_check, 'otherevents_flag', true) %>
-      <%= label_tag(:otherevents_check, "Fremde Veranstaltungen") %>
-    </div>
-    <div class="sortoption-container">
-      Hier werden die Sortieroptionen eingefügt
-    </div>
-    <%= link_to image_tag("default/add.JPG", size: "50"), new_event_path, :class => 'addevent_button default-button' %>
+
+    <table class="table">
+      <thead>
+        <th>Anzeigeoptionen</th>
+      </thead>
+      <tr>
+        <td> Allgemein </td>
+        <td> Hobbies </td>
+        <td> Veranstaltungsort </td>
+        <td> Veranstalter </td>
+      </tr>
+      <tr>
+        <td>
+          <%= render "dropdownCheckboxContainer", input: nil, labelContent: 'Eigene Veranstaltungen'  %>
+          <%= render "dropdownCheckboxContainer", input: nil, labelContent: 'Fremde Veranstaltungen'  %>
+        </td>
+        <td>
+          <% @hobbies.each do |hobby| %>
+            <%= render "dropdownCheckboxContainer", input: hobby, labelContent: hobby.name  %>
+          <% end %>
+        </td>
+        <td>
+          <% @locations.each do |location| %>
+            <%= render "dropdownCheckboxContainer", input: location, labelContent: location  %>
+          <% end %>
+        </td>
+        <td>
+          <% @creators.each do |creator| %>
+            <%= render "dropdownCheckboxContainer", input: creator, labelContent: creator.firstname  %>
+          <% end %>
+        </td>
+      </tr>
+    </table>
   </div>
 </div>
 <div class="eventslist">
   <div class="eventlist-container">
+    <a  id="myEventCreateBottom" class="btn btn-default" href="/events/new">Create new Event</a>
     <% @events.each do |event| %>
       <%= render "eventEntry", event: event, css_class: 'myevents', view_type: 'myevents'  %>
     <% end %>
   </div>
 </div>
-
-<!--
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
--->

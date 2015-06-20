@@ -14,21 +14,24 @@
       <%= event.description %>
     </div>
 
-    <div class="<%= css_class + '_metacontainer' %>">
-      <div class="<%= css_class + '_creatorcontainer' %>">
+
+
+
+    <div class="row <%= css_class + '_metacontainer' %>">
+      <div class="col-md-3 <%= css_class + '_creatorcontainer' %>">
         von <%= link_to event.creator.firstname, event.creator %>
       </div>
 
-      <div class="<%= css_class + '_participantscontainer' %>">
-        Teilnehmer: <%= event.users.size %> von <%= event.max_participants %>
+      <div class="col-md-3 <%= css_class + '_participantscontainer' %>">
+        Teilnehmer: </br> <%= event.users.size %> von <%= event.max_participants %>
       </div>
 
-      <div class="<%= css_class + '_locationcontainer' %>">
-        Treffpunkt: <%= event.explicit_location %>
+      <div class="col-md-3 <%= css_class + '_locationcontainer' %>">
+        Treffpunkt: </br> <%= event.explicit_location %>
       </div>
 
-      <div class="<%= css_class + '_timecontainer' %>">
-        am: <%= event.take_place_timestamp.strftime('%d.%m.%Y') %> <br/> um <%= event.take_place_timestamp.strftime('%H:%M Uhr') %>
+      <div class="col-md-3 <%= css_class + '_timecontainer' %>">
+        am: </br> <%= event.take_place_timestamp.strftime('%d.%m.%Y') %> <br/> um </br> <%= event.take_place_timestamp.strftime('%H:%M Uhr') %>
       </div>
     </div>
   </div>
@@ -50,10 +53,13 @@
     <div class="<%= css_class + '_newscontainer' %>">
 
     </div>
-    <div class="<%= css_class + '_resigncontainer' %>">
-      <button id="resign" type="button" onclick="resignEvent(<%= event.to_json %>)">
-      </button>
-    </div>
+    <% if event.creator.id != current_user.id %>
+      <div class="<%= css_class + '_resigncontainer' %>">
+        <span onclick="resignEvent(<%= event.to_json %>, <%= current_user.to_json %>)">
+          <i style="color: #FF4136" class="fa fa-trash fa-2x"></i>&nbsp;Austragen
+        </span>
+      </div>
+    <% end %>
   <% end %>
 
 </div>

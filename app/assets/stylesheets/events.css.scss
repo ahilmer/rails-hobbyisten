@@ -12,6 +12,7 @@
   margin-right: auto;
   width: 700px;
   padding-top: 15px;
+  max-height: 200px;
   overflow: hidden;
 }
 
@@ -33,20 +34,27 @@
 
 }
 
-
+#myEventCreateBottom {
+  width: 100%;
+  margin-bottom: 10px;
+  color: #777;
+}
 
 .eventlist-container {
   margin-left: auto;
   margin-right: auto;
-  width: 700px;
+  width: 800px;
   padding-top: 15px;
 }
 
 .myevents_entrycontainer {
   border: 1px solid #E5E5E5;
   background-color: #F5F5F5;
-  margin: 5px;
+  margin-top: 5px;
+  width: 100%;
   overflow: hidden;
+  max-height: 170px;
+  position: relative;
 }
 
 
@@ -54,6 +62,7 @@
   margin: 10px;
   float: left;
   width: 150px;
+  max-width: 25%;
   height: 150px;
   overflow: hidden;
   border: 1px solid #E5E5E5;
@@ -70,7 +79,8 @@
   float: left;
   padding: 10px;
   position: relative;
-  width: available;
+  width: 75%;
+  height: 100%;
 }
 
 
@@ -107,7 +117,11 @@
 
 .myevents_resigncontainer {
   float: right;
+  position: absolute;
+  top: 10px;
+  left: 85%;
   overflow: hidden;
+  cursor: pointer;
 }
 
 #resign{

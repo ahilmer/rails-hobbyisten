@@ -6,7 +6,9 @@ class EventsController < ApplicationController
 
   def index
       @events = Event.findMyEvents(current_user)
-      respond_with(@events)
+      @hobbies = Event.findMyEventsHobbies(current_user)
+      @locations = Event.findMyEventsLocations(current_user)
+      @creators = Event.findMyEventsCreators(current_user)
   end
 
   def show

@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :hobbies
 
   resources :events
-  
+
   resources :comment
   post '/comment/:id', to: 'comment#create'
 

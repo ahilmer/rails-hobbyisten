@@ -23,7 +23,7 @@ class Event < ActiveRecord::Base
     suggestions = []
 
      user.locations.each { |location|
-             suggestions.push(*Event.near(location,20))
+        suggestions.push(*Event.near(location,20))
      }
 
      user.events.each { |event|
@@ -35,6 +35,7 @@ class Event < ActiveRecord::Base
 
   end
 
+
   def self.findMyEvents(user)
     events = []
 
@@ -44,5 +45,50 @@ class Event < ActiveRecord::Base
 
     return events
   end
+
+
+
+  def self.findMyEventsHobbies(user)
+    hobbies = []
+
+    user.events.each { |event|
+      event.hobbies.each { |hobby|
+        hobbies.push(hobby)
+      }
+    }
+
+    hobbies = hobbies.uniq{ |x| x.id}
+
+    return hobbies
+  end
+
+
+
+  def self.findMyEventsLocations(user)
+    locations = []
+
+    user.events.each { |event|
+      locations.push(event.explicit_location)
+    }
+
+    locations = locations.uniq{ |x| x}
+
+    return locations
+  end
+
+
+  def self.findMyEventsCreators(user)
+    creators = []
+
+    user.events.each { |event|
+      creators.push(event.creator)
+    }
+
+    creators = creators.uniq{ |x| x.id}
+
+    return creators
+  end
+
+
 
 end
