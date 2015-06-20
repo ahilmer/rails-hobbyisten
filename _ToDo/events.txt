@@ -1,9 +1,14 @@
-- Event löschen. (Hinweis: mit .delete nicht .destroy)
-- Kommentare schreiben nur wenn man dem event beigetreten ist
-
-- Event editieren
+- Event edit/new
 	- Stadt auswählen. Derzeit fest
 	- Hobbys auswählen. Derzeit null
 	- Zeitpunkt mit Datepicker auswählen.
-	
+	- Bild upload
+	- Event löschen. (Hinweis: mit .delete nicht .destroy)
 
+- Event new
+	- Neu erstelltes event hat kein Bild
+	
+- Event show
+	- An event teilnehmen
+	- aus event austreten
+	- Kommentare schreiben nur wenn man dem event beigetreten ist
