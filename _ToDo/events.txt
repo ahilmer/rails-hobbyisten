@@ -1,0 +1,9 @@
+- Event löschen. (Hinweis: mit .delete nicht .destroy)
+- Kommentare schreiben nur wenn man dem event beigetreten ist
+
+- Event editieren
+	- Stadt auswählen. Derzeit fest
+	- Hobbys auswählen. Derzeit null
+	- Zeitpunkt mit Datepicker auswählen.
+	
+
