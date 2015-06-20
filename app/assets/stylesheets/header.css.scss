@@ -2,6 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.eventBadge {
+   position:relative;
+}
+.eventBadge[data-badge]:after {
+   content:attr(data-badge);
+   position:absolute;
+   top:5px;
+   right:0px;
+   font-size:.7em;
+   background:green;
+   color:white;
+   width:18px;height:18px;
+   text-align:center;
+   line-height:18px;
+   border-radius:50%;
+   box-shadow:0 0 1px #333;
+}
+
 #header {
   padding-top: 10px;
   padding-bottom: 10px;

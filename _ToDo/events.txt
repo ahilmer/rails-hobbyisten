@@ -8,6 +8,7 @@
 - Event new
 	- Neu erstelltes event hat kein Bild
 	- beim neu anlegen creator gleich als teilnehmer hinzufügen
+	- neue events werden nicht bei suggestions angezeigt
 	
 - Event show
 	- An event teilnehmen
@@ -15,6 +16,6 @@
 	- Kommentare schreiben nur wenn man dem event beigetreten ist
 	
 - Eventlist
-    - Eventanlegenbutton verschieben
-	- Austretenbutton einfügen
+    - Eventanlegenbutton verschieben (Erledigt)
+	- Austretenbutton einfügen 
 	- Anzeigecheckboxen einfügen und mit Funktion hinterlegen
