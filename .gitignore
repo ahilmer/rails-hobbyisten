@@ -17,5 +17,6 @@
 
 # Eclipse project file
 .project
+.settings/
 
 /public/uploads

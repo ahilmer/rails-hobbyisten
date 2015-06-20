@@ -31,12 +31,6 @@ class EventsController < ApplicationController
   end
 
   def create
-    @new_comment = Comment.new(comment_params)
-    if @new_comment.save
-      redirect_to event_path(params[:comment][:event_id])
-    else
-      render 'new'
-    end
   end
 
   def update
@@ -52,11 +46,7 @@ class EventsController < ApplicationController
     @event.destroy
     respond_with(@event)
   end
-  
-  def comment_params
-    params.require(:comment).permit(:user_id, :event_id, :message)
-  end
-  
+
   def event_params
     params.require(:event).permit(:title, :description, :take_place_timestamp, :explicit_location, :max_participants)
   end
