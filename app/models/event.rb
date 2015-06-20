@@ -23,7 +23,7 @@ class Event < ActiveRecord::Base
     suggestions = []
 
      user.locations.each { |location|
-             suggestions.push(*Event.near(location,20))
+             suggestions.push(*Event.near(location,30))
      }
 
      user.events.each { |event|

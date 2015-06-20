@@ -18,3 +18,16 @@
   $('#myEventBadge').attr('data-badge', 4);
   $.ajax({ method: "POST", url: "ignored_events", data: data } ).done (html) ->
     $("#" + event.id).fadeOut( 400 );
+
+@updateRange = (value) ->
+  $('#range').text(value);
+
+@updateSuggestions = (value) ->
+  suggestionsToDisplay = $('.suggestion').filter(
+    () -> parseInt($(this).attr('data-distance')) <= parseInt(value);  )
+
+  suggestionsToHide = $('.suggestion').filter(
+      () -> parseInt($(this).attr('data-distance')) > parseInt(value);  )
+
+  suggestionsToDisplay.fadeIn();
+  suggestionsToHide.fadeOut();
