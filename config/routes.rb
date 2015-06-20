@@ -16,8 +16,8 @@ Rails.application.routes.draw do
 
   resources :events
   
-  resources :comments, :only => []
-  post 'comments', to: 'events#create'
+  resources :comment
+  post '/comment/:id', to: 'comment#create'
 
   devise_for :users
 

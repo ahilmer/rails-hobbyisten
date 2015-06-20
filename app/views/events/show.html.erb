@@ -56,7 +56,7 @@
 
 	<div class="messages">
 		<div class="form-group">
-			<%= form_for @new_comment do |f| %>
+			<%= form_for @new_comment, :url => comment_path, :html => {:method => :post} do |f| %>
 			<%= f.hidden_field :user_id, :value => current_user.id %>
 			<%= f.text_area :message, :class => "form-control" %>
 			<%= f.hidden_field :event_id , :value => params[:id] %>
