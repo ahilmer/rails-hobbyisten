@@ -3,7 +3,6 @@
 	- Hobbys auswählen. Derzeit null
 	- Zeitpunkt mit Datepicker auswählen.
 	- Bild upload
-	- Event löschen. (Hinweis: mit .delete nicht .destroy)
 	- Abbrechen Button
 
 - Event new
