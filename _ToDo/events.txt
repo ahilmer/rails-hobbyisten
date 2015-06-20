@@ -4,6 +4,7 @@
 	- Zeitpunkt mit Datepicker auswählen.
 	- Bild upload
 	- Event löschen. (Hinweis: mit .delete nicht .destroy)
+	- Abbrechen Button
 
 - Event new
 	- Neu erstelltes event hat kein Bild
