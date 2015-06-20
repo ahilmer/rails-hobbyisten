@@ -15,6 +15,6 @@
 	- Kommentare schreiben nur wenn man dem event beigetreten ist
 	
 - Eventlist
-    - Eventanlegenbutton verschieben
-	- Austretenbutton einfügen
+    - Eventanlegenbutton verschieben (Erledigt)
+	- Austretenbutton einfügen 
 	- Anzeigecheckboxen einfügen und mit Funktion hinterlegen
