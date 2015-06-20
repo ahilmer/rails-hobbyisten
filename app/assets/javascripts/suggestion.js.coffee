@@ -10,6 +10,7 @@
     $("#flash").html("An <a href='/events/#{event.id}'>" + event.title + "</a> teilgenommen!")
     old = parseInt($('#myEventBadge').attr('data-badge'));
     $('#myEventBadge').attr('data-badge', old+1);
+  $('#myEventBadge').blink({maxBlinks: 3, blinkPeriod: 1000 });
 
 # Methode um eine Versantaltung zu ignorieren, sodass sie niocht mehr bei den Vorschlägen auftaucht
 @ignoresuggestion = (event) ->
