@@ -13,3 +13,8 @@
 	- An event teilnehmen
 	- aus event austreten
 	- Kommentare schreiben nur wenn man dem event beigetreten ist
+	
+- Eventlist
+    - Eventanlegenbutton verschieben
+	- Austretenbutton einfügen
+	- Anzeigecheckboxen einfügen und mit Funktion hinterlegen

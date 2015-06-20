@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   respond_to :html
 
   def index
-      @events = Event.all
+      @events = Event.findMyEvents(current_user)
       respond_with(@events)
   end
 
@@ -26,7 +26,7 @@ class EventsController < ApplicationController
       render 'new'
     end
   end
-  
+
   def edit
     @event = Event.find(params[:id])
     @events_hobbies = EventsHobby.where(:event_id => params[:id])

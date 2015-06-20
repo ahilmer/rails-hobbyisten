@@ -1,0 +1,8 @@
+<div class="<%= css_class + '_entrycontainer' %>" id="<%= user.id %>">
+  <div class="<%= css_class + '_picturecontainer' %>">
+    <%= link_to(image_tag(user.image.url, height: '30px', style: 'vertical-align:bottom'), user) %>
+  </div>
+  <div class="<%= css_class + '_namecontainer' %>">
+    <%= link_to user.firstname, user %>
+  </div>
+</div>

@@ -9,4 +9,5 @@ class SuggestionController < ApplicationController
 
 	end
 
+
 end
