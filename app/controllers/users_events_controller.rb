@@ -8,7 +8,8 @@ class UsersEventsController < ApplicationController
   end
 
   def show
-    respond_with(@users_event)
+    @users_event.destroy
+    redirect_to edit_event_path(@users_event.event_id)
   end
 
   def new
