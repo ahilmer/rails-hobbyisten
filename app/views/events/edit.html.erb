@@ -67,5 +67,7 @@
 </div>
 <div class="savebutton">
 <%= f.submit "Speichern", :class => "btn btn-primary" %>
+<%= link_to "Veranstaltung entfernen", event_path(@event), method: :delete,
+                      data: {confirm: "Willst du diese Veranstaltung wirklich entfernen? "}, class: "btn btn-danger" %>
 </div>
 <% end %>
