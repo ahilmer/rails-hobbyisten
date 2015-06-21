@@ -39,7 +39,7 @@ class Event < ActiveRecord::Base
   def self.findMyEvents(user)
     events = []
 
-    user.events.each { |event|
+    user.events.order('take_place_timestamp ASC').each { |event|
       events.push(event)
     }
 
