@@ -39,9 +39,9 @@
 				</td>
 				</a>
 	</div>
-	<td> <%= f.text_field :take_place_timestamp , :class => "form-control", :value => "ZEIT" %></td>
+	<td> <%= f.datetime_select :take_place_timestamp %> </td>
 	<td> 
-		<%= f.text_field :explicit_location , :class => "form-control", :value => "Genauer Ort" %> </br> 
+		<%= f.text_field :explicit_location, :class => "form-control", :value => "Genauer Ort" %> </br> 
 		<%= "ORT" %> 
 	</td>
 	<td> HOBBY </td>
@@ -49,7 +49,7 @@
 	</table>
 
 	<div class="participants">
-		Anzahl Teilnehmer: <%= f.text_field :max_participants , :class => "form-control", :value => "-1" %>
+		Anzahl Teilnehmer: <%= f.text_field :max_participants, :class => "form-control", :value => "-1" %> (-1 = unbegrenzt)
 	</div>
 </div>
 </div>

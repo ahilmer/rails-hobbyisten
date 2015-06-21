@@ -1,19 +1,23 @@
 - Event edit/new
 	- Stadt auswählen. Derzeit fest
 	- Hobbys auswählen. Derzeit null
-	- Zeitpunkt mit Datepicker auswählen.
+	- Zeitpunkt mit Datepicker auswählen. (ERLEDIGT)
 	- Bild upload
 	- Abbrechen Button
+	- Teilnehmeranzahl: bei -1 unbegrenzt hinschreiben. Und bei Unbegrenzt input auf -1 setzen
+	
+	- OPTIONAL: Datepicker schön mit Bootstrap
 
 - Event new
 	- Neu erstelltes event hat kein Bild
 	- beim neu anlegen creator gleich als teilnehmer hinzufügen
-	- neue events werden nicht bei suggestions angezeigt
+	- neue events werden nicht bei suggestions angezeigt (ERLEDIGT)
+	- Datepicker ist 2 stunden zu früh dran
 	
 - Event show
 	- An event teilnehmen
 	- aus event austreten
-	- Kommentare schreiben nur wenn man dem event beigetreten ist
+	- Kommentare schreiben nur wenn man dem event beigetreten ist (ERLEDIGT)
 	
 - Eventlist
     - Eventanlegenbutton verschieben (Erledigt)
