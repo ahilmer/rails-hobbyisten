@@ -31,7 +31,7 @@ class UsersEventsController < ApplicationController
 
   def destroy
     @users_event.destroy
-    redirect_to edit_event_path(@users_event.event_id)
+    respond_with(@users_event)
   end
 
   private

@@ -55,7 +55,7 @@
     </div>
     <% if event.creator.id != current_user.id %>
       <div class="<%= css_class + '_resigncontainer' %>">
-        <span onclick="resignEvent(<%= event.to_json %>, <%= current_user.to_json %>)">
+        <span onclick="resignEvent(<%= event.users_events.find{ |ue| ue.user_id == current_user.id}.to_json %>)">
           <i style="color: #FF4136" class="fa fa-trash fa-2x"></i>&nbsp;Austragen
         </span>
       </div>

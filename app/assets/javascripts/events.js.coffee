@@ -3,7 +3,10 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 # Methode um die Teilnahme an einer Veranstaltung zurückzunehmen
-@resignEvent = (event, user) ->
-    data =  { users_events: { event_id: event.id; user_id: user.id } }
-    $.ajax({ method: "DELETE", url: "users_events/" + data.id, data: data } ).done (html) ->
-      $("#" + event.id).fadeOut( 400 );
+@resignEvent = (user_event) ->
+    data =  user_event
+    $.ajax({ method: "DELETE", url: "users_events/" + user_event.id} ).done (html) ->
+      $("#" + user_event.event_id).fadeOut( 400 );
+      old = parseInt($('#myEventBadge').attr('data-badge'));
+      $('#myEventBadge').attr('data-badge', old-1);
+    $('#myEventBadge').blink({maxBlinks: 3, blinkPeriod: 1000 });

@@ -17,5 +17,5 @@
 	
 - Eventlist
     - Eventanlegenbutton verschieben (Erledigt)
-	- Austretenbutton einfügen 
+	- Austretenbutton einfügen (Erledigt)
 	- Anzeigecheckboxen einfügen und mit Funktion hinterlegen
