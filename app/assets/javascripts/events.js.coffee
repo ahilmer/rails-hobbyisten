@@ -10,3 +10,30 @@
       old = parseInt($('#myEventBadge').attr('data-badge'));
       $('#myEventBadge').attr('data-badge', old-1);
     $('#myEventBadge').blink({maxBlinks: 3, blinkPeriod: 1000 });
+
+@updateEventListhobby = (checked, eventlist, object) ->
+  hobbyid = object.id ->
+  eventswithhobbies = $.grep(eventlist, (event, i) ->
+    event.hobbies.find(hobbyid) != null;
+    );
+  $('.myevents_entrycontainer').filter( () ->
+    eventswithhobbies.find($(this).attr('id')); ).fadeOut();
+
+
+
+@updateEventList = (checked, eventlist, object, objecttype) ->
+  EventsFade = switch objecttype
+    when "hobby" then ->
+      hobbyid = object.id ->
+      eventswithhobbies = $.grep(eventlist, (event, i) ->
+        event.hobbies.find(hobbyid) != null;
+        );
+      EventsFade = $('.myevents_entrycontainer').filter( () ->
+        eventswithhobbies.find($(this).attr('id')); )
+    when "location" then ->
+
+    when "creator" then ->
+
+    else null
+
+  EventsFade.fadeOut();

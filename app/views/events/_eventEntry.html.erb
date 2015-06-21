@@ -23,7 +23,12 @@
       </div>
 
       <div class="col-md-3 <%= css_class + '_participantscontainer' %>">
-        Teilnehmer: </br> <%= event.users.size %> von <%= event.max_participants %>
+        Teilnehmer: </br> <%= event.users.size %> von
+        <% if event.max_participants < 0 %>
+          unbegrenzt
+        <% else %>
+          <%= event.max_participants %></b>
+        <% end %>
       </div>
 
       <div class="col-md-3 <%= css_class + '_locationcontainer' %>">

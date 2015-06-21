@@ -14,22 +14,23 @@
       </tr>
       <tr>
         <td>
-          <%= render "dropdownCheckboxContainer", input: nil, labelContent: 'Eigene Veranstaltungen'  %>
-          <%= render "dropdownCheckboxContainer", input: nil, labelContent: 'Fremde Veranstaltungen'  %>
+          <%= render "dropdownCheckboxContainer", input: nil, labelContent: 'Eigene Veranstaltungen', events: @events, type: "Hobby" %>
+          <%= render "dropdownCheckboxContainer", input: nil, labelContent: 'Fremde Veranstaltungen', events: @events, type: "Hobby" %>
+          <%= render "dropdownCheckboxContainer", input: nil, labelContent: 'Vergangene Veranstaltungen', events: @events, type: "Hobby" %>
         </td>
         <td>
           <% @hobbies.each do |hobby| %>
-            <%= render "dropdownCheckboxContainer", input: hobby, labelContent: hobby.name  %>
+            <%= render "dropdownCheckboxContainer", input: @hobby, labelContent: hobby.name, events: @events, type: "Hobby" %>
           <% end %>
         </td>
         <td>
           <% @locations.each do |location| %>
-            <%= render "dropdownCheckboxContainer", input: location, labelContent: location  %>
+            <%= render "dropdownCheckboxContainer", input: location, labelContent: location, events: @events, type: "Hobby" %>
           <% end %>
         </td>
         <td>
           <% @creators.each do |creator| %>
-            <%= render "dropdownCheckboxContainer", input: creator, labelContent: creator.firstname  %>
+            <%= render "dropdownCheckboxContainer", input: creator, labelContent: creator.firstname, events: @events, type: "Hobby" %>
           <% end %>
         </td>
       </tr>
