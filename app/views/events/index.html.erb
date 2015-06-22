@@ -20,7 +20,7 @@
         </td>
         <td>
           <% @hobbies.each do |hobby| %>
-            <%= render "dropdownCheckboxContainer", input: @hobby, labelContent: hobby.name, events: @events, type: "Hobby" %>
+            <%= render "dropdownCheckboxContainer", input: hobby.id, labelContent: hobby.name, events:  @events.select { |event| event.hobbies.select { |currenthobby| currenthobby.id == hobby.id} }, type: "Hobby" %>
           <% end %>
         </td>
         <td>

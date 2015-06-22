@@ -12,12 +12,8 @@
     $('#myEventBadge').blink({maxBlinks: 3, blinkPeriod: 1000 });
 
 @updateEventListhobby = (checked, eventlist, object) ->
-  hobbyid = object.id ->
-  eventswithhobbies = $.grep(eventlist, (event, i) ->
-    event.hobbies.find(hobbyid) != null;
-    );
   $('.myevents_entrycontainer').filter( () ->
-    eventswithhobbies.find($(this).attr('id')); ).fadeOut();
+    $(this).attr('id') in eventlist; ).fadeOut();
 
 
 

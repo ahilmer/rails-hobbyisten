@@ -1,7 +1,7 @@
 
 <div class="checkbox">
   <label>
-    <input type="checkbox" value="" checked onChange="updateEventListHobby(false, <%= events %>, <%= input %>)">
+    <input type="checkbox" value="" checked onChange="updateEventListhobby(false, <%= events.map{ |event| event.id} %>, <%= input %>)">
     <%= labelContent %>
   </label>
 </div>
