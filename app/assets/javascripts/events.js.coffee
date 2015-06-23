@@ -11,25 +11,8 @@
       $('#myEventBadge').attr('data-badge', old-1);
     $('#myEventBadge').blink({maxBlinks: 3, blinkPeriod: 1000 });
 
-@updateEventListhobby = (checked, eventlist, object) ->
-  $('.myevents_entrycontainer').filter( () ->
-    $(this).attr('id') in eventlist; ).fadeOut();
-
-
-
-@updateEventList = (checked, eventlist, object, objecttype) ->
-  EventsFade = switch objecttype
-    when "hobby" then ->
-      hobbyid = object.id ->
-      eventswithhobbies = $.grep(eventlist, (event, i) ->
-        event.hobbies.find(hobbyid) != null;
-        );
-      EventsFade = $('.myevents_entrycontainer').filter( () ->
-        eventswithhobbies.find($(this).attr('id')); )
-    when "location" then ->
-
-    when "creator" then ->
-
-    else null
-
-  EventsFade.fadeOut();
+@updateEventList = (eventlist, object) ->
+  if   $('#' + object).prop('checked') is false
+    $('#' + eventid).fadeOut( 400 ) for eventid in eventlist
+  else
+    $('#' + eventid).fadeIn( 400 ) for eventid in eventlist;
