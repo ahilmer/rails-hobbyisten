@@ -10,6 +10,11 @@
       old = parseInt($('#myEventBadge').attr('data-badge'));
       $('#myEventBadge').attr('data-badge', old-1);
     $('#myEventBadge').blink({maxBlinks: 3, blinkPeriod: 1000 });
+    
+@kickEvent = (user_event) ->
+    data =  user_event
+    $.ajax({ method: "DELETE", url: "users_events/" + user_event.id} ).done (html) ->
+      $("#" + user_event.user_id).fadeOut( 400 );
 
 @updateEventList = (eventlist, object) ->
   if   $('#' + object).prop('checked') is false
