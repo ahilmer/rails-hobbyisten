@@ -11,6 +11,16 @@
       $('#myEventBadge').attr('data-badge', old-1);
     $('#myEventBadge').blink({maxBlinks: 3, blinkPeriod: 1000 });
     
+@resignEventShow = (user_event) ->
+    data =  user_event
+    $.ajax({ method: "DELETE", url: "/users_events/" + user_event.id} ).done (html) ->
+      $("#" + user_event.event_id).fadeOut( 400 );
+      $("#show_event_resigncontainer_id").fadeOut( 400 );
+      $("#writ_comments_id").fadeOut( 400 );
+      old = parseInt($('#myEventBadge').attr('data-badge'));
+      $('#myEventBadge').attr('data-badge', old-1);
+      $('#myEventBadge').blink({maxBlinks: 3, blinkPeriod: 1000 });
+    
 @kickEvent = (user_event) ->
     data =  user_event
     $.ajax({ method: "DELETE", url: "/users_events/" + user_event.id} ).done (html) ->

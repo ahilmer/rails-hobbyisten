@@ -19,6 +19,7 @@
 - Event show
 	- An event teilnehmen
 	- aus event austreten
+	- (OPTIONAL) Elemente die man als nicht teilnehmer nicht sieht automatisch nach austritt ausblenden (ERLEDIGT)
 	- Kommentare schreiben nur wenn man dem event beigetreten ist (ERLEDIGT)
 	
 - Eventlist

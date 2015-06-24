@@ -128,6 +128,14 @@ max-width:100%;
   cursor: pointer;
 }
 
+.show_event_resigncontainer {
+  float: right;
+  top: 10px;
+  left: 90%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
 .events_kick_resigncontainer {
   float: right;
   top: 10px;
@@ -185,4 +193,9 @@ max-width:100%;
  padding-bottom: 5px;
  width:auto;
  background-color:#ddd;
+}
+
+.show_final_buttons {
+  float: right;
+  clear: both;
 }
