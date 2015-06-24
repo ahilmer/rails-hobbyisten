@@ -116,6 +116,9 @@ users_events = UsersEvent.create([user_id: users[2].id, event_id: events[0].id, 
 users_events = UsersEvent.create([user_id: users[0].id, event_id: events[1].id, date_of_entry: '2015-06-14 12:22:00'])
 users_events = UsersEvent.create([user_id: users[3].id, event_id: events[1].id, date_of_entry: '2015-06-14 12:22:00'])
 users_events = UsersEvent.create([user_id: users[2].id, event_id: events[10].id, date_of_entry: '2015-06-14 12:22:00'])
+users_events = UsersEvent.create([user_id: users[0].id, event_id: events[10].id, date_of_entry: '2015-06-14 12:22:00'])
+users_events = UsersEvent.create([user_id: users[1].id, event_id: events[10].id, date_of_entry: '2015-06-14 12:22:00'])
+users_events = UsersEvent.create([user_id: users[3].id, event_id: events[10].id, date_of_entry: '2015-06-14 12:22:00'])
 
 comments = Comment.create([user_id: users[1].id, message: 'Großartige Veranstalung! Freu mich!', event_id: 1])
 comments = Comment.create([user_id: users[0].id, message: 'Bin auch dabei!', event_id: 1])
