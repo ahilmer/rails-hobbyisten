@@ -30,7 +30,7 @@
 
                 , <%= suggestion.users.size %> Teilnehmer:
                   <% suggestion.users.each do |user| %>
-                    <%= link_to(image_tag(user.image.url, height: '30px', style: 'vertical-align:bottom'), user) %>
+                    <%= link_to(image_tag(user.image.url, class: 'userImage'), user) %>
                   <% end %>
               <% end %>
 
