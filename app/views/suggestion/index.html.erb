@@ -8,7 +8,7 @@
   <p>Umkreis: <strong><span id="range">20</span> km</strong></p>
   1 km <input id="rangeSlider" type="range" min="1" max="30" value="20" onchange="updateRange(this.value)"  oninput="updateRange(this.value); updateSuggestions(this.value)"></input> 30 km
 <% end %>
-<% if @suggestions.size == 0 %>
+<% if @suggestions.empty? %>
   <p> Zurzeit gibt es keine neuen Vorschläge für Dich.</p>
 <% else %>
   <div id="flash"></div>
@@ -22,7 +22,7 @@
       <div class="eventDescriptionContainer">
         <p><strong><%= link_to suggestion.title, suggestion %></strong> <br/>
           von <%= link_to suggestion.creator.firstname, suggestion.creator %>
-          <% if suggestion.users.size > 0 %>
+          <% if suggestion.users.any? %>
             , <%= suggestion.users.size %> Teilnehmer:
                   <% suggestion.users.each do |user| %>
               <%= link_to(image_tag(user.image.url, class: 'userImage'), user) %>
