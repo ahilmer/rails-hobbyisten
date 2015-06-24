@@ -11,10 +11,12 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require bootstrap-datepicker3
  *= require_self
  */
 @import "bootstrap-sprockets";
-@import "bootstrap";
+@import 'bootstrap';
+@import 'bootstrap-datetimepicker';
 
  .container,body,html { height: 100%; width: 100%; }
 

@@ -1,5 +1,5 @@
 <%= form_for @event do |f| %>
-				
+
 <div class="container">
 	<div class="main-content-box">
 		<div class="eventheader">
@@ -39,7 +39,22 @@
 				</td>
 				</a>
 	</div>
-	<td> <%= f.datetime_select :take_place_timestamp %> </td>
+	<td>
+		<div class="form-group">
+			<div class='input-group date' id='datetimepicker2'>
+				<%= f.datetime_select :take_place_timestamp, :class => 'form-control', :datadateformat => 'YYYY-MM-DD hh:mm' %>
+			</div>
+		</div>
+		<script type="text/javascript">
+			$(function() {
+				$('#datetimepicker2').datetimepicker({
+					format: 'DD-MM-YYYY hh:mm',
+					locale: 'de',
+					sideBySide: true
+				});
+			});
+		</script>
+	</td>
 	<td> <%= f.text_field :explicit_location, :class => "form-control", :value => @event.explicit_location %> </br> <%= (@event.location).name %> </td>
 	<td> <% @events_hobbies.each do |hobby| %>
 	<%= @hobbies.find(hobby.hobby_id).name %> </br>
@@ -51,23 +66,20 @@
 		<b>Teilnehmer <%= @users_events.size %> von
 		<%= f.text_field :max_participants, :class => "form-control", :value => @event.max_participants %> (-1 = unbegrenzt)
 		<br />
-		<% @users_events.each do |user| %>
-		<a href="/users/<%= user.user_id%>"><%= image_tag((@users.find(user.user_id)).image_url, :size => "60x60", :alt => "Profile Pic", :id => "profilepicture", :class => "item_images") %>
-		<%= @users.find(user.user_id).firstname %> </a>
-		<% if current_user.id != user.user_id %>
-		  	<%= link_to "Rauswerfen", users_event_path(user), method: :delete,
-                      data: {confirm: "Willst du diesen Benutzer wirklich rauswerfen? "}, class: "btn btn-danger" %>
+		<% @users_events.each do |user| %> <a href="/users/<%= user.user_id%>"><%= image_tag((@users.find(user.user_id)).image_url, :size => "60x60", :alt => "Profile Pic", :id => "profilepicture", :class => "item_images") %>
+		<%= @users.find(user.user_id).firstname %> </a> <% if current_user.id != user.user_id %>
+		<%= link_to "Rauswerfen", users_event_path(user), method: :delete,
+		data: {confirm: "Willst du diesen Benutzer wirklich rauswerfen? "}, class: "btn btn-danger" %>
 		<% else %>
 		<% end %>
-		
 		<br />
 		<% end %>
 	</div>
 </div>
 </div>
 <div class="savebutton">
-<%= f.submit "Speichern", :class => "btn btn-primary" %>
-<%= link_to "Veranstaltung entfernen", event_path(@event), method: :delete,
-                      data: {confirm: "Willst du diese Veranstaltung wirklich entfernen? "}, class: "btn btn-danger" %>
+	<%= f.submit "Speichern", :class => "btn btn-primary" %>
+	<%= link_to "Veranstaltung entfernen", event_path(@event), method: :delete,
+	data: {confirm: "Willst du diese Veranstaltung wirklich entfernen? "}, class: "btn btn-danger" %>
 </div>
 <% end %>

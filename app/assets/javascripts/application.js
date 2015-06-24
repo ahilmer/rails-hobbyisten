@@ -14,4 +14,10 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap-datepicker/core
+//= require bootstrap-datepicker/locales/bootstrap-datepicker.de.js
+//= require moment
+//= require bootstrap-datetimepicker
+//= require moment/de.js
 //= require_tree .
+
