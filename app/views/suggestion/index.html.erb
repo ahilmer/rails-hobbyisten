@@ -35,7 +35,7 @@
           <%= suggestion.description %> <br/>
           <br/>
           <% if user_signed_in? %>
-            <div id="accept">
+            <div class="accept">
               <span onclick="joinsuggestion(<%= suggestion.id %>, '<%=suggestion.title %>')"><i id="acceptButton" class="fa fa-check fa-2x"></i>&nbsp;Teilnehmen</span>
               <br/>
               <span onclick="ignoresuggestion(<%= suggestion.id %>)"><i id="declineButton" class="fa fa-trash fa-2x"></i>&nbsp;&nbsp;&nbsp;Ignorieren</span>
