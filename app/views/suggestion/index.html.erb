@@ -19,7 +19,7 @@
     <div class = "suggestion" id="<%= suggestion.id %>" data-distance="<%= if suggestion.respond_to? :distance then suggestion.distance else 0 end %>">
 
             <div class="eventContainer">
-              <%= image_tag(suggestion.image_url, style: 'float: left;max-height: 180px;') if suggestion.image? %>
+              <%= image_tag(suggestion.image_url, class: 'eventImage') if suggestion.image? %>
               <p class="eventDate">am: <%= suggestion.take_place_timestamp.strftime('%d.%m.%Y')  %> <br/> um <%= suggestion.take_place_timestamp.strftime('%H:%M Uhr')  %> </p>
             </div>
             <div style="height: 100%; max-width: 60%; position: relative; float: left; margin-left: 30px; margin-top: 10px;">
