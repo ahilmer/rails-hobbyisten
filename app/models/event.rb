@@ -13,13 +13,15 @@ class Event < ActiveRecord::Base
   has_many :users_events
   has_many :users, :through => :users_events
 
-
+  # Fetches the top5 Events ranked by total users joined
   def self.top5
     topEvents = UsersEvent.group(:event_id).order('count_all DESC').count.keys
     Event.find(topEvents)
   end
 
- def self.findSuggestions2(user)
+ # Calculates the suggestions for a user near to him
+ # sorted by take place timestamp
+ def self.findSuggestions(user)
     suggestions = []
 
      user.locations.each { |location|
@@ -27,15 +29,12 @@ class Event < ActiveRecord::Base
      }
 
      user.events.each { |event| suggestions.delete(event) }
-
      user.rejected_events.each { |event| suggestions.delete(event) }
 
      suggestions = suggestions.uniq
-
      suggestions.sort_by { |element| element.take_place_timestamp  }
 
   end
-
 
   def self.findMyEvents(user)
     events = []
