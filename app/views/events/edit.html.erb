@@ -55,9 +55,7 @@
 		</script>
 	</td>
 	<td> <%= f.text_field :explicit_location, :class => "form-control", :value => @event.explicit_location %></td>
-	<td> <% @events_hobbies.each do |hobby| %>
-	<%= @hobbies.find(hobby.hobby_id).name %> </br>
-	<% end %> </td>
+	<td> <%= @hobbies.find(@event.hobby_id).name %> </td>
 	</tr>
 	</table>
 

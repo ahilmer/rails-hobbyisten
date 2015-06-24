@@ -15,7 +15,6 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @comments = Comment.where(:event_id => params[:id])
     @hobbies = Hobby.all
-    @events_hobbies = EventsHobby.where(:event_id => params[:id])
     @users_events = UsersEvent.where(:event_id => params[:id])
     @users= User.all
     @new_comment = Comment.new
@@ -23,6 +22,7 @@ class EventsController < ApplicationController
 
   def new
     @new_event = Event.new
+    @hobbies = Hobby.all
     if @new_event.save
     else
       render 'new'
@@ -31,7 +31,6 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
-    @events_hobbies = EventsHobby.where(:event_id => params[:id])
     @users_events = UsersEvent.where(:event_id => params[:id])
     @hobbies = Hobby.all
     @users= User.all
