@@ -26,20 +26,13 @@ class Event < ActiveRecord::Base
         suggestions.push(*Event.near(location,30))
      }
 
-     user.events.each { |event|
-       suggestions.delete(event)
-     }
+     user.events.each { |event| suggestions.delete(event) }
 
-     user.rejected_events.each { |event|
-       suggestions.delete(event)
-     }
+     user.rejected_events.each { |event| suggestions.delete(event) }
 
      suggestions = suggestions.uniq
 
-     suggestions.sort_by { |element|
-        element.take_place_timestamp
-     }
-     return suggestions
+     suggestions.sort_by { |element| element.take_place_timestamp  }
 
   end
 
