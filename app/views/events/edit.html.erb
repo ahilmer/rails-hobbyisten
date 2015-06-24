@@ -68,13 +68,20 @@
 		<b>Teilnehmer <%= @users_events.size %> von
 		<%= f.text_field :max_participants, :class => "form-control", :value => @event.max_participants %> (-1 = unbegrenzt)
 		<br />
-		<% @users_events.each do |user| %> <a href="/users/<%= user.user_id%>"><%= image_tag((@users.find(user.user_id)).image_url, :size => "60x60", :alt => "Profile Pic", :id => "profilepicture", :class => "item_images") %>
-		<%= @users.find(user.user_id).firstname %> </a> <% if current_user.id != user.user_id %>
-		<%= link_to "Rauswerfen", users_event_path(user), method: :delete,
-		data: {confirm: "Willst du diesen Benutzer wirklich rauswerfen? "}, class: "btn btn-danger" %>
-		<% else %>
-		<% end %>
-		<br />
+		<% @users_events.each do |user| %> 
+			<div id="<%= user.user_id %>">
+				<a href="/users/<%= user.user_id%>"><%= image_tag((@users.find(user.user_id)).image_url, :size => "60x60", :alt => "Profile Pic", :id => "profilepicture", :class => "item_images") %>
+				<%= @users.find(user.user_id).firstname %> </a> 
+				<% if @event.creator_id != user.user_id %>
+					      <div class="events_kick_resigncontainer">
+					        <span onclick="kickEvent(<%= @event.users_events.find{ |ue| ue.user_id == user.user_id}.to_json %>)">
+					          <i style="color: #FF4136" class="fa fa-trash fa-2x"></i>&nbsp;Austragen
+					        </span>
+					      </div>
+				<% else %>
+				<% end %>
+				<br />
+			</div>
 		<% end %>
 	</div>
 </div>

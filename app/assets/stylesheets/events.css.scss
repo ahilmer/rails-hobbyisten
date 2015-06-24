@@ -128,6 +128,14 @@ max-width:100%;
   cursor: pointer;
 }
 
+.events_kick_resigncontainer {
+  float: right;
+  top: 10px;
+  left: 85%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
 #resign{
   background: url(default/remove.JPG) no-repeat 50px 50px;
   display: block;
