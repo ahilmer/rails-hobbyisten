@@ -32,6 +32,15 @@
   max-height: 180px;
 }
 
+.eventDescriptionContainer {
+  height: 100%;
+  max-width: 60%;
+  position: relative;
+  float: left;
+  margin-left: 30px;
+  margin-top: 10px;
+}
+
 .eventDate {
   border-radius: 2px;
   font-size: 9px;
