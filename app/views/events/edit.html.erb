@@ -42,13 +42,12 @@
 	<td>
 		<div class="form-group">
 			<div class='input-group date' id='datetimepicker2'>
-				<%= f.datetime_select :take_place_timestamp, :class => 'form-control', :datadateformat => 'YYYY-MM-DD hh:mm' %>
+				<%= f.datetime_select :take_place_timestamp, :class => 'form-control' %>
 			</div>
 		</div>
 		<script type="text/javascript">
 			$(function() {
 				$('#datetimepicker2').datetimepicker({
-					format: 'DD-MM-YYYY hh:mm',
 					locale: 'de',
 					sideBySide: true
 				});

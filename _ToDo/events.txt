@@ -1,13 +1,13 @@
 - Event edit/new
-	- Ort entfernen. Genauer ort ist genug
+	- Ort entfernen. Genauer ort ist genug (ERLEDIGT)
 	- Hobbys auswählen. Derzeit null
 	- Zeitpunkt mit Datepicker auswählen. (ERLEDIGT)
 	- Bild upload
 	- Abbrechen Button
 	- Teilnehmeranzahl: bei -1 unbegrenzt hinschreiben. Und bei Unbegrenzt input auf -1 setzen
 	- Datepicker schön mit Bootstrap (ERLEDIGT)
-	- Datetimepicker Format auf de-De
-	- Datepicker ist 2 stunden zu früh dran 
+	- Datetimepicker Format auf de-De (ERLEDIGT)
+	- Datepicker ist 2 stunden zu früh dran  (ERLEDIGT)
 	
 
 - Event new
