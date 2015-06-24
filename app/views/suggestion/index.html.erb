@@ -40,7 +40,7 @@
               <%= suggestion.description %> <br/>
               <br/>
               <% if user_signed_in? %>
-                <div style="cursor: pointer; display: inline-block;">
+                <div id="accept">
                   <span onclick="joinsuggestion(<%= suggestion.to_json %>)"><i style="color: #2ECC40" class="fa fa-check fa-2x"></i>&nbsp;Teilnehmen</span>
                   <br/>
                   <span onclick="ignoresuggestion(<%= suggestion.to_json %>)"><i style="color: #FF4136" class="fa fa-trash fa-2x"></i>&nbsp;&nbsp;&nbsp;Ignorieren</span>
