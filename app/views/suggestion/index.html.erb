@@ -18,7 +18,7 @@
   <% @suggestions.each do |suggestion| %>
     <div class = "suggestion" id="<%= suggestion.id %>" data-distance="<%= if suggestion.respond_to? :distance then suggestion.distance else 0 end %>">
 
-            <div style="height: 100%; position: relative; float: left; margin: 5px;">
+            <div class="eventContainer">
               <%= image_tag(suggestion.image_url, style: 'float: left;max-height: 180px;') if suggestion.image? %>
               <p style="border-radius: 2px;font-size: 9px; color: rgb(182,194,222); position: absolute; right: 5px; bottom: 5px; letter-spacing: 0px; background-color: black; ">am: <%= suggestion.take_place_timestamp.strftime('%d.%m.%Y')  %> <br/> um <%= suggestion.take_place_timestamp.strftime('%H:%M Uhr')  %> </p>
             </div>
@@ -41,9 +41,9 @@
               <br/>
               <% if user_signed_in? %>
                 <div id="accept">
-                  <span onclick="joinsuggestion(<%= suggestion.to_json %>)"><i style="color: #2ECC40" class="fa fa-check fa-2x"></i>&nbsp;Teilnehmen</span>
+                  <span onclick="joinsuggestion(<%= suggestion.to_json %>)"><i id="acceptButton" class="fa fa-check fa-2x"></i>&nbsp;Teilnehmen</span>
                   <br/>
-                  <span onclick="ignoresuggestion(<%= suggestion.to_json %>)"><i style="color: #FF4136" class="fa fa-trash fa-2x"></i>&nbsp;&nbsp;&nbsp;Ignorieren</span>
+                  <span onclick="ignoresuggestion(<%= suggestion.to_json %>)"><i id="declineButton" class="fa fa-trash fa-2x"></i>&nbsp;&nbsp;&nbsp;Ignorieren</span>
                 </div>
               <% end %>
             </div>
