@@ -44,7 +44,7 @@
 				</a>
 	</div>
 	<td> <%= @event.take_place_timestamp %> </td>
-	<td> <%= @event.explicit_location %> </br> <%= (@event.location).name %> </td>
+	<td> <%= @event.explicit_location %> </td>
 	<td> <% @events_hobbies.each do |hobby| %>
 	<%= @hobbies.find(hobby.hobby_id).name %> </br>
 	<% end %> </td>
