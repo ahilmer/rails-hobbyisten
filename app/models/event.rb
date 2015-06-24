@@ -2,8 +2,8 @@ class Event < ActiveRecord::Base
   belongs_to :creator, :class_name => :User, :foreign_key => 'creator_id', :dependent => :destroy
   belongs_to :location
 
-  geocoded_by :explicit_location   # can also be an IP address
-  after_validation :geocode          # auto-fetch coordinates
+  geocoded_by :explicit_location
+  after_validation :geocode
 
   mount_uploader :image, EventUploader
 
