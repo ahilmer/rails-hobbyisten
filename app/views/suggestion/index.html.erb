@@ -13,7 +13,7 @@
   <p> Zurzeit gibt es keine neuen Vorschläge für Dich.</p>
 <% else %>
 
-  <div id="flash" style="height: 25px;"></div>
+  <div id="flash"></div>
 
   <% @suggestions.each do |suggestion| %>
     <div class = "suggestion" id="<%= suggestion.id %>" data-distance="<%= if suggestion.respond_to? :distance then suggestion.distance else 0 end %>">
