@@ -20,4 +20,3 @@
 //= require bootstrap-datetimepicker
 //= require moment/de.js
 //= require_tree .
-
