@@ -27,6 +27,17 @@
   margin: 5px;
 }
 
+.eventDate {
+  border-radius: 2px;
+  font-size: 9px;
+  color: rgb(182,194,222);
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  letter-spacing: 0px;
+  background-color: black;
+}
+
 #declineButton {color: #FF4136}
 
 #rangeSlider {
