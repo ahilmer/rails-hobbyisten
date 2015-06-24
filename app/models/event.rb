@@ -31,6 +31,10 @@ class Event < ActiveRecord::Base
      }
 
      suggestions = suggestions.uniq
+
+     suggestions.sort_by { |element|
+        element.take_place_timestamp
+     }
      return suggestions
 
   end
