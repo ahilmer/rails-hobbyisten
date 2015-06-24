@@ -17,11 +17,13 @@ Comment.delete_all
 
 default = File.open('app/assets/images/profiles/defaultprofile.png')
 andi = File.open('app/assets/images/profiles/1.jpg')
+markus = File.open('app/assets/images/profiles/markus.jpg')
+
 
 users = User.create!([
 {firstname: 'Max', lastname:'Mustermann', image: default, :email => "test@test.de", :password => "test1234", :password_confirmation => "test1234" },
 {firstname: 'Andi', lastname:'Maier',image: andi, :email => "Andreas.Maier@hobbyisten.de", :password => "testtest", :password_confirmation => "testtest" },
-{firstname: 'Markus', lastname:'Schöllner',image: default, :email => "Markus.Schoellner@hobbyisten.de", :password => "test1234", :password_confirmation => "test1234" },
+{firstname: 'Markus', lastname:'Schöllner',image: markus, :email => "Markus.Schoellner@hobbyisten.de", :password => "test1234", :password_confirmation => "test1234" },
 {firstname: 'Andreas', lastname:'Hilmer',image: default, :email => "Andreas.Hilmer@hobbyisten.de", :password => "test1234", :password_confirmation => "test1234" },
 {firstname: 'Thomas', lastname:'Hantschel',image: default, :email => "Thomas.Hantschel@hobbyisten.de", :password => "test1234", :password_confirmation => "test1234" }
 ])
