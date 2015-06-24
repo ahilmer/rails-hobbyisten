@@ -1,2 +1,2 @@
-- Profil Button leitet auf allgemeine Userseite weiter. Nicht das Benutzerprofil des eingeloggten Users (Erledigt)
 - Suggestions bzw. MyEvents - Buttons auf deutsch übersetzen
+- Profil Button leitet auf allgemeine Userseite weiter. Nicht das Benutzerprofil des eingeloggten Users (Erledigt)

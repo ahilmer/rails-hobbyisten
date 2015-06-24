@@ -1,10 +1,10 @@
 - Event edit/new
-	- Ort entfernen. Genauer ort ist genug (ERLEDIGT)
 	- Hobbys auswählen. Derzeit null
-	- Zeitpunkt mit Datepicker auswählen. (ERLEDIGT)
 	- Bild upload
 	- Abbrechen Button
 	- Teilnehmeranzahl: bei -1 unbegrenzt hinschreiben. Und bei Unbegrenzt input auf -1 setzen
+	- Ort entfernen. Genauer ort ist genug (ERLEDIGT)
+	- Zeitpunkt mit Datepicker auswählen. (ERLEDIGT)
 	- Datepicker schön mit Bootstrap (ERLEDIGT)
 	- Datetimepicker Format auf de-De (ERLEDIGT)
 	- Datepicker ist 2 stunden zu früh dran  (ERLEDIGT)
@@ -22,6 +22,6 @@
 	- Kommentare schreiben nur wenn man dem event beigetreten ist (ERLEDIGT)
 	
 - Eventlist
-    - Eventanlegenbutton verschieben (Erledigt)
-	- Austretenbutton einfügen (Erledigt)
 	- Anzeigecheckboxen einfügen und mit Funktion hinterlegen
+	- Eventanlegenbutton verschieben (Erledigt)
+	- Austretenbutton einfügen (Erledigt)
