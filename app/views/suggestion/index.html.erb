@@ -3,6 +3,7 @@
 <% else %>
   <h1>Interessante Events</h1>
 <% end %>
+<br/>
 <% if user_signed_in? %>
   <p>Umkreis: <strong><span id="range">20</span> km</strong></p>
   1 km <input id="rangeSlider" type="range" min="1" max="30" value="20" onchange="updateRange(this.value)"  oninput="updateRange(this.value); updateSuggestions(this.value)"></input> 30 km
