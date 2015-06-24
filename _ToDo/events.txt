@@ -1,8 +1,8 @@
 - Event edit/new
-	- Hobbys auswählen. Derzeit null
 	- Bild upload
 	- Abbrechen Button
 	- (OPTIONAL) Teilnehmeranzahl: bei -1 unbegrenzt hinschreiben. Und bei Unbegrenzt input auf -1 setzen
+	- Hobbys auswählen. Derzeit null (ERLEDIGT)
 	- Ort entfernen. Genauer ort ist genug (ERLEDIGT)
 	- Zeitpunkt mit Datepicker auswählen. (ERLEDIGT)
 	- Datepicker schön mit Bootstrap (ERLEDIGT)

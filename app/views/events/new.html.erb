@@ -57,7 +57,11 @@
 	<td> 
 		<%= f.text_field :explicit_location, :class => "form-control", :value => "Genauer Ort" %>
 	</td>
-	<td> HOBBY </td>
+	<td> 
+		<div class="dropdown">
+			<%= f.collection_select :hobby_id, Hobby.all, :id, :name, {prompt: "W\u00E4hle ein Hobby aus"}, {class: "form-control"} %>
+		</div>	
+	</td>
 	</tr>
 	</table>
 
