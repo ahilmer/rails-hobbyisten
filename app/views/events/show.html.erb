@@ -58,7 +58,7 @@
 	<div class="messages">
 
 		<div class="form-group">
-			<div id="writ_comments_id">
+			<div id="write_comments_id">
 			<% @users_events.each do |user| %>
 				<% if user.user_id == current_user.id %>
 					<%= form_for @new_comment, :url => comment_path, :html => {:method => :post} do |f| %>
@@ -102,16 +102,23 @@
 	</div>
 </div>
 <div class="show_final_buttons">
-	<% @users_events.each do |user| %>
+<% found = false %>
+<% @users_events.each do |user| %>
 	<% if current_user.id == user.user_id %>
 		<div class="show_event_resigncontainer" id="show_event_resigncontainer_id">
 		    <span onclick="resignEventShow(<%= @event.users_events.find{ |ue| ue.user_id == current_user.id}.to_json %>)">
 		      <i style="color: #FF4136" class="fa fa-trash fa-2x"></i>&nbsp;Austragen
 		    </span>
 		</div>
+		<% found = true %>
 		<% break %>
 	<% else %>
 	<% end %>
+<% end %>
+<% if found == false %>
+	<div class="show_event_resigncontainer" id="show_event_resigncontainer_id">
+	    <span onclick="participateEvent(<%= @event.id %>, '<%=@event.title %>')"><i id="acceptButton" class="fa fa-check fa-2x"></i>&nbsp;Teilnehmen</span>
+	</div>
 <% end %>
 </div>
 </div>

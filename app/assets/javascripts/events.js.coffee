@@ -16,10 +16,11 @@
     $.ajax({ method: "DELETE", url: "/users_events/" + user_event.id} ).done (html) ->
       $("#" + user_event.event_id).fadeOut( 400 );
       $("#show_event_resigncontainer_id").fadeOut( 400 );
-      $("#writ_comments_id").fadeOut( 400 );
+      $("#write_comments_id").fadeOut( 400 );
       old = parseInt($('#myEventBadge').attr('data-badge'));
       $('#myEventBadge').attr('data-badge', old-1);
       $('#myEventBadge').blink({maxBlinks: 3, blinkPeriod: 1000 });
+      window.location.reload();
     
 @kickEvent = (user_event) ->
     data =  user_event
@@ -31,3 +32,12 @@
     $('#' + eventid).fadeOut( 400 ) for eventid in eventlist
   else
     $('#' + eventid).fadeIn( 400 ) for eventid in eventlist;
+    
+@participateEvent = (eventId,eventTitle) ->
+  data =  { users_event: { event_id: eventId } }
+  $.ajax({ method: "POST", url: "/users_events/", data: data } ).done (html) ->
+    $("#show_event_resigncontainer_id").fadeOut(400);
+    old = parseInt($('#myEventBadge').attr('data-badge'));
+    $('#myEventBadge').attr('data-badge', old+1);
+    $('#myEventBadge').blink({maxBlinks: 3, blinkPeriod: 1000 });
+    window.location.reload();
