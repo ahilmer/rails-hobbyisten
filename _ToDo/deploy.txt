@@ -1,1 +1,1 @@
-- deployen auf heroku
+- (OPTIONAL) deployen auf heroku
