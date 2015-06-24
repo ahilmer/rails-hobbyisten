@@ -3,53 +3,45 @@
 <% else %>
   <h1>Interessante Events</h1>
 <% end %>
-
 <% if user_signed_in? %>
   <p>Umkreis: <strong><span id="range">20</span> km</strong></p>
   1 km <input id="rangeSlider" type="range" min="1" max="30" value="20" onchange="updateRange(this.value)"  oninput="updateRange(this.value); updateSuggestions(this.value)"></input> 30 km
 <% end %>
-
 <% if @suggestions.size == 0 %>
   <p> Zurzeit gibt es keine neuen Vorschläge für Dich.</p>
 <% else %>
-
   <div id="flash"></div>
-
   <% @suggestions.each do |suggestion| %>
     <div class = "suggestion" id="<%= suggestion.id %>" data-distance="<%= if suggestion.respond_to? :distance then suggestion.distance else 0 end %>">
-
-            <div class="eventContainer">
-              <%= image_tag(suggestion.image_url, class: 'eventImage') if suggestion.image? %>
-              <p class="eventDate">am: <%= suggestion.take_place_timestamp.strftime('%d.%m.%Y')  %> <br/> um <%= suggestion.take_place_timestamp.strftime('%H:%M Uhr')  %> </p>
-            </div>
-            <div class="eventDescriptionContainer">
-              <p><strong><%= link_to suggestion.title, suggestion %></strong> <br/>
-              von <%= link_to suggestion.creator.firstname, suggestion.creator %>
-
-              <% if suggestion.users.size > 0 %>
-
-                , <%= suggestion.users.size %> Teilnehmer:
+      <div class="eventContainer">
+        <%= image_tag(suggestion.image_url, class: 'eventImage') if suggestion.image? %>
+        <p class="eventDate">am: <%= suggestion.take_place_timestamp.strftime('%d.%m.%Y')  %> <br/>
+          um <%= suggestion.take_place_timestamp.strftime('%H:%M Uhr')  %> </p>
+      </div>
+      <div class="eventDescriptionContainer">
+        <p><strong><%= link_to suggestion.title, suggestion %></strong> <br/>
+          von <%= link_to suggestion.creator.firstname, suggestion.creator %>
+          <% if suggestion.users.size > 0 %>
+            , <%= suggestion.users.size %> Teilnehmer:
                   <% suggestion.users.each do |user| %>
-                    <%= link_to(image_tag(user.image.url, class: 'userImage'), user) %>
-                  <% end %>
-              <% end %>
-
-              <br/> Treffpunkt: <%= suggestion.explicit_location %>
+              <%= link_to(image_tag(user.image.url, class: 'userImage'), user) %>
+            <% end %>
+          <% end %>
+          <br/>
+          Treffpunkt: <%= suggestion.explicit_location %>
+          <br/>
+          <br/>
+          <%= suggestion.description %> <br/>
+          <br/>
+          <% if user_signed_in? %>
+            <div id="accept">
+              <span onclick="joinsuggestion(<%= suggestion.to_json %>)"><i id="acceptButton" class="fa fa-check fa-2x"></i>&nbsp;Teilnehmen</span>
               <br/>
-              <br/>
-              <%= suggestion.description %> <br/>
-              <br/>
-              <% if user_signed_in? %>
-                <div id="accept">
-                  <span onclick="joinsuggestion(<%= suggestion.to_json %>)"><i id="acceptButton" class="fa fa-check fa-2x"></i>&nbsp;Teilnehmen</span>
-                  <br/>
-                  <span onclick="ignoresuggestion(<%= suggestion.to_json %>)"><i id="declineButton" class="fa fa-trash fa-2x"></i>&nbsp;&nbsp;&nbsp;Ignorieren</span>
-                </div>
-              <% end %>
+              <span onclick="ignoresuggestion(<%= suggestion.to_json %>)"><i id="declineButton" class="fa fa-trash fa-2x"></i>&nbsp;&nbsp;&nbsp;Ignorieren</span>
             </div>
-          </p>
+          <% end %>
+        </div>
+      </p>
     </div>
-
   <% end %>
-
 <% end %>
