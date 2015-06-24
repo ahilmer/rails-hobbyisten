@@ -23,10 +23,14 @@ class Event < ActiveRecord::Base
     suggestions = []
 
      user.locations.each { |location|
-             suggestions.push(*Event.near(location,30))
+        suggestions.push(*Event.near(location,30))
      }
 
      user.events.each { |event|
+       suggestions.delete(event)
+     }
+
+     user.rejected_events.each { |event|
        suggestions.delete(event)
      }
 
