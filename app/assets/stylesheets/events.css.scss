@@ -13,12 +13,21 @@
   width: 700px;
   padding-top: 15px;
   max-height: 200px;
-  overflow: hidden;
+
 }
 
 .eventcheckbox {
-  float: left;
-  margin: 10px;
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  line-height: 1.42857;
+  color: #333;
+  white-space: nowrap;
+
+}
+
+.eventcheckboxlabel {
+  font-weight: normal;
 }
 
 .sortoption-container {
