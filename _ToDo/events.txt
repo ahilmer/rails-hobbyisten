@@ -1,6 +1,6 @@
 - Event edit/new
-	- Bild upload
-	- Abbrechen Button
+	- Abbrechen/Zurück Button
+	- (OPTIONAL) Bild upload
 	- (OPTIONAL) Teilnehmeranzahl: bei -1 unbegrenzt hinschreiben. Und bei Unbegrenzt input auf -1 setzen
 	- Hobbys auswählen. Derzeit null (ERLEDIGT)
 	- Ort entfernen. Genauer ort ist genug (ERLEDIGT)
@@ -12,7 +12,7 @@
 
 - Event new
 	- Neu erstelltes event hat kein Bild
-	- beim neu anlegen creator gleich als teilnehmer hinzufügen
+	- (OPTIONAL) beim neu anlegen creator gleich als teilnehmer hinzufügen
 	- neue events werden nicht bei suggestions angezeigt (ERLEDIGT)
 	
 	
