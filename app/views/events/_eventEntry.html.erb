@@ -36,7 +36,7 @@
       </div>
 
       <div class="col-md-3 <%= css_class + '_timecontainer' %>">
-        am: </br> <%= event.take_place_timestamp.strftime('%d.%m.%Y') %> <br/> um </br> <%= event.take_place_timestamp.strftime('%H:%M Uhr') %>
+        am: <%= event.take_place_timestamp.strftime('%d.%m.%Y') %> <br/> um: <%= event.take_place_timestamp.strftime('%H:%M Uhr') %>
       </div>
     </div>
   </div>
