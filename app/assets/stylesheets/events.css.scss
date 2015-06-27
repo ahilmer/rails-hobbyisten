@@ -10,7 +10,7 @@
 .eventscontrol-container {
   margin-left: auto;
   margin-right: auto;
-  width: 700px;
+  width: auto;
   padding-top: 15px;
   max-height: 200px;
 
@@ -52,7 +52,7 @@
 .eventlist-container {
   margin-left: auto;
   margin-right: auto;
-  width: 800px;
+  width: auto;
   padding-top: 15px;
 }
 
@@ -62,7 +62,7 @@
   margin-top: 5px;
   width: 100%;
   overflow: hidden;
-  max-height: 170px;
+  max-height: auto;
   position: relative;
 }
 
@@ -70,14 +70,18 @@
 .myevents_picturecontainer {
   margin: 10px;
   float: left;
-  width: 150px;
-  max-width: 25%;
-  height: 150px;
+  height: 130px;
+  max-width: auto;
   overflow: hidden;
   border: 1px solid #E5E5E5;
   background-color: #F5F5F5;
 }
 
+.myevents_picturecontainer img
+{
+max-height:100%;
+max-width:100%;
+}
 
 .myevents_picture {
 
@@ -128,6 +132,23 @@
   float: right;
   position: absolute;
   top: 10px;
+  left: 90%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.show_event_resigncontainer {
+  top: 10px;
+  left: 80%;
+  overflow: hidden;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.events_kick_resigncontainer {
+  float: right;
+  top: 10px;
   left: 85%;
   overflow: hidden;
   cursor: pointer;
@@ -174,4 +195,17 @@
   margin-top: 10px;
   margin-bottom: 15px;
   float: right;
+}
+
+.descripton_text{
+ padding-top: 5px;
+ padding-left: 5px;
+ padding-bottom: 5px;
+ width:auto;
+ background-color:#ddd;
+}
+
+.show_final_buttons {
+  float: right;
+  clear: both;
 }

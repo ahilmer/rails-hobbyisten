@@ -39,12 +39,29 @@
 				</td>
 				</a>
 	</div>
-	<td> <%= f.datetime_select :take_place_timestamp %> </td>
 	<td> 
-		<%= f.text_field :explicit_location, :class => "form-control", :value => "Genauer Ort" %> </br> 
-		<%= "ORT" %> 
+		<div class="form-group">
+			<div class='input-group date' id='datetimepicker2'>
+				<%= f.datetime_select :take_place_timestamp, :class => 'form-control' %>
+			</div>
+		</div>
+		<script type="text/javascript">
+			$(function() {
+				$('#datetimepicker2').datetimepicker({
+					locale: 'de',
+					sideBySide: true
+				});
+			});
+		</script>
 	</td>
-	<td> HOBBY </td>
+	<td> 
+		<%= f.text_field :explicit_location, :class => "form-control", :value => "Genauer Ort" %>
+	</td>
+	<td> 
+		<div class="dropdown">
+			<%= f.collection_select :hobby_id, Hobby.all, :id, :name, {prompt: "W\u00E4hle ein Hobby aus"}, {class: "form-control"} %>
+		</div>	
+	</td>
 	</tr>
 	</table>
 
@@ -55,7 +72,6 @@
 </div>
 <div class="savebutton">
 <%= f.hidden_field :creator_id , :value => current_user.id %>
-<%= f.hidden_field :location_id , :value => "1" %>
 <%= f.hidden_field :image , :value => "default/defaultevent.png" %>
 <%= f.submit "Speichern", :class => "btn btn-primary" %>
 </div>

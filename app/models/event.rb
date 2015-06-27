@@ -2,8 +2,8 @@ class Event < ActiveRecord::Base
   belongs_to :creator, :class_name => :User, :foreign_key => 'creator_id', :dependent => :destroy
   belongs_to :location
 
-  geocoded_by :explicit_location   # can also be an IP address
-  after_validation :geocode          # auto-fetch coordinates
+  geocoded_by :explicit_location
+  after_validation :geocode
 
   mount_uploader :image, EventUploader
 
@@ -13,28 +13,28 @@ class Event < ActiveRecord::Base
   has_many :users_events
   has_many :users, :through => :users_events
 
-
+  # Fetches the top5 Events ranked by total users joined
   def self.top5
     topEvents = UsersEvent.group(:event_id).order('count_all DESC').count.keys
     Event.find(topEvents)
   end
 
- def self.findSuggestions2(user)
+ # Calculates the suggestions for a user near to him
+ # sorted by take place timestamp
+ def self.findSuggestions(user)
     suggestions = []
 
      user.locations.each { |location|
-             suggestions.push(*Event.near(location,30))
+        suggestions.push(*Event.near(location,30))
      }
 
-     user.events.each { |event|
-       suggestions.delete(event)
-     }
+     user.events.each { |event| suggestions.delete(event) }
+     user.rejected_events.each { |event| suggestions.delete(event) }
 
      suggestions = suggestions.uniq
-     return suggestions
+     suggestions.sort_by { |element| element.take_place_timestamp  }
 
   end
-
 
   def self.findMyEvents(user)
     events = []

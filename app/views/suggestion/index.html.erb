@@ -1,55 +1,50 @@
 <% if user_signed_in? %>
   <h1>Deine persönlichen Vorschläge</h1>
 <% else %>
-  <h1>Interessante Events</h1>
+  <h1>Interessante Veranstaltungen</h1>
 <% end %>
-
+<br/>
 <% if user_signed_in? %>
   <p>Umkreis: <strong><span id="range">20</span> km</strong></p>
-  1 km <input id="rangeSlider" type="range" min="1" max="30" value="20" style="width: 10%; display:inline; vertical-align: middle" onchange="updateRange(this.value)"  oninput="updateRange(this.value); updateSuggestions(this.value)"></input> 30 km
+  1 km <input id="rangeSlider" type="range" min="1" max="30" value="20" onchange="updateRange(this.value)"  oninput="updateRange(this.value); updateSuggestions(this.value)"></input> 30 km
 <% end %>
-
-<% if @suggestions.size == 0 %>
+<% if @suggestions.empty? %>
+  <br/>
+  <br/>
   <p> Zurzeit gibt es keine neuen Vorschläge für Dich.</p>
 <% else %>
-
-  <div id="flash" style="height: 25px;"></div>
-
+  <div id="flash"></div>
   <% @suggestions.each do |suggestion| %>
     <div class = "suggestion" id="<%= suggestion.id %>" data-distance="<%= if suggestion.respond_to? :distance then suggestion.distance else 0 end %>">
-
-            <div style="height: 100%; position: relative; float: left; margin: 5px;">
-              <%= image_tag(suggestion.image_url, style: 'float: left;max-height: 180px;') if suggestion.image? %>
-              <p style="border-radius: 2px;font-size: 9px; color: rgb(182,194,222); position: absolute; right: 5px; bottom: 5px; letter-spacing: 0px; background-color: black; ">am: <%= suggestion.take_place_timestamp.strftime('%d.%m.%Y')  %> <br/> um <%= suggestion.take_place_timestamp.strftime('%H:%M Uhr')  %> </p>
-            </div>
-            <div style="height: 100%; max-width: 60%; position: relative; float: left; margin-left: 30px; margin-top: 10px;">
-              <p><strong><%= link_to suggestion.title, suggestion %></strong> <br/>
-              von <%= link_to suggestion.creator.firstname, suggestion.creator %>
-
-              <% if suggestion.users.size > 0 %>
-
-                , <%= suggestion.users.size %> Teilnehmer:
+      <div class="eventContainer">
+        <%= image_tag(suggestion.image_url, class: 'eventImage') if suggestion.image? %>
+        <p class="eventDate">am: <%= suggestion.take_place_timestamp.strftime('%d.%m.%Y')  %> <br/>
+          um <%= suggestion.take_place_timestamp.strftime('%H:%M Uhr')  %> </p>
+      </div>
+      <div class="eventDescriptionContainer">
+        <p><strong><%= link_to suggestion.title, suggestion %></strong> <br/>
+          von <%= link_to suggestion.creator.firstname, suggestion.creator %>
+          <% if suggestion.users.any? %>
+            , <%= suggestion.users.size %> Teilnehmer:
                   <% suggestion.users.each do |user| %>
-                    <%= link_to(image_tag(user.image.url, height: '30px', style: 'vertical-align:bottom'), user) %>
-                  <% end %>
-              <% end %>
-
-              <br/> Treffpunkt: <%= suggestion.explicit_location %>
+              <%= link_to(image_tag(user.image.url, class: 'userImage'), user) %>
+            <% end %>
+          <% end %>
+          <br/>
+          Treffpunkt: <%= suggestion.explicit_location %>
+          <br/>
+          <br/>
+          <%= suggestion.description %> <br/>
+          <br/>
+          <% if user_signed_in? %>
+            <div class="accept">
+              <span onclick="joinsuggestion(<%= suggestion.id %>, '<%=suggestion.title %>')"><i id="acceptButton" class="fa fa-check fa-2x"></i>&nbsp;Teilnehmen</span>
               <br/>
-              <br/>
-              <%= suggestion.description %> <br/>
-              <br/>
-              <% if user_signed_in? %>
-                <div style="cursor: pointer; display: inline-block;">
-                  <span onclick="joinsuggestion(<%= suggestion.to_json %>)"><i style="color: #2ECC40" class="fa fa-check fa-2x"></i>&nbsp;Teilnehmen</span>
-                  <br/>
-                  <span onclick="ignoresuggestion(<%= suggestion.to_json %>)"><i style="color: #FF4136" class="fa fa-trash fa-2x"></i>&nbsp;&nbsp;&nbsp;Ignorieren</span>
-                </div>
-              <% end %>
+              <span onclick="ignoresuggestion(<%= suggestion.id %>)"><i id="declineButton" class="fa fa-trash fa-2x"></i>&nbsp;&nbsp;&nbsp;Ignorieren</span>
             </div>
-          </p>
+          <% end %>
+        </div>
+      </p>
     </div>
-
   <% end %>
-
 <% end %>
