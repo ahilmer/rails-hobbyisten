@@ -9,6 +9,7 @@ class EventsController < ApplicationController
       @hobbies = Event.findMyEventsHobbies(current_user)
       @locations = Event.findMyEventsLocations(current_user)
       @creators = Event.findMyEventsCreators(current_user)
+      @eventhobbies = EventsHobby.getEventHobbies(@events)
   end
 
   def show
