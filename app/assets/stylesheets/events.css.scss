@@ -1,6 +1,14 @@
 // Place all the styles related to the Events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$BckColor:#F8F8F8;
+$BorColor:#E5E5E5;
+$NegPicture:#5E2028;
+$LNormal:#5E2028;
+$LHover:#5E2028;
+$LVisited:#5E2028;
+$LActive:#5E2028;
+
 
 .eventscontrol {
 
@@ -54,33 +62,32 @@
   margin-right: auto;
   width: auto;
   padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 .myevents_entrycontainer {
-  border: 1px solid #E5E5E5;
-  background-color: #F5F5F5;
-  margin-top: 5px;
+  border: 1px solid $BorColor;
+  background-color: white;
+  margin-top: 10px;
   width: 100%;
   overflow: hidden;
-  max-height: auto;
+  height: 230px;
   position: relative;
 }
 
-
 .myevents_picturecontainer {
-  margin: 10px;
+  padding: 10px;
   float: left;
-  height: 130px;
-  max-width: auto;
+  width: 25%;
   overflow: hidden;
-  border: 1px solid #E5E5E5;
-  background-color: #F5F5F5;
+  background-color: $BckColor;
+  display: inline-block;
+  height: 230px;
 }
 
-.myevents_picturecontainer img
-{
-max-height:100%;
-max-width:100%;
+.myevents_picturecontainer img {
+  max-height:100%;
+  max-width:100%;
 }
 
 .myevents_picture {
@@ -89,53 +96,64 @@ max-width:100%;
 
 
 .myevents_infocontainer {
-  float: left;
-  padding: 10px;
+  float: right;
   position: relative;
   width: 75%;
   height: 100%;
+  a:link {
+    color: $LNormal;
+  }
+  a:visited {
+    color: $LVisited;
+  }
+  a:hover {
+    color: $LHover;
+  }
+  a:active {
+    color: $LActive;
+  }
 }
 
 
 .myevents_titlecontainer {
-  font-size: 175%;
-}
-
-
-.myevents_descriptioncontainer {
-  padding-top: 10px;
-  width: 100%;
-  height: auto;
-}
-
-.myevents_metacontainer {
-  padding-top: 10px;
-  font-size: 75%;
-  overflow: hidden;
-}
-
-.myevents_creatorcontainer {
-}
-
-.myevents_participantscontainer {
-}
-
-.myevents_locationcontainer {
-  float: left;
-}
-
-.myevents_timecontainer {
-  float: right;
+  font-size: 2em;
+  background-color: $BckColor;
+  padding: 10px;
 }
 
 .myevents_resigncontainer {
   float: right;
-  position: absolute;
-  top: 10px;
-  left: 90%;
   overflow: hidden;
   cursor: pointer;
+  font-size: 0.5em;
+  height: 100%;
+  vertical-align: bottom;
+  span {
+    vertical-align: middle;
+  }
+  span:hover {
+    text-decoration: underline;
+  }
+  i {
+    color: $NegPicture;
+  }
 }
+
+.myevents_descriptioncontainer {
+  padding: 10px;
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+}
+
+.myevents_metacontainer {
+  padding: 10px;
+  font-size: 75%;
+  overflow: hidden;
+  border-top: 1px solid $BorColor;
+}
+
+
 
 .show_event_resigncontainer {
   top: 10px;
@@ -146,6 +164,9 @@ max-width:100%;
   margin-bottom: 20px;
 }
 
+
+
+
 .events_kick_resigncontainer {
   float: right;
   top: 10px;
@@ -153,6 +174,7 @@ max-width:100%;
   overflow: hidden;
   cursor: pointer;
 }
+
 
 #resign{
   background: url(default/remove.JPG) no-repeat 50px 50px;

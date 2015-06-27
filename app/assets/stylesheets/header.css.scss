@@ -2,6 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$BckColor:#F8F8F8;
+$BorColor:#E5E5E5;
+$NegPicture:#5E2028;
+$LNormal:#5E2028;
+$LHover:#5E2028;
+$LVisited:#5E2028;
+$LActive:#5E2028;
+
+
 .eventBadge {
    position:relative;
 }
@@ -11,7 +20,7 @@
    top:5px;
    right:0px;
    font-size:.7em;
-   background:green;
+   background:$NegPicture;
    color:white;
    width:18px;height:18px;
    text-align:center;

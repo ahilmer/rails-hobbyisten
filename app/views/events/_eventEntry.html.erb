@@ -8,6 +8,16 @@
   <div class="<%= css_class + '_infocontainer' %>">
     <div class="<%= css_class + '_titlecontainer' %>">
       <strong><%= link_to event.title, event %></strong>
+
+      <% if view_type == 'myevents' %>
+        <% if event.creator.id != current_user.id %>
+          <div class="<%= css_class + '_resigncontainer' %>">
+            <span onclick="resignEvent(<%= event.users_events.find{ |ue| ue.user_id == current_user.id}.to_json %>)">
+              <i class="fa fa-trash fa-2x"></i>&nbsp;Austragen
+            </span>
+          </div>
+        <% end %>
+      <% end %>
     </div>
 
     <div class="<%= css_class + '_descriptioncontainer' %>">
@@ -17,7 +27,7 @@
 
 
 
-    <div class="row <%= css_class + '_metacontainer' %>">
+    <div class="<%= css_class + '_metacontainer' %>">
       <div class="col-md-3 <%= css_class + '_creatorcontainer' %>">
         von <%= link_to event.creator.firstname, event.creator %>
       </div>
@@ -58,13 +68,6 @@
     <div class="<%= css_class + '_newscontainer' %>">
 
     </div>
-    <% if event.creator.id != current_user.id %>
-      <div class="<%= css_class + '_resigncontainer' %>">
-        <span onclick="resignEvent(<%= event.users_events.find{ |ue| ue.user_id == current_user.id}.to_json %>)">
-          <i style="color: #FF4136" class="fa fa-trash fa-2x"></i>&nbsp;Austragen
-        </span>
-      </div>
-    <% end %>
   <% end %>
 
 </div>
