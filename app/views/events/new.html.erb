@@ -4,7 +4,7 @@
 	<div class="main-content-box">
 		<div class="eventheader">
 			<div class="eventtitle">
-				<h1><%= f.text_field :title, :value => "TITEL" %></h1>
+				<h1><%= f.text_field :title, :placeholder => "TITEL" %></h1>
 			</div>
 		</div>
 
@@ -12,7 +12,7 @@
 			<table class="table">
 				<tr>
 					<td class="col-sm-1"> <%= image_tag("events/defaultevent.png", :size => "200x200", :alt => "Event Pic", :id => "eventpicture", class: "img-responsive") %> </td>
-					<td>					<pre> <%= f.text_area :description, :class => "form-control", :value => "BESCHREIBUNG" %> </pre></td>
+					<td>					<pre> <%= f.text_area :description, :class => "form-control", :placeholder => "F\u00FCge hier eine Beschreibung zu deiner Veranstaltung ein" %> </pre></td>
 				</tr>
 			</table>
 		</div>
@@ -23,7 +23,7 @@
 			</thead>
 			<tr>
 				<td> Veranstalter </td>
-				<td> Veranstaltungszeitraum </td>
+				<td> Veranstaltungszeitpunkt </td>
 				<td> Veranstaltungsort </td>
 				<td> Hobby </td>
 			</tr>
@@ -55,7 +55,7 @@
 		</script>
 	</td>
 	<td> 
-		<%= f.text_field :explicit_location, :class => "form-control", :value => "Genauer Ort" %>
+		<%= f.text_field :explicit_location, :class => "form-control", :placeholder => "Stadt, Stra\u00DFe" %>
 	</td>
 	<td> 
 		<div class="dropdown">
@@ -74,5 +74,6 @@
 <%= f.hidden_field :creator_id , :value => current_user.id %>
 <%= f.hidden_field :image , :value => "1.jpg" %>
 <%= f.submit "Speichern", :class => "btn btn-primary" %>
+<%= link_to "Abbrechen", event_path(@new_event), method: :delete, class: "btn btn-danger" %>
 </div>
 <% end %>
