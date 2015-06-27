@@ -11,8 +11,8 @@
 	
 
 - Event new
-	- Neu erstelltes event hat kein Bild
 	- (OPTIONAL) beim neu anlegen creator gleich als teilnehmer hinzufügen
+	- Neu erstelltes event hat kein Bild (ERLEDIGT)
 	- neue events werden nicht bei suggestions angezeigt (ERLEDIGT)
 	
 	
