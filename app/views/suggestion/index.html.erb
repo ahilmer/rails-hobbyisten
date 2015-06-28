@@ -17,7 +17,7 @@
   <% @suggestions.each do |suggestion| %>
     <div class = "suggestion" id="<%= suggestion.id %>" data-distance="<%= if suggestion.respond_to? :distance then suggestion.distance else 0 end %>">
       <div class="eventContainer">
-        <%= image_tag(suggestion.image_url, class: 'eventImage') if suggestion.image? %>
+      	<%= image_tag("events/"+suggestion.hobby_id.to_s+".jpg", :class => 'eventImage') %>
         <p class="eventDate">am: <%= suggestion.take_place_timestamp.strftime('%d.%m.%Y')  %> <br/>
           um <%= suggestion.take_place_timestamp.strftime('%H:%M Uhr')  %> </p>
       </div>

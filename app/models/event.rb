@@ -88,7 +88,4 @@ class Event < ActiveRecord::Base
 
     return creators
   end
-
-
-
 end

@@ -2,7 +2,7 @@
 
 
   <div class="<%= css_class + '_picturecontainer' %>">
-    <%= image_tag(event.image_url, :class => css_class + '_picture' ) if event.image? %>
+  	<%= image_tag("events/"+event.hobby_id.to_s+".jpg", :class => css_class + '_picture') %>
   </div>
 
   <div class="<%= css_class + '_infocontainer' %>">

@@ -84,21 +84,20 @@ users_hobbies = UsersHobby.create([user_id: users[0].id, hobby_id: hobbies[0].id
 
 users_locations = UsersLocation.create([user_id: users[0].id, location_id: locations[0].id])
 
-fussball1 = File.open('public/mqdefault.webp')
-fussball2 = File.open('app/assets/images/events/fussball.jpg')
-handball = File.open('app/assets/images/events/handball.jpg')
-joggen = File.open('app/assets/images/events/joggen.jpg')
-tanzen = File.open('app/assets/images/events/tanzen2.jpg')
-reiten = File.open('app/assets/images/events/reiten2.jpg')
-skifahren = File.open('app/assets/images/events/skifahren.jpg')
-paintball = File.open('app/assets/images/events/paintball.jpg')
-modellbahn = File.open('app/assets/images/events/modelleisenbahn.jpg')
-angeln = File.open('app/assets/images/events/angeln.jpg')
-jagen = File.open('app/assets/images/events/jagen.png')
-mountainbike = File.open('app/assets/images/events/mountainbike.jpg')
-segeln = File.open('app/assets/images/events/segeln2.png')
-surfen = File.open('app/assets/images/events/surfen.jpg')
-snowboarden = File.open('app/assets/images/events/snowboarden.jpg')
+fussball2 = File.open('app/assets/images/events/1.jpg')
+handball = File.open('app/assets/images/events/2.jpg')
+joggen = File.open('app/assets/images/events/3.jpg')
+tanzen = File.open('app/assets/images/events/4.jpg')
+reiten = File.open('app/assets/images/events/6.jpg')
+skifahren = File.open('app/assets/images/events/7.jpg')
+paintball = File.open('app/assets/images/events/14.jpg')
+modellbahn = File.open('app/assets/images/events/13.jpg')
+angeln = File.open('app/assets/images/events/8.jpg')
+jagen = File.open('app/assets/images/events/10.jpg')
+mountainbike = File.open('app/assets/images/events/5.jpg')
+segeln = File.open('app/assets/images/events/9.jpg')
+surfen = File.open('app/assets/images/events/11.jpg')
+snowboarden = File.open('app/assets/images/events/12.jpg')
 
 events = Event.create([ { take_place_timestamp: DateTime.new(2015,7,9,18,0,0,'+0'), image: fussball2, title: 'Spontan Kicken mit dem Hobbyisten-Team', description: 'Das Wetter ist gut, die Leute motiviert! Los geht es um 18:00 am im Forstenriederpark. Sportklamotten am besten schon anhaben, es gibt vor Ort keine Umkleiden sowie Duschen. Jeder ist willkommen!', explicit_location: 'München, Forstenrieder Park 1', max_participants: -1, location_id: locations[0].id, creator_id: users[1].id, hobby_id: hobbies[0].id},
                         { take_place_timestamp: DateTime.new(2015,7,1,19,15,0,'+0'), image: fussball2, title: 'Hallenfußball am Mittwoch (01.07) in der Soccerworld', description: 'Solides Freizeitkicker-Niveau, der Spaß am Kicken steht im Mittelpunkt. Treffpunkt ist um 19.15 Uhr, Anstoß um 19.30 Uhr (Spielzeit: 90 Minuten). Es können max. 12 Mitspieler teilnehmen, Kosten sind 10 EUR pro Spieler. Bitte pünktlich sein und nur zusagen, wer verbindlich dabei ist! Treffpunkt ist in der Halle am hintersten Court.', explicit_location: 'München, Georg-Kainz-Straße 8', max_participants: 12, location_id: locations[0].id, creator_id: users[0].id, hobby_id: hobbies[0].id},
@@ -116,6 +115,7 @@ events = Event.create([ { take_place_timestamp: DateTime.new(2015,7,9,18,0,0,'+0
 						{ take_place_timestamp: DateTime.new(2015,8,25,10,0,0,'+0'), image: mountainbike, title: 'Mountainbike Tour zur Brunnihütte ', description: 'Coole MountainbikeTour zur Brunnihütte in Engelberg.  Auf der Abfahrt gäbe es eine Variante nach Wolfenschiessen runter. Ich fahre so gegen 10 ab Luzern los, wer möchte kann sich mir dort schon anschließen. Eine Person kann ich noch von München aus mitnehmen in meinem Auto.', explicit_location: 'München, Isartor', max_participants: -1, location_id: locations[0].id, creator_id: users[2].id, hobby_id: hobbies[4].id},
 						{ take_place_timestamp: DateTime.new(2015,8,25,10,0,0,'+0'), image: segeln, title: 'Segeln auf dem Ammersee', description: 'Am Samstag ist sowohl Wind als auch warmes Wetter vorhergesagt. Wer kommt mit zum Segeln? Bis max. 7 Teilnehmer würde ich bei der Segelschule in Dießen ein Kajütboot Nomade reservieren (http://www.ammersee-segelschule.de/ammersee-segelschule-segeln-segelboot-verleih ), ansonsten den Flying Cruiser bis 4 Personen. Beide Boote sind relativ gutmütig, daher dürft ihr gerne Anfänger im Segeln sein. Ich fahre mit dem Auto und kann außer mir 4 Personen mitnehmen. 10 Uhr wäre der Treffpunkt am Canditplatz für alle, die aus München mitfahren wollen, sonst nach Absprache. Die Segelschule ist direkt neben dem Bahnhof in Dießen und auch mit dem Zug gut erreichbar. Den Mietpreis für das Boot teilen wir und wird je nach Anzahl Teilnehmer zwischen 10 und 16 Euro liegen. Wir sind ca. 4 Stunden mit dem Boot unterwegs und ca. um 16 Uhr wieder zurück in München. Nehmt Badesachen mit und Verpflegung für Unterwegs.', explicit_location: 'München, Candidplatz', max_participants: 8, location_id: locations[0].id, creator_id: users[2].id, hobby_id: hobbies[8].id},
 						{ take_place_timestamp: DateTime.new(2015,7,9,8,0,0,'+0'), image: surfen, title: 'Surfen in Holland', description: 'Aloha-he an alle Wellenreiter! Also, eine Freundin und ich haben nun gebucht: 09. bis 12. Juli Scheveningen in Holland. Machen dort einen 3 Tage Surfkurs :) also Anfänger können gern auch mitkommen! Es sind noch Plätze frei. Eine/n kann ich noch von München aus mitnehmen.', explicit_location: 'München, S-Bahn Laim', max_participants: -1, location_id: locations[0].id, creator_id: users[2].id, hobby_id: hobbies[10].id},
+						{ take_place_timestamp: DateTime.new(2015,7,9,8,0,0,'+0'), image: jagen, title: 'Jagen im Kollbacher Wald', description: 'Halli Hallo. Ich werde beim nächsten Vollmond im Wald zwischen Kollbach und Weißlang und Wildjagt gehen. Jeder der sich anschließen möchte ist gerne eingeladen mitzukommen. Ich hoffe wir erjagen uns ein bisschen was zum essen :', explicit_location: 'Kollbach', max_participants: -1, location_id: locations[0].id, creator_id: users[1].id, hobby_id: hobbies[10].id},
 						{ take_place_timestamp: DateTime.new(2015,7,9,8,0,0,'+0'), image: snowboarden, title: 'Snowboarden aufm Hintertuxer Gletscher', description: 'Nach meinem ersten Aufenthalt im österreichischen Tux letzte Woche bin ich begeistert und würde es gerne wiederholen, diesmal mit einer weiblichen Begleitung. In Tux kann man gleichzeitig zwei Jahreszeiten genießen, im Tal den Sommer und auf dem Gletscher skifahren oder snowboarden... einfach herrlich. Ich wollte Samstag früh los und Sonntag Abend zurück. Um die Anreise muss sich jeder selbst kümmern. Liebe Grüße', explicit_location: 'München, Nymphenburger Str. 137', max_participants: 3, location_id: locations[0].id, creator_id: users[2].id, hobby_id: hobbies[11].id}
 ]);
 
