@@ -41,7 +41,7 @@ hobbies = Hobby.create([ {name: 'Fußball', description: 'ein Ballspiel für zwe
                          {name: 'Segeln', description: 'Mit einem Seggelboot über einen See fahren'},
                          {name: 'Jagen', description: 'Mit einer Waffe Tiere im Wald jagen'},
                          {name: 'Surfen', description: 'Mit einem Surfbrett über die Wellen reiten'},
-                         {name: 'Snowboarden', description: 'Auf einem Brett an den Füßen einen schneebedeckten Berg abfahren'},             				 
+                         {name: 'Snowboarden', description: 'Auf einem Brett an den Füßen einen schneebedeckten Berg abfahren'},
 						 {name: 'Modelleisenbahn', description: 'Modelleisenbahnen aufbauen und Tips und Tricks austauschen'},
 						 {name: 'Paintball', description: 'Ein Teamsport bei dem zwei Teams versuchen die gegnerischen Spieler mit Farbpatronen zu erwischen'}
 						 ])

@@ -9,7 +9,7 @@ class EventsController < ApplicationController
       @hobbies = Event.findMyEventsHobbies(current_user)
       @locations = Event.findMyEventsLocations(current_user)
       @creators = Event.findMyEventsCreators(current_user)
-      @eventhobbies = EventsHobby.getEventHobbies(@events)
+      #@eventhobbies = EventsHobby.getEventHobbies(@events)
   end
 
   def show
@@ -62,7 +62,7 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:title, :description, :take_place_timestamp, :explicit_location, :max_participants, :creator_id, :image, :hobby_id)
   end
-  
+
   private
     def set_event
       @event = Event.find(params[:id])

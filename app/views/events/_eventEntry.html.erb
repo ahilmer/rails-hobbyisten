@@ -7,8 +7,9 @@
 
   <div class="<%= css_class + '_infocontainer' %>">
     <div class="<%= css_class + '_titlecontainer' %>">
-      <strong><%= link_to event.title, event %></strong>
-
+      <div class="<%= css_class + '_title' %>">
+        <%= link_to event.title, event %>
+      </div>
       <% if view_type == 'myevents' %>
         <% if event.creator.id != current_user.id %>
           <div class="<%= css_class + '_resigncontainer' %>">

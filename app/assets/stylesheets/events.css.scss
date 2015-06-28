@@ -119,6 +119,15 @@ $LActive:#5E2028;
   font-size: 2em;
   background-color: $BckColor;
   padding: 10px;
+  height: 60px;
+  font-weight:bold;
+}
+
+.myevents_title {
+  float: left;
+  width: 85%;
+  height: 40px;
+  overflow: hidden;
 }
 
 .myevents_resigncontainer {
@@ -136,6 +145,7 @@ $LActive:#5E2028;
   }
   i {
     color: $NegPicture;
+    vertical-align: middle;
   }
 }
 

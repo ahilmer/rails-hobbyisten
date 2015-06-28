@@ -11,7 +11,7 @@
       old = parseInt($('#myEventBadge').attr('data-badge'));
       $('#myEventBadge').attr('data-badge', old-1);
     $('#myEventBadge').blink({maxBlinks: 3, blinkPeriod: 1000 });
-    
+
 @resignEventShow = (user_event) ->
     data =  user_event
     $.ajax({ method: "DELETE", url: "/users_events/" + user_event.id} ).done (html) ->
@@ -22,7 +22,7 @@
       $('#myEventBadge').attr('data-badge', old-1);
       $('#myEventBadge').blink({maxBlinks: 3, blinkPeriod: 1000 });
       window.location.reload();
-    
+
 @kickEvent = (user_event) ->
     data =  user_event
     $.ajax({ method: "DELETE", url: "/users_events/" + user_event.id} ).done (html) ->
@@ -33,9 +33,9 @@
     $('#' + eventid).fadeOut( 400 ) for eventid in eventlist
   else
     $('#' + eventid).fadeIn( 400 ) for eventid in eventlist;
-    
-  $('#' + object).stopPropagation();
-    
+
+#  $('#' + object).stopPropagation();
+
 @participateEvent = (eventId,eventTitle) ->
   data =  { users_event: { event_id: eventId } }
   $.ajax({ method: "POST", url: "/users_events/", data: data } ).done (html) ->

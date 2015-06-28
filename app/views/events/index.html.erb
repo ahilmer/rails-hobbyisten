@@ -41,7 +41,7 @@
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
               <% @hobbies.each.with_index do |hobby, index| %>
                 <li>
-                  <%= render "dropdownCheckboxContainer", input: index, labelContent: hobby.name, events:  @eventhobbies.select{ |eventhobby| eventhobby.hobby_id == hobby.id}, type: "hobby" %>
+                  <%= render "dropdownCheckboxContainer", input: index, labelContent: hobby.name, events:  @events.select{ |event| event.hobby_id == hobby.id}, type: "hobby" %>
                 </li>
               <% end %>
             </ul>

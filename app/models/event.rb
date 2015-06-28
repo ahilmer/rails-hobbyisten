@@ -7,8 +7,9 @@ class Event < ActiveRecord::Base
 
   mount_uploader :image, EventUploader
 
-  has_many :events_hobbies
-  has_many :hobbies, :through => :events_hobbies
+  belongs_to :hobby
+  #has_many :events_hobbies
+  #has_many :hobbies, :through => :events_hobbies
 
   has_many :users_events
   has_many :users, :through => :users_events
@@ -52,9 +53,7 @@ class Event < ActiveRecord::Base
     hobbies = []
 
     user.events.each { |event|
-      event.hobbies.each { |hobby|
-        hobbies.push(hobby)
-      }
+        hobbies.push(event.hobby)
     }
 
     hobbies = hobbies.uniq{ |x| x.id}
