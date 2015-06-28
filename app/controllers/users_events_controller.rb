@@ -4,11 +4,9 @@ class UsersEventsController < ApplicationController
 
   def index
     @users_events = UsersEvent.all
-    respond_with(@users_events)
   end
 
   def show
-    respond_with(@users_event)
   end
 
   def new

@@ -1,48 +1,95 @@
 
 <div class="eventscontrol">
   <div class="eventscontrol-container">
-    <div class="eventcheckbox">
-      <%= check_box_tag(:myevents_check, 'myevents_flag', true) %>
-      <%= label_tag(:myevents_check, "Eigene Veranstaltungen") %>
-      <%= check_box_tag(:otherevents_check, 'otherevents_flag', true) %>
-      <%= label_tag(:otherevents_check, "Fremede Veranstaltungen") %>
-    </div>
-    <div class="sortoption-container">
-      Hier werden die Sortieroptionen eingefügt
-    </div>
-    <%= link_to image_tag("default/add.JPG", size: "50"), new_event_path, :class => 'default-button' %>
+
+    <table class="table">
+      <thead>
+        <th>Anzeigeoptionen</th>
+        <th/>
+        <th/>
+        <th/>
+      </thead>
+      <tr>
+        <td>
+<!-- Allgemeine Checkboxen -->
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              Allgemein
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li>
+                <%= render "dropdownCheckboxContainer", input: 1, labelContent: 'Eigene Veranstaltungen', events: @events.select{ |event| event.creator.id == current_user.id}, type: "default" %>
+              </li>
+              <li>
+                <%= render "dropdownCheckboxContainer", input: 2, labelContent: 'Fremde Veranstaltungen', events: @events.select{ |event| event.creator.id != current_user.id}, type: "default" %>
+              </li>
+              <li role="separator" class="divider"></li>
+              <li>
+                <%= render "dropdownCheckboxContainer", input: 3, labelContent: 'Vergangene Veranstaltungen', events: @events.select{ |event| event.take_place_timestamp.to_i < Time.now.to_i}, type: "default" %>
+              </li>
+            </ul>
+          </div>
+        </td>
+        <td>
+<!-- Hobby Checkboxen -->
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              Hobbys
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <% @hobbies.each.with_index do |hobby, index| %>
+                <li>
+                  <%= render "dropdownCheckboxContainer", input: index, labelContent: hobby.name, events:  @events.select{ |event| event.hobby_id == hobby.id}, type: "hobby" %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </td>
+        <td>
+<!-- Veranstaltungsort Checkboxen -->
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              Veranstaltungsorte
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <% @locations.each.with_index do |location, index| %>
+                <li>
+                  <%= render "dropdownCheckboxContainer", input: index, labelContent: location, events: @events.select { |event| event.explicit_location == location}, type: "location" %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </td>
+        <td>
+<!-- Veranstalter Checkboxen -->
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              Veranstalter
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <% @creators.each.with_index do |creator, index| %>
+                <li>
+                  <%= render "dropdownCheckboxContainer", input: index, labelContent: creator.firstname, events: @events.select{ |event| event.creator.id == creator.id}, type: "creator" %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </td>
+      </tr>
+    </table>
   </div>
 </div>
-<div class="eventlist-container">
-  <% @events.each do |event| %>
-    <div class="event-container">
 
-      <span class="event-picture"></span>
-      <div class="eventcontent-container">
-        <div class="eventtitle"></div>
-        <div class="eventinfo"></div>
-        <div class="eventdescription"></div>
-      </div>
-    </div>
-  <% end %>
-</div>
-
-<!--
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<!-- Eventliste -->
+<div class="eventslist">
+  <div class="eventlist-container">
+    <a  id="myEventCreateBottom" class="btn btn-default" href="/events/new">Neue Veranstaltung erstellen</a>
     <% @events.each do |event| %>
-      <tr>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <%= render "eventEntry", event: event, css_class: 'myevents', view_type: 'myevents'  %>
     <% end %>
-  </tbody>
-</table>
--->
+  </div>
+</div>

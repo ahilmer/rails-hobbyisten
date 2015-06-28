@@ -1,5 +1,99 @@
-<h1>New event</h1>
+<%= form_for @new_event do |f| %>
+<% if @new_event.errors.any? then %>
+    <div class="alert alert-danger">
+      <ul>
+        <% @new_event.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
+<div class="container">
+	<div class="main-content-box">
+		<div class="eventheader">
+			<div class="eventtitle">
+				<h1><%= f.text_field :title, :placeholder => "TITEL" %></h1>
+			</div>
+		</div>
 
-<%= render 'form' %>
+		<div>
+			<table class="table">
+				<tr>
+					<td class="col-sm-1"> 
+						<%= image_tag("events/defaultevent.png", :size => "200x200", :alt => "Event Pic", :id => "eventpicture", class: "img-responsive") %> 
+					</td>
+					<td>					
+						<pre> 
+							<%= f.text_area :description, :class => "form-control", :placeholder => "F\u00FCge hier eine Beschreibung zu deiner Veranstaltung ein" %> 
+						</pre>
+					</td>
+				</tr>
+			</table>
+		</div>
 
-<%= link_to 'Back', events_path %>
+		<table class="table">
+			<thead>
+				<th>Veranstaltungsinformationen</th>
+			</thead>
+			<tr>
+				<td> Veranstalter </td>
+				<td> Veranstaltungszeitpunkt </td>
+				<td> Veranstaltungsort </td>
+				<td> Hobby </td>
+			</tr>
+			<tr>
+				<td>
+					<div class="creator_image">
+						<a href="/users/<%= current_user.id%>"> <%= image_tag((current_user).image_url, :size => "85x85", :alt => "Profile Pic", :id => "profilepicture", :class => "item_images") %> </a>
+					</div>
+					<div class="creator_name">
+						<a href="/users/<%= current_user.id%>"> 
+							<%= current_user.firstname %>
+							<br />
+							<%= current_user.lastname %>
+						</a>
+					</div>
+				</td>
+				
+				<td> 
+					<div class="form-group">
+						<div class='input-group date' id='datetimepicker2'>
+							<%= f.datetime_select :take_place_timestamp, :class => 'form-control' %>
+						</div>
+					</div>
+					<script type="text/javascript">
+						$(function() {
+							$('#datetimepicker2').datetimepicker({
+								locale: 'de',
+								sideBySide: true
+							});
+						});
+					</script>
+				</td>
+				
+				<td> 
+					<%= f.text_field :explicit_location, :class => "form-control", :placeholder => "Stadt, Stra\u00DFe" %>
+				</td>
+				
+				<td> 
+					<div class="dropdown">
+						<%= f.collection_select :hobby_id, Hobby.all, :id, :name, {prompt: "W\u00E4hle ein Hobby aus"}, {class: "form-control"} %>
+					</div>	
+				</td>
+			</tr>
+		</table>
+
+		<div class="participants">
+			Anzahl Teilnehmer: <%= f.text_field :max_participants, :class => "form-control", :value => "-1" %> (-1 = unbegrenzt)
+		</div>
+	</div>
+</div>
+
+<div class="savebutton">
+	<%= f.hidden_field :creator_id , :value => current_user.id %>
+	<%= f.hidden_field :image , :value => "1.jpg" %>
+	<%= f.submit "Speichern", :class => "btn btn-primary" %>
+	<%= link_to "Abbrechen", :back, :class => "btn btn-default" %>
+</div>
+
+<% end %>

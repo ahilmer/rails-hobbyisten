@@ -1,0 +1,7 @@
+
+<div class="eventcheckbox">
+  <label class="eventcheckboxlabel">
+    <input id="<%= type %>_<%= input %>" type="checkbox" value="" checked onChange="updateEventList(<%= events.map{ |event| event.id} %>, '<%= type %>_<%= input %>')">
+    <%= labelContent %>
+  </label>
+</div>

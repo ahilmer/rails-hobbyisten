@@ -1,0 +1,28 @@
+- Event edit/new
+	- (OPTIONAL) Bild upload (wollen wir das wirklich?)
+	- (OPTIONAL) Teilnehmeranzahl: bei -1 unbegrenzt hinschreiben. Und bei Unbegrenzt input auf -1 setzen
+	- Hobbys auswählen. Derzeit null (ERLEDIGT)
+	- Ort entfernen. Genauer ort ist genug (ERLEDIGT)
+	- Zeitpunkt mit Datepicker auswählen. (ERLEDIGT)
+	- Datepicker schön mit Bootstrap (ERLEDIGT)
+	- Datetimepicker Format auf de-De (ERLEDIGT)
+	- Datepicker ist 2 stunden zu früh dran  (ERLEDIGT)
+	
+
+- Event new
+	- (OPTIONAL) beim neu anlegen creator gleich als teilnehmer hinzufügen (wollen wir das wirklich?)
+	- Abbrechen/Zurück Button (ERLEDIGT)
+	- Neu erstelltes event hat kein Bild (ERLEDIGT)
+	- neue events werden nicht bei suggestions angezeigt (ERLEDIGT)
+	
+	
+- Event show
+	- An event teilnehmen (ERLEDIGT)
+	- aus event austreten (ERLEDIGT)
+	- (OPTIONAL) Elemente die man als nicht teilnehmer nicht sieht automatisch nach austritt ausblenden (ERLEDIGT)
+	- Kommentare schreiben nur wenn man dem event beigetreten ist (ERLEDIGT)
+	
+- Eventlist
+	- Anzeigecheckboxen einfügen und mit Funktion hinterlegen (ERLEDIGT)
+	- Eventanlegenbutton verschieben (Erledigt)
+	- Austretenbutton einfügen (Erledigt)

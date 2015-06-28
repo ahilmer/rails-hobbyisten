@@ -1,0 +1,2 @@
+- Suggestions bzw. MyEvents - Buttons auf deutsch übersetzen (ERLEDIGT)
+- Profil Button leitet auf allgemeine Userseite weiter. Nicht das Benutzerprofil des eingeloggten Users (Erledigt)

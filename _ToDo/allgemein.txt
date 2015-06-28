@@ -1,0 +1,3 @@
+- (OPTIONAL) Registrierungsfunktion
+
+- Headerleiste mit Bootstrap erstellen (Erledigt)

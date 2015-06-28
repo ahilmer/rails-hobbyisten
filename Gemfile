@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -43,3 +43,10 @@ gem 'carrierwave'
 gem 'geocoder'
 
 gem 'devise'
+
+gem 'bootstrap-sass'
+
+gem 'bootstrap-datepicker-rails'
+
+gem 'momentjs-rails'
+gem 'bootstrap3-datetimepicker-rails'

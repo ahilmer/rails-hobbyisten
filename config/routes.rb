@@ -16,6 +16,9 @@ Rails.application.routes.draw do
 
   resources :events
 
+  resources :comment
+  post '/comment/:id', to: 'comment#create'
+
   devise_for :users
 
   resources :users

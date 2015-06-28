@@ -2,6 +2,38 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$BckColor:#F8F8F8;
+$BorColor:#E5E5E5;
+$NegPicture:#5E2028;
+$LNormal:#5E2028;
+$LHover:#5E2028;
+$LVisited:#5E2028;
+$LActive:#5E2028;
+
+
+#new_user {
+  margin-right: 10px;
+}
+
+
+.eventBadge {
+   position:relative;
+}
+.eventBadge[data-badge]:after {
+   content:attr(data-badge);
+   position:absolute;
+   top:5px;
+   right:0px;
+   font-size:.7em;
+   background:$NegPicture;
+   color:white;
+   width:18px;height:18px;
+   text-align:center;
+   line-height:18px;
+   border-radius:50%;
+   box-shadow:0 0 1px #333;
+}
+
 #header {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -71,9 +103,25 @@
   width: 100%;
 }
 
-.header-logo-container {
-
+.header-logo {
+  size: 40px;
+  margin-top: -10px;
 }
+
+.header_userpicture {
+  vertical-align:bottom
+}
+
+.dropdown-menu > li > form > input {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: 400;
+  line-height: 1.42857;
+  color: #333;
+  white-space: nowrap;
+}
+
 
 #header-logout {
   background: transparent none repeat scroll 0% 0%;

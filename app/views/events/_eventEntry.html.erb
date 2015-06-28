@@ -1,20 +1,74 @@
-<div class = "<%= css_class %>" id="<%= event.id %>">
+<div class="<%= css_class + '_entrycontainer' %>" id="<%= event.id %>">
+
+
+  <div class="<%= css_class + '_picturecontainer' %>">
+  	<%= image_tag("events/"+event.hobby_id.to_s+".jpg", :class => css_class + '_picture') %>
+  </div>
+
+  <div class="<%= css_class + '_infocontainer' %>">
+    <div class="<%= css_class + '_titlecontainer' %>">
+      <div class="<%= css_class + '_title' %>">
+        <%= link_to event.title, event %>
+      </div>
+      <% if view_type == 'myevents' %>
+        <% if event.creator.id != current_user.id %>
+          <div class="<%= css_class + '_resigncontainer' %>">
+            <span onclick="resignEvent(<%= event.users_events.find{ |ue| ue.user_id == current_user.id}.to_json %>)">
+              <i class="fa fa-trash fa-2x"></i>&nbsp;Austragen
+            </span>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="<%= css_class + '_descriptioncontainer' %>">
+      <%= event.description %>
+    </div>
+
+
+
+
+    <div class="<%= css_class + '_metacontainer' %>">
+      <div class="col-md-3 <%= css_class + '_creatorcontainer' %>">
+        von <%= link_to event.creator.firstname, event.creator %>
+      </div>
+
+      <div class="col-md-3 <%= css_class + '_participantscontainer' %>">
+        Teilnehmer: </br> <%= event.users.size %> von
+        <% if event.max_participants < 0 %>
+          unbegrenzt
+        <% else %>
+          <%= event.max_participants %></b>
+        <% end %>
+      </div>
+
+      <div class="col-md-3 <%= css_class + '_locationcontainer' %>">
+        Treffpunkt: </br> <%= event.explicit_location %>
+      </div>
+
+      <div class="col-md-3 <%= css_class + '_timecontainer' %>">
+        am: <%= event.take_place_timestamp.strftime('%d.%m.%Y') %> <br/> um: <%= event.take_place_timestamp.strftime('%H:%M Uhr') %>
+      </div>
+    </div>
+  </div>
+
+
 
   <% if view_type == 'suggestion' %>
-
-        <div style="height: 100%; position: relative; float: left; margin: 5px;">
-          <%= image_tag(event.image_url, style: 'float: left;max-height: 180px;') if event.image? %>
-          <p style="border-radius: 2px;font-size: 9px; color: rgb(182,194,222); position: absolute; right: 5px; bottom: 5px; letter-spacing: 0px; background-color: black; ">am: <%= event.take_place_timestamp.strftime('%d.%m.%Y')  %> <br/> um <%= event.take_place_timestamp.strftime('%H:%M Uhr')  %> </p>
-        </div>
-        <div style="height: 100%; position: relative; float: left; margin-left: 30px; margin-top: 10px;">
-          <strong><%= link_to event.title, event %></strong> <br/>
-          von <%= link_to event.creator.firstname, event.creator %>, Teilnehmer: <%= event.users.size %>, Treffpunkt: <%= event.explicit_location %>
-          <br/>
-          <br/>
-          <%= event.description %> <br/>
-          <br/>
-          <button class="join" type="button" onclick="joinEvent(<%= event.to_json %>)">Teilnehmen</button>
-          <div><button class="ignore" type="button" onclick="ignoreEvent(<%= event.to_json %>)">Ignorieren</button></div>
-        </div>
+    <button id="join" type="button" onclick="joinEvent(<%= event.to_json %>)">
+      Teilnehmen
+    </button>
+    <div>
+      <button id="ignore" type="button" onclick="ignoreEvent(<%= event.to_json %>)">
+        Ignorieren
+      </button>
+    </div>
   <% end %>
+
+  <% if view_type == 'myevents' %>
+    <div class="<%= css_class + '_newscontainer' %>">
+
+    </div>
+  <% end %>
+
 </div>
