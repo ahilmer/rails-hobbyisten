@@ -22,8 +22,8 @@
           um <%= suggestion.take_place_timestamp.strftime('%H:%M Uhr')  %> </p>
       </div>
       <div class="eventDescriptionContainer">
-        <p><strong><%= link_to suggestion.title, suggestion %></strong> <br/>
-          von <%= link_to suggestion.creator.firstname, suggestion.creator %>
+        <h3 class="eventHeadline"><%= link_to suggestion.title, suggestion %></h3>
+        <p> von <%= link_to suggestion.creator.firstname, suggestion.creator %>
           <% if suggestion.users.any? %>
             , <%= suggestion.users.size %> Teilnehmer:
                   <% suggestion.users.each do |user| %>

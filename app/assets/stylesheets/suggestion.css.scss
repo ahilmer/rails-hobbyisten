@@ -34,11 +34,12 @@
 
 .eventDescriptionContainer {
   height: 100%;
-  max-width: 60%;
+  max-width: 70%;
   position: relative;
   float: left;
   margin-left: 30px;
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .userImage {
@@ -53,6 +54,8 @@
   position: absolute;
   right: 5px;
   bottom: 5px;
+  padding: 0px;
+  margin: 0px;
   letter-spacing: 0px;
   background-color: black;
 }
@@ -85,4 +88,11 @@ a:hover {
   text-decoration: underline;
   color: rgb(22, 122,199);
   background-color: transparent;
+}
+
+.eventHeadline {
+
+  margin-top: 0px;
+  margin-bottom: 5px;
+
 }

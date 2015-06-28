@@ -87,7 +87,7 @@
 <!-- Eventliste -->
 <div class="eventslist">
   <div class="eventlist-container">
-    <a  id="myEventCreateBottom" class="btn btn-default" href="/events/new">Create new Event</a>
+    <a  id="myEventCreateBottom" class="btn btn-default" href="/events/new">Neue Veranstaltung erstellen</a>
     <% @events.each do |event| %>
       <%= render "eventEntry", event: event, css_class: 'myevents', view_type: 'myevents'  %>
     <% end %>
