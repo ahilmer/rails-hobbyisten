@@ -15,14 +15,11 @@
 		<div class="picture_and_description">
 			<table class="table">
 				<tr>
-					<td class="col-sm-1"> 
-						<%= image_tag("events/"+@event.hobby_id.to_s+".jpg", :size => "200x200", :alt => "Event Pic", :id => "eventpicture", class: "img-responsive") %> 
-					</td>
+					<td class="col-sm-1"> <%= image_tag("events/"+@event.hobby_id.to_s+".jpg", :size => "200x200", :alt => "Event Pic", :id => "eventpicture", class: "img-responsive") %> </td>
 					<td>
-						<div class="descripton_text">
-							<%= @event.description %>
-						</div>
-					</td>
+					<div class="descripton_text">
+						<%= @event.description %>
+					</div></td>
 				</tr>
 			</table>
 		</div>
@@ -51,9 +48,7 @@
 	</div>
 	<td> <%= (@event.take_place_timestamp).strftime("%d.%m.%Y - %H:%M") %> </td>
 	<td> <%= @event.explicit_location %> </td>
-	<td> 
-		<%= @hobbies.find(@event.hobby_id).name %>
-	</td>
+	<td> <%= @hobbies.find(@event.hobby_id).name %> </td>
 	</tr>
 	</table>
 
@@ -61,17 +56,17 @@
 
 		<div class="form-group">
 			<div id="write_comments_id">
-			<% @users_events.each do |user| %>
+				<% @users_events.each do |user| %>
 				<% if user.user_id == current_user.id %>
-					<%= form_for @new_comment, :url => comment_path, :html => {:method => :post} do |f| %>
-					<%= f.hidden_field :user_id, :value => current_user.id %>
-					<%= f.text_area :message, :class => "form-control" %>
-					<%= f.hidden_field :event_id , :value => params[:id] %>
-					<%= f.submit "Senden", :class => "btn btn-default" %>
-					<% end %>
-					<% break %>
+				<%= form_for @new_comment, :url => comment_path, :html => {:method => :post} do |f| %>
+				<%= f.hidden_field :user_id, :value => current_user.id %>
+				<%= f.text_area :message, :class => "form-control" %>
+				<%= f.hidden_field :event_id , :value => params[:id] %>
+				<%= f.submit "Senden", :class => "btn btn-default" %>
 				<% end %>
-			<% end %>
+				<% break %>
+				<% end %>
+				<% end %>
 			</div>
 			<br />
 			<br />
@@ -104,23 +99,23 @@
 	</div>
 </div>
 <div class="show_final_buttons">
-<% found = false %>
-<% @users_events.each do |user| %>
+	<% found = false %>
+	<% @users_events.each do |user| %>
 	<% if current_user.id == user.user_id %>
-		<div class="show_event_resigncontainer" id="show_event_resigncontainer_id">
-		    <span onclick="resignEventShow(<%= @event.users_events.find{ |ue| ue.user_id == current_user.id}.to_json %>)">
-		      <i style="color: #FF4136" class="fa fa-trash fa-2x"></i>&nbsp;Austragen
-		    </span>
-		</div>
-		<% found = true %>
-		<% break %>
+	<div class="show_event_resigncontainer" id="show_event_resigncontainer_id">
+		<span onclick="resignEventShow(<%= @event.users_events.find{ |ue| ue.user_id == current_user.id}.to_json %>)"> <i style="color: #FF4136" class="fa fa-trash fa-2x"></i>&nbsp;Austragen </span>
+	</div>
+	<% found = true %>
+	<% break %>
 	<% else %>
 	<% end %>
-<% end %>
-<% if found == false %>
+	<% end %>
+	<% if found == false %>
 	<div class="show_event_resigncontainer" id="show_event_resigncontainer_id">
-	    <span onclick="participateEvent(<%= @event.id %>, '<%=@event.title %>')"><i id="acceptButton" class="fa fa-check fa-2x"></i>&nbsp;Teilnehmen</span>
+		<span onclick="participateEvent(<%= @event.id %>, '<%= @event.title %>')"><i id="acceptButton" class="fa fa-check fa-2x"></i>&nbsp;Teilnehmen</span>
 	</div>
-<% end %>
+	<% end %>
+	<%= link_to "Zur\u00FCck", :back, :class => "btn btn-default backButtonWidth" %>
 </div>
 </div>
+

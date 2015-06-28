@@ -1,3 +1,3 @@
-- 10 bis 15 aussagekräftige events
-- Bilder gleiche größe
-- Events mit mehreren Teilnehmern
+- 10 bis 15 aussagekräftige events (ERLEDIGT)
+- Bilder gleiche größe (ERLEDIGT)
+- Events mit mehreren Teilnehmern (ERLEDIGT)
