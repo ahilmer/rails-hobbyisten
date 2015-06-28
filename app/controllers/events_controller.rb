@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-
+  
   respond_to :html
 
   def index
@@ -23,11 +23,6 @@ class EventsController < ApplicationController
 
   def new
     @new_event = Event.new
-    @hobbies = Hobby.all
-    if @new_event.save
-    else
-      render 'new'
-    end
   end
 
   def edit
@@ -40,6 +35,7 @@ class EventsController < ApplicationController
   def create
     @new_event = Event.new(event_params)
     if @new_event.save
+      redirect_to event_path(@new_event)
     else
       render 'new'
     end
@@ -47,9 +43,12 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
+    @users_events = UsersEvent.where(:event_id => params[:id])
+    @users= User.all
     if @event.update(event_params)
       redirect_to event_path(params[:id])
     else
+      flash[:error] = "Somethig is wrong"
       render 'edit'
     end
   end

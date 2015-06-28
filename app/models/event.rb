@@ -1,6 +1,12 @@
 class Event < ActiveRecord::Base
   belongs_to :creator, :class_name => :User, :foreign_key => 'creator_id', :dependent => :destroy
   belongs_to :location
+  
+  validates :title, presence: true
+  validates :take_place_timestamp, presence: true
+  validates :explicit_location, presence: true
+  validates :hobby_id, presence: true
+  validates :max_participants, presence: true
 
   geocoded_by :explicit_location
   after_validation :geocode
