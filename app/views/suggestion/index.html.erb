@@ -15,7 +15,13 @@
 <% else %>
   <div id="flash"></div>
   <% @suggestions.each do |suggestion| %>
-    <div class = "suggestion" id="<%= suggestion.id %>" data-distance="<%= if suggestion.respond_to? :distance then suggestion.distance else 0 end %>">
+    <%= render "events/eventEntry", event: suggestion, css_class: 'myevents', view_type: 'suggestion'  %>
+
+
+    <!-- <div class = "suggestion" id="<%= suggestion.id %>" data-distance="<%= if suggestion.respond_to? :distance then suggestion.distance else 0 end %>">
+
+
+
       <div class="eventContainer">
       	<%= image_tag("events/"+suggestion.hobby_id.to_s+".jpg", :class => 'eventImage') %>
         <p class="eventDate">am: <%= suggestion.take_place_timestamp.strftime('%d.%m.%Y')  %> <br/>
@@ -45,6 +51,6 @@
           <% end %>
         </div>
       </p>
-    </div>
+    </div> -->
   <% end %>
 <% end %>

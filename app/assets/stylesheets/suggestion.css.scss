@@ -1,4 +1,6 @@
 // Style for Suggestion overview
+$NegPicture:#5E2028;
+
 
 .suggestion {
   clear: both;
@@ -17,7 +19,7 @@
   display: inline-block;
 }
 
-#acceptButton { color: #2ECC40; }
+//#acceptButton { color: #2ECC40; }
 
 .eventContainer {
 
@@ -57,7 +59,7 @@
   background-color: black;
 }
 
-#declineButton {color: #FF4136}
+//#declineButton {color: #FF4136}
 
 #rangeSlider {
   width: 10%;
@@ -85,4 +87,43 @@ a:hover {
   text-decoration: underline;
   color: rgb(22, 122,199);
   background-color: transparent;
+}
+
+
+.myevents_acceptcontainer {
+  float: right;
+  overflow: hidden;
+  cursor: pointer;
+  font-size: 0.5em;
+  height: 100%;
+  vertical-align: bottom;
+  span {
+    vertical-align: middle;
+  }
+  span:hover {
+    text-decoration: underline;
+  }
+  i {
+    color: $NegPicture;
+    vertical-align: middle;
+  }
+}
+
+.myevents_ignorecontainer {
+  float: right;
+  overflow: hidden;
+  cursor: pointer;
+  font-size: 0.5em;
+  height: 100%;
+  vertical-align: bottom;
+  span {
+    vertical-align: middle;
+  }
+  span:hover {
+    text-decoration: underline;
+  }
+  i {
+    color: $NegPicture;
+    vertical-align: middle;
+  }
 }
