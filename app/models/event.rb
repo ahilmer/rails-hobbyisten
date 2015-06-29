@@ -6,7 +6,7 @@ class Event < ActiveRecord::Base
   validates :take_place_timestamp, presence: true
   validates :explicit_location, presence: true
   validates :hobby_id, presence: true
-  validates :max_participants, presence: true
+  validates :max_participants, presence: true, numericality: { only_integer: true }
 
   geocoded_by :explicit_location
   after_validation :geocode
