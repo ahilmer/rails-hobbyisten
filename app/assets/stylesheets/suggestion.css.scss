@@ -20,26 +20,19 @@
 #acceptButton { color: #2ECC40; }
 
 .eventContainer {
-
-  height: 100%;
-  position: relative;
-  float: left;
-  margin: 5px;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
 }
 
 .eventImage {
-  float: left;
-  max-height: 180px;
+  max-width: 280px;
 }
 
 .eventDescriptionContainer {
-  height: 100%;
-  max-width: 70%;
-  position: relative;
-  float: left;
-  margin-left: 30px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-left: 3%;
+  width: calc(96% - 280px);
+  display: inline-block;
 }
 
 .userImage {
@@ -52,12 +45,12 @@
   font-size: 9px;
   color: rgb(182,194,222);
   position: absolute;
-  right: 5px;
-  bottom: 5px;
-  padding: 0px;
-  margin: 0px;
   letter-spacing: 0px;
   background-color: black;
+  margin: 10px;
+  padding: 0px;
+  bottom: 0px;
+  right: 0px;
 }
 
 #declineButton {color: #FF4136}
