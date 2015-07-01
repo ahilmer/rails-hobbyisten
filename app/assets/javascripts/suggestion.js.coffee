@@ -24,10 +24,10 @@
 
 # Update Suggestion while sliding distance
 @updateSuggestions = (value) ->
-  suggestionsToDisplay = $('.suggestion').filter(
+  suggestionsToDisplay = $('.myevents_entrycontainer').filter(
     () -> parseInt($(this).attr('data-distance')) <= parseInt(value);  )
 
-  suggestionsToHide = $('.suggestion').filter(
+  suggestionsToHide = $('.myevents_entrycontainer').filter(
       () -> parseInt($(this).attr('data-distance')) > parseInt(value);  )
 
   suggestionsToDisplay.fadeIn();

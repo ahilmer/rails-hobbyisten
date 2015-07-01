@@ -18,6 +18,14 @@
 @import 'bootstrap';
 @import 'bootstrap-datetimepicker';
 
+$BckColor:#F8F8F8;
+$BorColor:#E5E5E5;
+$NegPicture:#5E2028;
+$LNormal:#5E2028;
+$LHover:#5E2028;
+$LVisited:#5E2028;
+$LActive:#5E2028;
+
  .container,body,html { height: 100%; width: 100%; }
 
 
@@ -27,6 +35,18 @@ body {
   letter-spacing: 1px;
   margin: 0px;
   padding-top: 70px;
+  a:link {
+    color: $LNormal;
+  }
+  a:visited {
+    color: $LVisited;
+  }
+  a:hover {
+    color: $LHover;
+  }
+  a:active {
+    color: $LActive;
+  }
 }
 
 /*
