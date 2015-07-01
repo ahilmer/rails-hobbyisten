@@ -1,13 +1,28 @@
 // Style for Suggestion overview
+$BckColor:#F8F8F8;
+$BorColor:#E5E5E5;
 $NegPicture:#5E2028;
+$LNormal:#5E2028;
+$LHover:#5E2028;
+$LVisited:#5E2028;
+$LActive:#5E2028;
 
 
 .suggestion {
   clear: both;
-  background-color:#fffaf0;
+  background-color:$BckColor;
   height: auto;
   margin-bottom: 20px;
   overflow:auto;
+  border: 1px solid $BorColor;
+}
+
+.suggestion-control {
+
+}
+
+.suggestion-container {
+
 }
 
 #flash {
@@ -17,9 +32,20 @@ $NegPicture:#5E2028;
 .accept {
   cursor: pointer;
   display: inline-block;
+  span {
+    vertical-align: middle;
+  }
+  span:hover {
+    text-decoration: underline;
+  }
+  i {
+    color: $NegPicture;
+  }
 }
 
-//#acceptButton { color: #2ECC40; }
+#acceptButton {
+  color: $NegPicture;
+}
 
 .eventContainer {
 
@@ -59,7 +85,9 @@ $NegPicture:#5E2028;
   background-color: black;
 }
 
-//#declineButton {color: #FF4136}
+#declineButton {
+  color: $NegPicture;
+}
 
 #rangeSlider {
   width: 10%;
