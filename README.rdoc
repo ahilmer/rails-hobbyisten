@@ -14,4 +14,4 @@ Ausführung
 * Erreichbar unter localhost:3000
 
 * Anmelden mit 
-	* user: test@test.de, password: test1234
+** user: test@test.de, password: test1234
