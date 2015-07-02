@@ -35,9 +35,6 @@ $LActive:#5E2028;
   span {
     vertical-align: middle;
   }
-  span:hover {
-    text-decoration: underline;
-  }
   i {
     color: $NegPicture;
   }
@@ -54,12 +51,15 @@ $LActive:#5E2028;
 }
 
 .eventImage {
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   max-width: 280px;
 }
 
 .eventDescriptionContainer {
   margin-left: 3%;
-  width: calc(96% - 280px);
+  width: calc(96% - 300px);
   display: inline-block;
 }
 
@@ -75,9 +75,9 @@ $LActive:#5E2028;
   position: absolute;
   letter-spacing: 0px;
   background-color: black;
-  margin: 10px;
+  margin-right: 10px;
   padding: 0px;
-  bottom: 0px;
+  bottom: 20px;
   right: 0px;
 }
 
