@@ -1,5 +1,8 @@
 == README
 
+IMPORTANT:
+PLEASE USE STAGING BRANCH!
+
 Installation:
 * bundle install
 
@@ -12,4 +15,5 @@ Ausführung
 * rails s
 
 * Erreichbar unter localhost:3000
+
 
