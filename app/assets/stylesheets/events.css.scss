@@ -172,9 +172,20 @@ $LActive:#5E2028;
   cursor: pointer;
   margin-top: 10px;
   margin-bottom: 20px;
+  span {
+    vertical-align: middle;
+  }
+  span:hover {
+    text-decoration: underline;
+  }
+  i {
+    color: $NegPicture;
+  }
 }
 
+.main-content-box{
 
+}
 
 
 .events_kick_resigncontainer {
@@ -183,6 +194,15 @@ $LActive:#5E2028;
   left: 85%;
   overflow: hidden;
   cursor: pointer;
+  span {
+    vertical-align: middle;
+  }
+  span:hover {
+    text-decoration: underline;
+  }
+  i {
+    color: $NegPicture;
+  }
 }
 
 
@@ -234,7 +254,7 @@ $LActive:#5E2028;
  padding-left: 5px;
  padding-bottom: 5px;
  width:auto;
- background-color:#ddd;
+ background-color:$BckColor;
 }
 
 .show_final_buttons {

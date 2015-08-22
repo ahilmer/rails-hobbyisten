@@ -1,12 +1,29 @@
 // Style for Suggestion overview
+$BckColor:#F8F8F8;
+$BorColor:#E5E5E5;
+$NegPicture:#5E2028;
+$LNormal:#5E2028;
+$LHover:#5E2028;
+$LVisited:#5E2028;
+$LActive:#5E2028;
 
 .suggestion {
   clear: both;
-  background-color:#fffaf0;
+  background-color:$BckColor;
   height: auto;
   margin-bottom: 20px;
   overflow:auto;
+  border: 1px solid $BorColor;
 }
+
+.suggestion-control {
+
+}
+
+.suggestion-container {
+
+}
+
 
 #flash {
   height: 25px;
@@ -15,31 +32,35 @@
 .accept {
   cursor: pointer;
   display: inline-block;
+  span {
+    vertical-align: middle;
+  }
+  i {
+    color: $NegPicture;
+  }
 }
 
-#acceptButton { color: #2ECC40; }
+#acceptButton {
+  color: $NegPicture;
+}
 
 .eventContainer {
-
-  height: 100%;
-  position: relative;
-  float: left;
-  margin: 5px;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
 }
 
 .eventImage {
-  float: left;
-  max-height: 180px;
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  max-width: 280px;
 }
 
 .eventDescriptionContainer {
-  height: 100%;
-  max-width: 70%;
-  position: relative;
-  float: left;
-  margin-left: 30px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-left: 3%;
+  width: calc(96% - 300px);
+  display: inline-block;
 }
 
 .userImage {
@@ -52,15 +73,17 @@
   font-size: 9px;
   color: rgb(182,194,222);
   position: absolute;
-  right: 5px;
-  bottom: 5px;
-  padding: 0px;
-  margin: 0px;
   letter-spacing: 0px;
   background-color: black;
+  margin-right: 10px;
+  padding: 0px;
+  bottom: 20px;
+  right: 0px;
 }
 
-#declineButton {color: #FF4136}
+#declineButton {
+  color: $NegPicture;
+}
 
 #rangeSlider {
   width: 10%;
@@ -95,4 +118,43 @@ a:hover {
   margin-top: 0px;
   margin-bottom: 5px;
 
+}
+
+
+.myevents_acceptcontainer {
+  float: right;
+  overflow: hidden;
+  cursor: pointer;
+  font-size: 0.5em;
+  height: 100%;
+  vertical-align: bottom;
+  span {
+    vertical-align: middle;
+  }
+  span:hover {
+    text-decoration: underline;
+  }
+  i {
+    color: $NegPicture;
+    vertical-align: middle;
+  }
+}
+
+.myevents_ignorecontainer {
+  float: right;
+  overflow: hidden;
+  cursor: pointer;
+  font-size: 0.5em;
+  height: 100%;
+  vertical-align: bottom;
+  span {
+    vertical-align: middle;
+  }
+  span:hover {
+    text-decoration: underline;
+  }
+  i {
+    color: $NegPicture;
+    vertical-align: middle;
+  }
 }

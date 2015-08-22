@@ -15,10 +15,10 @@
 		<div class="picture_and_description">
 			<table class="table">
 				<tr>
-					<td class="col-sm-1"> 
-						<%= image_tag("events/"+@event.hobby_id.to_s+".jpg", :size => "200x200", :alt => "Event Pic", :id => "eventpicture", class: "img-responsive") %> 
+					<td class="col-sm-1">
+						<%= image_tag("events/"+@event.hobby_id.to_s+".jpg", :size => "200x200", :alt => "Event Pic", :id => "eventpicture", class: "img-responsive") %>
 					</td>
-					
+
 					<td>
 						<div class="descripton_text">
 							<%= @event.description %>
@@ -31,6 +31,9 @@
 		<table class="table">
 			<thead>
 				<th>Veranstaltungsinformationen</th>
+				<th></th>
+				<th></th>
+				<th></th>
 			</thead>
 			<tr>
 				<td> Veranstalter </td>
@@ -38,31 +41,31 @@
 				<td> Veranstaltungsort </td>
 				<td> Hobby </td>
 			</tr>
-			
+
 			<tr>
 				<td>
 					<div class="creator_image">
 						<a href="/users/<%= (@event.creator).id%>"> <%= image_tag((@event.creator).image_url, :size => "85x85", :alt => "Profile Pic", :id => "profilepicture", :class => "item_images") %> </a>
 					</div>
 					<div class="creator_name">
-						<a href="/users/<%= (@event.creator).id%>"> 
+						<a href="/users/<%= (@event.creator).id%>">
 							<%= (@event.creator).firstname %>
 							<br />
 							<%= (@event.creator).lastname %>
 						</a>
 					</div>
 				</td>
-				
-				<td> 
-					<%= (@event.take_place_timestamp).strftime("%d.%m.%Y - %H:%M") %> 
+
+				<td>
+					<%= (@event.take_place_timestamp).strftime("%d.%m.%Y - %H:%M") %>
 				</td>
-				
-				<td> 
-					<%= @event.explicit_location %> 
+
+				<td>
+					<%= @event.explicit_location %>
 				</td>
-				
-				<td> 
-					<%= @hobbies.find(@event.hobby_id).name %> 
+
+				<td>
+					<%= @hobbies.find(@event.hobby_id).name %>
 				</td>
 			</tr>
 		</table>
@@ -82,15 +85,15 @@
 						<% end %>
 					<% end %>
 				</div>
-				
+
 				<br />
 				<br />
-				
+
 				<div class = "comments">
 					<% @comments.reverse_each do |comment| %>
 						<div text-align=left>
 							<a href="/users/<%= comment.user_id%>"> <b><%= image_tag(@users.find(comment.user_id).image_url, :size => "30x30", :alt => "Profile Pic", :id => "profilepicture", :class => "item_images") %>
-								<%= @users.find(comment.user_id).firstname %> </b> (<%= comment.created_at %>) <b>:</b> 
+								<%= @users.find(comment.user_id).firstname %> </b> (<%= comment.created_at %>) <b>:</b>
 							</a>
 							<br />
 							-><%= comment.message %>
@@ -110,20 +113,20 @@
 			<% @users_events.each do |user| %>
 				<div id="<%= user.user_id %>">
 					<a href="/users/<%= user.user_id%>"><%= image_tag((@users.find(user.user_id)).image_url, :size => "60x60", :alt => "Profile Pic", :id => "profilepicture", :class => "item_images") %>
-						<%= @users.find(user.user_id).firstname %> 
+						<%= @users.find(user.user_id).firstname %>
 					</a>
 					</br>
 				</div>
 			<% end %>
 		</div>
 	</div>
-	
+
 	<div class="show_final_buttons">
 		<% found = false %>
 		<% @users_events.each do |user| %>
 			<% if current_user.id == user.user_id %>
 				<div class="show_event_resigncontainer" id="show_event_resigncontainer_id">
-					<span onclick="resignEventShow(<%= @event.users_events.find{ |ue| ue.user_id == current_user.id}.to_json %>)"> <i style="color: #FF4136" class="fa fa-trash fa-2x"></i>&nbsp;Austragen </span>
+					<span onclick="resignEventShow(<%= @event.users_events.find{ |ue| ue.user_id == current_user.id}.to_json %>)"> <i class="fa fa-trash fa-2x"></i>&nbsp;Austragen </span>
 				</div>
 				<% found = true %>
 				<% break %>
