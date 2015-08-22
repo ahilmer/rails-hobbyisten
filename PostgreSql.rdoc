@@ -1,0 +1,28 @@
+- postgresql installieren (http://de.enterprisedb.com/products-services-training/pgdownload)
+- User wie unten anlegen (BN: hobbyisten, PW: hobby)
+- Datenbank hobbyisten anlegen 
+
+- gemfile:
+mysql raus
+gem 'pg' rein
+
+- config/databasye.yml anpassen
+alles raus, dafür
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: hobbyisten
+  password: hobby
+  database: hobbyisten
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: 5
+  
+development:
+  <<: *default
+
+- rake db:migrate
+
+- beim migrate verschmeißt er irgendwie immer den datentyp von der events.description. Dieser muss manuel in der Datenbank von string auf text geändert werden
+
+- rake db:seed
