@@ -26,3 +26,29 @@ development:
 - beim migrate verschmeißt er irgendwie immer den datentyp von der events.description. Dieser muss manuel in der Datenbank von string auf text geändert werden
 
 - rake db:seed
+
+
+
+## Heroku Deploy
+- Merge in master
+
+- heroku link hinzufügen
+remote.heroku.url=https://git.heroku.com/vast-plains-1841.git
+remote.heroku.fetch=+refs/heads/*:refs/remotes/heroku/*
+
+- git push heroku master
+
+- Datenbank erneuern:
+heroku pg:reset DATABASE_URL
+heroku run rake db:migrate
+heroku run rake db:seed
+
+
+## Heroku Datenbank in pgAdminIII einrichten
+- Neue Verbindung einrichten:
+Name: 			beliebig
+Host: 			ec2-54-197-253-142.compute-1.amazonaws.com
+Port: 			5432
+Wartungs-DB: 	d44omka2p11373
+Benutzername: 	lhtajsxsrglofp
+Passwort: 		*************

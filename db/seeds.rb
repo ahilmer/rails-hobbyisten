@@ -16,8 +16,8 @@ EventsHobby.delete_all
 UsersEvent.delete_all
 Comment.delete_all
 
-default = File.open('app/assets/images/profiles/defaultprofile.png')
-andi = File.open('app/assets/images/profiles/1.jpg')
+default = File.open('app/assets/images/profiles/defaultprofile.jpg')
+andi = File.open('app/assets/images/profiles/andi.jpg')
 markus = File.open('app/assets/images/profiles/markus.jpg')
 
 
