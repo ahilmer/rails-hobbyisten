@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20150624150356) do
 
   create_table "events", force: true do |t|
     t.string   "title"
-    t.string   "description"
+    t.text     "description"
     t.datetime "take_place_timestamp"
     t.string   "explicit_location"
     t.integer  "max_participants"
