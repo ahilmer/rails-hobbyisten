@@ -42,7 +42,7 @@
 			<tr>
 				<td>
 					<div class="creator_image">
-						<a href="/users/<%= (@event.creator).id%>"> <%= image_tag((@event.creator).image_url, :size => "85x85", :alt => "Profile Pic", :id => "profilepicture", :class => "item_images") %> </a>
+						<a href="/users/<%= (@event.creator).id%>"> <%= image_tag("profiles/"+@event.creator.id.to_s+".jpg", :size => "85x85", :alt => "Profile Pic", :id => "profilepicture", :class => "item_images") %> </a>
 					</div>
 					<div class="creator_name">
 						<a href="/users/<%= (@event.creator).id%>"> 
