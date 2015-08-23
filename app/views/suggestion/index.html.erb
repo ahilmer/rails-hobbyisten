@@ -27,7 +27,7 @@
           <% if suggestion.users.any? %>
             , <%= suggestion.users.size %> Teilnehmer:
                   <% suggestion.users.each do |user| %>
-              <%= link_to(image_tag(user.image.url, class: 'userImage'), user) %>
+              <%= link_to(image_tag("profiles/"+user.id.to_s+".jpg", class: 'userImage'), user) %>
             <% end %>
           <% end %>
           <br/>

@@ -89,7 +89,7 @@
 				<div class = "comments">
 					<% @comments.reverse_each do |comment| %>
 						<div text-align=left>
-							<a href="/users/<%= comment.user_id%>"> <b><%= image_tag(@users.find(comment.user_id).image_url, :size => "30x30", :alt => "Profile Pic", :id => "profilepicture", :class => "item_images") %>
+							<a href="/users/<%= comment.user_id%>"> <b><%= image_tag("profiles/"+(@users.find(comment.user_id)).id.to_s+".jpg", :size => "30x30", :alt => "Profile Pic", :id => "profilepicture", :class => "item_images") %>
 								<%= @users.find(comment.user_id).firstname %> </b> (<%= comment.created_at %>) <b>:</b> 
 							</a>
 							<br />
@@ -109,7 +109,7 @@
 			<br />
 			<% @users_events.each do |user| %>
 				<div id="<%= user.user_id %>">
-					<a href="/users/<%= user.user_id%>"><%= image_tag((@users.find(user.user_id)).image_url, :size => "60x60", :alt => "Profile Pic", :id => "profilepicture", :class => "item_images") %>
+					<a href="/users/<%= user.user_id%>"><%= image_tag("profiles/"+(@users.find(user.user_id)).id.to_s+".jpg", :size => "60x60", :alt => "Profile Pic", :id => "profilepicture", :class => "item_images") %>
 						<%= @users.find(user.user_id).firstname %> 
 					</a>
 					</br>
